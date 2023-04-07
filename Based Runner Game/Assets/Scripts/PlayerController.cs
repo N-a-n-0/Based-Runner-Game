@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
        if(controller.isGrounded)
         {
            
-            if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
+            if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
             {
                 Jump();
             }
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
         //Gather the inputs on which lane we should be 
 
-        if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
         {
             desiredLane++;
             if (desiredLane == 3)
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)
         {
             desiredLane--;
             if (desiredLane == -1)
