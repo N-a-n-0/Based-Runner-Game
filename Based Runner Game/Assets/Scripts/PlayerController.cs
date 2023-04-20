@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     private bool isSliding = false;
 
-    public float slideDuration = 1.5f;
+    public float slideDuration = .1f;
 
     bool toggle = false;
 
@@ -57,6 +57,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!PlayerManager.isGameStarted || PlayerManager.gameOver)
             return;
+        //Increase speed if true
+        if (forwardSpeed < maxSpeed)
+            forwardSpeed += 0.1f * Time.deltaTime;
 
         animator.SetBool("isGameStarted", true);
         move.z = forwardSpeed;
@@ -71,17 +74,17 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
                 Jump();
 
-          //  if (SwipeManager.swipeDown && !isSliding)
-            //    StartCoroutine(Slide());
+            if (SwipeManager.swipeDown && !isSliding)
+                StartCoroutine(Slide());
         }
         else
         {
             velocity.y += gravity * Time.deltaTime;
-           // if (SwipeManager.swipeDown && !isSliding)
-           // {
-              //  StartCoroutine(Slide());
-           //     velocity.y = -10;
-           // }
+           if (SwipeManager.swipeDown && !isSliding)
+           {
+               StartCoroutine(Slide());
+               velocity.y = -10;
+            }
 
         }
         controller.Move(velocity * Time.deltaTime);
@@ -123,8 +126,8 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-      //  StopCoroutine(Slide());
-      //  animator.SetBool("isSliding", false);
+        StopCoroutine(Slide());
+       animator.SetBool("isSliding", false);
         animator.SetBool("isGrounded", true);
         controller.center = Vector3.zero;
         controller.height = 2;
@@ -142,21 +145,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-   /* private IEnumerator Slide()
+    private IEnumerator Slide()
     {
         isSliding = true;
         animator.SetBool("isSliding", true);
-        yield return new WaitForSeconds(0.25f / Time.timeScale);
         controller.center = new Vector3(0, -0.5f, 0);
         controller.height = 1;
-
-        yield return new WaitForSeconds((slideDuration - 0.25f) / Time.timeScale);
-
+        
+        isSliding = false;
+        yield return new WaitForSeconds((1.6f) / Time.timeScale);
         animator.SetBool("isSliding", false);
 
         controller.center = Vector3.zero;
         controller.height = 2;
 
-        isSliding = false;
-    }*/
+        
+    }
 }
