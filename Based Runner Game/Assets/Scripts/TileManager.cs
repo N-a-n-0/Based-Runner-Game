@@ -10,6 +10,8 @@ public class TileManager : MonoBehaviour
 
     public int numberOfTiles = 5;
 
+    public bool gameStarted = false;
+
     private List<GameObject> activeTiles = new List<GameObject>();
 
 
@@ -18,19 +20,26 @@ public class TileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
        for(int i = 0; i < numberOfTiles; i++)
         {
-            if(i == 0 )
+            if(gameStarted == false)
             {
+                print(gameStarted);
+
+              
+                gameStarted = true;
                 SpawnTile(0);
+                 
             }
             else
             {
-                SpawnTile(Random.Range(0, tilePrefabs.Length));
+                SpawnTile(Random.Range(1, tilePrefabs.Length));
 
             }
             
         }
+
     }
 
     // Update is called once per frame
@@ -38,7 +47,7 @@ public class TileManager : MonoBehaviour
     {
         if(playerTransform.position.z -35 > zSpawn-(numberOfTiles * tileLength))
         {
-            SpawnTile(Random.Range(0, tilePrefabs.Length));
+            SpawnTile(Random.Range(1, tilePrefabs.Length));
             DeleteTile();
         }
     }
