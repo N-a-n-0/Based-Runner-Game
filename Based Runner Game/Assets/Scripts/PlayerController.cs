@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         StopCoroutine(Slide());
-       animator.SetBool("isSliding", false);
+      
         animator.SetBool("isGrounded", true);
         controller.center = Vector3.zero;
         controller.height = 2;
