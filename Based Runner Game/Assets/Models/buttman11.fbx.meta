@@ -89,8 +89,8 @@ ModelImporter:
       name: Run
       takeName: metarig|metarigAction.001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 153
+      firstFrame: 24
+      lastFrame: 145
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -176,8 +176,8 @@ ModelImporter:
       name: slide
       takeName: metarig|metarigAction.001
       internalID: 0
-      firstFrame: 243
-      lastFrame: 283
+      firstFrame: 250
+      lastFrame: 281
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

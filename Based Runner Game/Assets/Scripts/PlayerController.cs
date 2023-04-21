@@ -71,16 +71,18 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded)
         {
+
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
                 Jump();
+      
 
-            if (SwipeManager.swipeDown && !isSliding)
+            if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)  && !isSliding && animator.GetBool("isSliding") == false)
                 StartCoroutine(Slide());
         }
         else
         {
             velocity.y += gravity * Time.deltaTime;
-           if (SwipeManager.swipeDown && !isSliding)
+           if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && !isSliding && animator.GetBool("isSliding") == false)
            {
                StartCoroutine(Slide());
                velocity.y = -10;
@@ -143,6 +145,7 @@ public class PlayerController : MonoBehaviour
             PlayerManager.gameOver = true;
            // FindObjectOfType<AudioManager>().PlaySound("GameOver");
         }
+
     }
 
     private IEnumerator Slide()
@@ -152,13 +155,15 @@ public class PlayerController : MonoBehaviour
         controller.center = new Vector3(0, -0.5f, 0);
         controller.height = 1;
         
+       
+        yield return new WaitForSeconds(1.65f);
+
         isSliding = false;
-        yield return new WaitForSeconds((1.6f) / Time.timeScale);
         animator.SetBool("isSliding", false);
 
         controller.center = Vector3.zero;
         controller.height = 2;
 
-        
+       
     }
 }
