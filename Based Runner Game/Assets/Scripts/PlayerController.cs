@@ -9,6 +9,11 @@ public class PlayerController : MonoBehaviour
     public float forwardSpeed;
     public float maxSpeed;
 
+    private bool jumpCannotHappen;
+    private bool slideCannotHappen;
+
+    private IEnumerator slide;
+
     private int desiredLane = 1;//0:left, 1:middle, 2:right
     public float laneDistance = 2.5f;//The distance between tow lanes
 
@@ -25,10 +30,13 @@ public class PlayerController : MonoBehaviour
 
     public float slideDuration = .1f;
 
+    
+
     bool toggle = false;
 
     void Start()
     {
+       
         controller = GetComponent<CharacterController>();
         Time.timeScale = 1.2f;
     }
@@ -55,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        print(slide);
         if (!PlayerManager.isGameStarted || PlayerManager.gameOver)
             return;
         //Increase speed if true
@@ -65,26 +74,60 @@ public class PlayerController : MonoBehaviour
         move.z = forwardSpeed;
 
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.17f, groundLayer);
+
+        print(slideCannotHappen + "SLIDE");
+        print(jumpCannotHappen + "JUMP");
+
         animator.SetBool("isGrounded", isGrounded);
         if (isGrounded && velocity.y < 0)
             velocity.y = -1f;
 
         if (isGrounded)
         {
+            // slideCannotHappen = true;
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp )
+            {
 
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
-                Jump();
+               // StopCoroutine(Slide());
+             // if(jumpCannotHappen == false)
+               // {
+                    //StopCoroutine(slide);
+                    slideCannotHappen = true;
+                    Jump();
+               // }
+                  
+                
+                
+            }
+                
       
 
-            if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)  && !isSliding && animator.GetBool("isSliding") == false)
-                StartCoroutine(Slide());
+            if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) )
+            {
+
+
+                //  StopCoroutine(slide);
+                if(slide == null)
+                {
+                    slide = Slide();
+                    jumpCannotHappen = true;
+                    StartCoroutine(slide);
+                }
+
+                
+                
+              
+               
+            }
+              
         }
         else
         {
             velocity.y += gravity * Time.deltaTime;
-           if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && !isSliding && animator.GetBool("isSliding") == false)
-           {
-               StartCoroutine(Slide());
+           if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) //&& !isSliding && animator.GetBool("isSliding") == false
+            {
+                // slide = Slide();
+           //   StartCoroutine(slide);
                velocity.y = -10;
             }
 
@@ -128,14 +171,20 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        StopCoroutine(Slide());
+       
+       if(isGrounded == false)
+        {
+            // animator.SetBool("isSliding", false);
+            // StopCoroutine(Slide());
+            
+        }
       
         animator.SetBool("isGrounded", true);
         controller.center = Vector3.zero;
         controller.height = 2;
         isSliding = false;
-
-        velocity.y = Mathf.Sqrt(jumpHeight * 2 * -gravity);
+        slideCannotHappen = false;
+        velocity.y = Mathf.Sqrt(jumpHeight * 5 * -gravity);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -150,6 +199,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Slide()
     {
+       
         isSliding = true;
         animator.SetBool("isSliding", true);
         controller.center = new Vector3(0, -0.5f, 0);
@@ -157,13 +207,14 @@ public class PlayerController : MonoBehaviour
         
        
         yield return new WaitForSeconds(1.65f);
-
+        slide = null;
         isSliding = false;
         animator.SetBool("isSliding", false);
 
         controller.center = Vector3.zero;
         controller.height = 2;
 
+        jumpCannotHappen = false;
        
     }
 }
