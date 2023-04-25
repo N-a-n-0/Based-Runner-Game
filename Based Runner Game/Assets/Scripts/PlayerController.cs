@@ -186,7 +186,7 @@ public class PlayerController : MonoBehaviour
         }
       
         animator.SetBool("isGrounded", true);
-        controller.center = Vector3.zero;
+        controller.center = controller.center = new Vector3(0, 0.2f, 0); 
         controller.height = 2;
         isSliding = false;
         slideCannotHappen = false;
@@ -208,7 +208,7 @@ public class PlayerController : MonoBehaviour
        
         isSliding = true;
         animator.SetBool("isSliding", true);
-        controller.center = new Vector3(0, -0.5f, 0);
+        controller.center = new Vector3(0, -0.2f, 0);
         controller.height = 1;
         
        
@@ -217,7 +217,7 @@ public class PlayerController : MonoBehaviour
         isSliding = false;
         animator.SetBool("isSliding", false);
 
-        controller.center = Vector3.zero;
+        controller.center = new Vector3(0,0.2f,0);
         controller.height = 2;
 
         jumpCannotHappen = false;
