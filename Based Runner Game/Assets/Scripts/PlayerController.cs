@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        print(slide);
+       // print(slide);
         if (!PlayerManager.isGameStarted || PlayerManager.gameOver)
             return;
         //Increase speed if true
@@ -197,8 +197,9 @@ public class PlayerController : MonoBehaviour
     {
         if (hit.transform.tag == "Obstacle")
         {
+            FindObjectOfType<AudioManager>().StopSound("MainTheme");
             PlayerManager.gameOver = true;
-           // FindObjectOfType<AudioManager>().PlaySound("GameOver");
+           FindObjectOfType<AudioManager>().PlaySound("GameOver");
         }
 
     }

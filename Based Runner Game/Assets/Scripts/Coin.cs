@@ -21,6 +21,8 @@ public class Coin : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            print("THIS RAN");
+            FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
             PlayerManager.numberOfCoins += 1;
             Destroy(gameObject);
 
