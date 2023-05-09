@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.loop = s.loop;
+
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
         }
         PlaySound("MainTheme");
 
@@ -25,6 +29,11 @@ public class AudioManager : MonoBehaviour
 
         foreach (Sound s in sounds)
         {
+            if(s ==null)
+            {
+                Debug.LogWarning("Sound: " + name + " not found!");
+            }
+
             if (s.name == name)
             {
                 print(s.volume);

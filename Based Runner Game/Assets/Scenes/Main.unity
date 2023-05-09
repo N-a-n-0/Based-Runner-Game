@@ -1587,16 +1587,19 @@ MonoBehaviour:
   - name: PickUpCoin
     clip: {fileID: 8300000, guid: d21f1d7ceffb67b43899039da40f66fb, type: 3}
     volume: 1
+    pitch: 1.51
     loop: 0
     source: {fileID: 14237495}
   - name: MainTheme
     clip: {fileID: 8300000, guid: 5d3bee7fbbf3e0e4599eefaf2c98a9f7, type: 3}
-    volume: 0
+    volume: 0.446
+    pitch: 1
     loop: 1
     source: {fileID: 14237495}
   - name: GameOver
     clip: {fileID: 8300000, guid: 44bbb53f1f0495540bc025c265fa9472, type: 3}
-    volume: 0
+    volume: 0.442
+    pitch: 1.44
     loop: 0
     source: {fileID: 14237495}
 --- !u!4 &1205358515
