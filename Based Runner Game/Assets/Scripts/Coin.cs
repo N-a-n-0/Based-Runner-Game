@@ -24,6 +24,7 @@ public class Coin : MonoBehaviour
             print("THIS RAN");
             FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
             PlayerManager.numberOfCoins += 1;
+            PlayerPrefs.SetInt("NumberOfCoins", PlayerPrefs.GetInt("NumberOfCoins", 0) + 1);
             Destroy(gameObject);
 
             Debug.Log(PlayerManager.numberOfCoins);
