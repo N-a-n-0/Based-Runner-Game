@@ -18,6 +18,8 @@ public class PlayerManager : MonoBehaviour
 
     public Text coinsText;
 
+   // public GameData data;
+
     void Start()
     {
         gameOver = false;
@@ -25,17 +27,22 @@ public class PlayerManager : MonoBehaviour
         isGameStarted = false;
         numberOfCoins = 0;
     }
+   
 
     // Update is called once per frame
     void Update()
     {
+       // print(Coin.coinsCollected);
         if(gameOver)
         {
+            
             Time.timeScale = 0;
             gameOverPanel.SetActive(true);
         }
+
         coinsText.text = "Coins: " + numberOfCoins;
-        if(SwipeManager.tap)
+        
+        if (SwipeManager.tap)
         {
             isGameStarted=true;
             Destroy(startingText);

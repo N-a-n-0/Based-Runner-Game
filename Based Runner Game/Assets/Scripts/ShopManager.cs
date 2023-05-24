@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ShopManager : MonoBehaviour
+public class ShopManager : MonoBehaviour, IDataPersistence
 {
     public int currentCharacterIndex = 0;
     public GameObject[] characterModels;
@@ -13,7 +13,21 @@ public class ShopManager : MonoBehaviour
 
     public Button buyButton;
     public TMP_Text coinText;
+
+    public int coin;
+
     
+    public void LoadData(GameData data)
+    {
+        coin = data.coins;
+    }
+    public void SaveData(GameData data)
+    {
+        data.coins = coin;
+
+    }
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +41,13 @@ public class ShopManager : MonoBehaviour
             }
             else
             {
-                character.isUnlocked = PlayerPrefs.GetInt(character.name, 0)==0 ? false: true;
+              //  character.isUnlocked = PlayerPrefs.GetInt(character.name, 0)==0 ? false: true;
             }
         }
 
-        print(PlayerPrefs.GetInt("SelectedCharacter", 0));
-        currentCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
+        //print(PlayerPrefs.GetInt("SelectedCharacter", 0));
+       // currentCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
+      // currentCharacterIndex = 
         foreach(GameObject character in characterModels)
         {
             character.SetActive(false);
@@ -45,7 +60,8 @@ public class ShopManager : MonoBehaviour
 
     void Update()
     {
-        coinText.GetComponentInChildren<TextMeshProUGUI>().text = "Coins: " + PlayerPrefs.GetInt("NumberOfCoins", 0);
+        coin++;
+        coinText.GetComponentInChildren<TextMeshProUGUI>().text = "Coins: " + coin;
         UpdateUI();
     }
     // Update is called once per frame
@@ -54,10 +70,10 @@ public class ShopManager : MonoBehaviour
     {
         CharacterBlueprint characterPlayerModel = characters[currentCharacterIndex];
 
-            PlayerPrefs.SetInt(characterPlayerModel.name, 1);
-        PlayerPrefs.SetInt("SelectedCar",currentCharacterIndex);
-        characterPlayerModel.isUnlocked = true;
-        PlayerPrefs.SetInt("NumberOfCoins", PlayerPrefs.GetInt("NumberOfCoins", 0 ) - characterPlayerModel.price);
+         //   PlayerPrefs.SetInt(characterPlayerModel.name, 1);
+     //   PlayerPrefs.SetInt("SelectedCar",currentCharacterIndex);
+      //  characterPlayerModel.isUnlocked = true;
+       // PlayerPrefs.SetInt("NumberOfCoins", PlayerPrefs.GetInt("NumberOfCoins", 0 ) - characterPlayerModel.price);
     }
 
 
@@ -117,7 +133,7 @@ public class ShopManager : MonoBehaviour
           
                 buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy - " + c.price;
            
-            if (c.price < PlayerPrefs.GetInt("NumberOfCoins", 0))
+            if (c.price < Coin.coinsCollected)
                 {
                 buyButton.interactable = true;
                 }
