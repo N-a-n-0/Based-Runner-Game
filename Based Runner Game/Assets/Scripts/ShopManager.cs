@@ -146,4 +146,7 @@ public class ShopManager : MonoBehaviour, IDataPersistence
 
     }
 
+
+
+   
 }

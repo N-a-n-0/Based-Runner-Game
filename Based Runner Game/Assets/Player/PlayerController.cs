@@ -75,8 +75,8 @@ public class PlayerController : MonoBehaviour
 
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.17f, groundLayer);
 
-        print(slideCannotHappen + "SLIDE");
-        print(jumpCannotHappen + "JUMP");
+       // print(slideCannotHappen + "SLIDE");
+       // print(jumpCannotHappen + "JUMP");
 
         animator.SetBool("isGrounded", isGrounded);
         if (isGrounded && velocity.y < 0)

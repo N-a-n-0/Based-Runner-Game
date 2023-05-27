@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using System;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class DataPersistenceManager : MonoBehaviour
 {
@@ -24,17 +25,50 @@ public class DataPersistenceManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogError("Found more than one Data Persistence Manager in the scene");
-
+            Debug.Log("Found more than one Data Persistence Manager in the scene");
+            Destroy(this.gameObject);
+            return;
         }
         instance = this;
+
+        DontDestroyOnLoad(this.gameObject);
+
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
     }
+
+ 
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+       // Debug.Log("ONSCENELOADED CALLED");
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        LoadGame();
+    }
+
+    public void OnSceneUnloaded(Scene scene)
+    {
+      //  Debug.Log("ONSCENEUNLOADED CALLED");
+        SaveGame();
+    }
+
+
 
     private void Start()
     {
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        LoadGame();
+       
+       
     }
 
     public void NewGame()
@@ -52,8 +86,8 @@ public class DataPersistenceManager : MonoBehaviour
 
         if (this.gameData == null)
         {
-            Debug.Log("No data was found. INitializing data to deafults.");
-            NewGame();
+            Debug.Log("No data was found. A New Game needs to be started before data can be loaded.");
+            return;
         }
 
 
@@ -67,6 +101,13 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
+
+        if(this.gameData == null)
+        {
+            Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");
+            return ;
+        }
+
        foreach(IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
             dataPersistenceObj.SaveData( gameData);
