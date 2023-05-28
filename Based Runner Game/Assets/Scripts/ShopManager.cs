@@ -17,6 +17,9 @@ public class ShopManager : MonoBehaviour, IDataPersistence
     public int coin;
 
     
+
+    
+
     public void LoadData(GameData data)
     {
         coin = data.coins;
@@ -35,13 +38,15 @@ public class ShopManager : MonoBehaviour, IDataPersistence
 
         foreach(CharacterBlueprint character in characters)
          {
-            if(character.price == 0)
+           
+            if (character.price == 0)
             {
                 character.isUnlocked = true;
             }
             else
             {
-              //  character.isUnlocked = PlayerPrefs.GetInt(character.name, 0)==0 ? false: true;
+               
+              character.isUnlocked = PlayerPrefs.GetInt(character.name, 0)==0 ? false: true;
             }
         }
 
@@ -60,8 +65,8 @@ public class ShopManager : MonoBehaviour, IDataPersistence
 
     void Update()
     {
-        coin++;
-        coinText.GetComponentInChildren<TextMeshProUGUI>().text = "Coins: " + coin;
+       // coin++;
+       coinText.GetComponentInChildren<TextMeshProUGUI>().text = "Coins: " + coin;
         UpdateUI();
     }
     // Update is called once per frame
@@ -70,10 +75,16 @@ public class ShopManager : MonoBehaviour, IDataPersistence
     {
         CharacterBlueprint characterPlayerModel = characters[currentCharacterIndex];
 
-         //   PlayerPrefs.SetInt(characterPlayerModel.name, 1);
-     //   PlayerPrefs.SetInt("SelectedCar",currentCharacterIndex);
-      //  characterPlayerModel.isUnlocked = true;
-       // PlayerPrefs.SetInt("NumberOfCoins", PlayerPrefs.GetInt("NumberOfCoins", 0 ) - characterPlayerModel.price);
+        //   PlayerPrefs.SetInt(characterPlayerModel.name, 1);
+        //   PlayerPrefs.SetInt("SelectedCar",currentCharacterIndex);
+        //  characterPlayerModel.isUnlocked = true;
+        // PlayerPrefs.SetInt("NumberOfCoins", PlayerPrefs.GetInt("NumberOfCoins", 0 ) - characterPlayerModel.price);
+
+
+
+        characterPlayerModel.isUnlocked = true;
+        coin -= characterPlayerModel.price;
+
     }
 
 

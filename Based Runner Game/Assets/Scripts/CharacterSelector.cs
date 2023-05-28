@@ -23,7 +23,7 @@ public class CharacterSelector : MonoBehaviour, IDataPersistence
     void Start()
     {
        // currentCharacterIndex = 
-        //currentCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
+        currentCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
         foreach (GameObject character in characters)
         {
             character.SetActive(false);
