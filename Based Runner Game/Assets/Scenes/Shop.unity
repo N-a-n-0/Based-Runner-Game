@@ -820,7 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42eca5faace7d6944a55284431221563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 06ff1279-d1c0-48ba-88d3-1cbe37fd2522
+  id: 100d609b-7e8e-4003-9e11-c07bdadb7ccc
 --- !u!1 &1100498652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,19 +1219,28 @@ MonoBehaviour:
   - {fileID: 1547161056}
   - {fileID: 1062869560}
   - {fileID: 1506041899}
+  - {fileID: 1062869560}
   characters:
   - name: ButtMan
     index: 0
     price: 0
     isUnlocked: 0
+    id: 
   - name: CubePlayer
     index: 1
     price: 15
     isUnlocked: 0
+    id: 
   - name: CapsulePlayer
     index: 2
     price: 25
     isUnlocked: 0
+    id: 
+  - name: PENIS
+    index: 3
+    price: 25
+    isUnlocked: 0
+    id: 
   buyButton: {fileID: 1457272202}
   coinText: {fileID: 1542037879}
   coin: 0
@@ -1414,7 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42eca5faace7d6944a55284431221563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: e2dcc1fa-0546-4952-b4da-1eb39b5f4e95
+  id: 98e64c93-4091-48f5-bda7-da45110b93f0
 --- !u!1 &1542037877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,7 +1578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42eca5faace7d6944a55284431221563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 6c3d73bb-9447-4089-bb9a-9666e59f2221
+  id: 275e2d86-7f6a-4913-8b09-4789d37922fd
 --- !u!1 &1616591937
 GameObject:
   m_ObjectHideFlags: 0

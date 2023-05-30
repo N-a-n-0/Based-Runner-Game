@@ -16,25 +16,59 @@ public class ShopManager : MonoBehaviour, IDataPersistence
 
     public int coin;
 
-    
 
     
+
+   
+
 
     public void LoadData(GameData data)
     {
         coin = data.coins;
+
+        for (int i= 0; i< characters.Length; i++)
+        {
+           data.charactersUnlocked.TryGetValue(i, out characters[i].isUnlocked);
+            //if(character)
+            print(data.charactersUnlocked.TryGetValue(i, out characters[i].isUnlocked) + "CURRENT: " + i);
+            if(characters[i].isUnlocked)
+            {
+               
+            }
+
+            print("RESULTS:" + characters[i].isUnlocked);
+        }
     }
     public void SaveData(GameData data)
     {
         data.coins = coin;
 
+
+        for (int i = 0; i < characters.Length; i++)
+        {
+           
+            if(data.charactersUnlocked.ContainsKey(i))
+            {
+                data.charactersUnlocked.Remove(i);
+            }
+            data.charactersUnlocked.Add(i, characters[i].isUnlocked);
+        }
     }
 
+  //  [SerializeField] public string id;
+
+    [ContextMenu("Generate guid for id")]
+
+    public void GenerateGuid(CharacterBlueprint character)
+    {
+        character.id = System.Guid.NewGuid().ToString();
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
+        int currentPos = 0;
 
         foreach(CharacterBlueprint character in characters)
          {
@@ -46,14 +80,19 @@ public class ShopManager : MonoBehaviour, IDataPersistence
             else
             {
                
-              character.isUnlocked = PlayerPrefs.GetInt(character.name, 0)==0 ? false: true;
+            //  character.isUnlocked = PlayerPrefs.GetInt(character.name, 0)==0 ? false: true;
             }
+
+            currentPos++;
+
         }
+       
+
 
         //print(PlayerPrefs.GetInt("SelectedCharacter", 0));
-       // currentCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
-      // currentCharacterIndex = 
-        foreach(GameObject character in characterModels)
+        // currentCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
+        // currentCharacterIndex = 
+        foreach (GameObject character in characterModels)
         {
             character.SetActive(false);
         }
@@ -75,13 +114,15 @@ public class ShopManager : MonoBehaviour, IDataPersistence
     {
         CharacterBlueprint characterPlayerModel = characters[currentCharacterIndex];
 
+
+
         //   PlayerPrefs.SetInt(characterPlayerModel.name, 1);
         //   PlayerPrefs.SetInt("SelectedCar",currentCharacterIndex);
         //  characterPlayerModel.isUnlocked = true;
         // PlayerPrefs.SetInt("NumberOfCoins", PlayerPrefs.GetInt("NumberOfCoins", 0 ) - characterPlayerModel.price);
 
 
-
+        
         characterPlayerModel.isUnlocked = true;
         coin -= characterPlayerModel.price;
 
@@ -135,6 +176,7 @@ public class ShopManager : MonoBehaviour, IDataPersistence
         CharacterBlueprint c = characters[currentCharacterIndex];
         if(c.isUnlocked)
         {
+          //  print(c.isUnlocked);
             buyButton.gameObject.SetActive(false);
         }
         else
@@ -144,7 +186,7 @@ public class ShopManager : MonoBehaviour, IDataPersistence
           
                 buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy - " + c.price;
            
-            if (c.price < Coin.coinsCollected)
+            if (c.price < coin)
                 {
                 buyButton.interactable = true;
                 }

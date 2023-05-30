@@ -7,26 +7,26 @@ using UnityEngine;
 
 public class GameData 
 {
-    public int deathCount;
+    
 
     public int coins;
 
     
 
-    public Dictionary<string, bool> charactersUnlocked;
+    public SerializableDictionary<int, bool> charactersUnlocked;
 
-    public int playerSelected;
+  //  public int playerSelected;
 
     public GameData()
     {
-        this.deathCount = 0;
+        //this.deathCount = 0;
 
        
 
         this.coins = 0;
 
-        this.playerSelected = 0;
+       // this.playerSelected = 0;
 
-        charactersUnlocked = new Dictionary<string, bool>();
+        charactersUnlocked = new SerializableDictionary<int, bool>();
     }
 }

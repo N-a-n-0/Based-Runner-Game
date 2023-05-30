@@ -95,7 +95,7 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.LoadData(gameData);
         }
-        Debug.Log("Loaded death count = " + gameData.deathCount);
+       // Debug.Log("Loaded death count = " + gameData.deathCount);
         Debug.Log("Loaded coin count = " + gameData.coins);
     }
 
@@ -112,7 +112,7 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.SaveData( gameData);
         }
-        Debug.Log("Loaded death count = " + gameData.deathCount);
+        //Debug.Log("Loaded death count = " + gameData.deathCount);
         Debug.Log("Loaded coin count = " + gameData.coins);
 
 

@@ -12,7 +12,11 @@ public class CharacterBlueprint
   
     public bool isUnlocked;
 
-   // [SerializeField] public string id;
+    [SerializeField] public string id;
+
+    
+    // [SerializeField] public string id;
+
 
 
 

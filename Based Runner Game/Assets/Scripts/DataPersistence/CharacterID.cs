@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterID : MonoBehaviour
-{
 
+
+public class CharacterID : MonoBehaviour { 
+
+    
     [SerializeField] private string id;
+   
 
     [ContextMenu("Generate guid for id")]
 
@@ -13,5 +16,5 @@ public class CharacterID : MonoBehaviour
     {
         id = System.Guid.NewGuid().ToString();
     }
-
+    
 }
