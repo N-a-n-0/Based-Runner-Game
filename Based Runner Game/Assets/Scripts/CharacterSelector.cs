@@ -7,6 +7,7 @@ public class CharacterSelector : MonoBehaviour, IDataPersistence
 
     public int currentCharacterIndex = 0;
     public GameObject[] characters;
+    public GameObject camera;
 
     // Start is called before the first frame update
     public void LoadData(GameData data)
@@ -31,7 +32,7 @@ public class CharacterSelector : MonoBehaviour, IDataPersistence
 
 
         characters[currentCharacterIndex].SetActive(true);
-
+        camera.transform.parent = characters[currentCharacterIndex].transform;
     }
 
 }
