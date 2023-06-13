@@ -1219,7 +1219,6 @@ MonoBehaviour:
   - {fileID: 1547161056}
   - {fileID: 1062869560}
   - {fileID: 1506041899}
-  - {fileID: 1062869560}
   characters:
   - name: ButtMan
     index: 0

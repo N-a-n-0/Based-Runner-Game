@@ -6,9 +6,10 @@ public class CharacterSelector : MonoBehaviour, IDataPersistence
 {
 
     public int currentCharacterIndex = 0;
-    public GameObject[] characters;
+    public  GameObject[] characters;
     public GameObject camera;
 
+   // public static GameObject[] characterTransforms = characters;
     // Start is called before the first frame update
     public void LoadData(GameData data)
     {

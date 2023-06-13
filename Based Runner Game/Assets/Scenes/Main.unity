@@ -2272,7 +2272,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e95d0e1503fb314f8d1d8b15445ea57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1823603612}
+  target: {fileID: 0}
+  currentCharacterIndex: 0
+  characters:
+  - {fileID: 14237488}
+  - {fileID: 1823603611}
+  - {fileID: 827929021}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,9 +7,14 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     public Transform target;
     private Vector3 offset;
+    public int currentCharacterIndex = 0;
+    public GameObject[] characters;
+
+   // public GameObject[] characters =  CharacterSelector.characterTransforms;
 
     void Start()
     {
+        target = characters[PlayerPrefs.GetInt("SelectedCharacter", 0)].transform;
         offset = transform.position - target.position;   
     }
 
