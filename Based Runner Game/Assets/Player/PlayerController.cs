@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     
 
+
     bool toggle = false;
 
     void Start()
@@ -52,12 +53,16 @@ public class PlayerController : MonoBehaviour
             toggle = false;
             if (forwardSpeed < maxSpeed)
                 forwardSpeed += 0.1f * Time.fixedDeltaTime;
+          //  print(forwardSpeed + "FORWARD SPEED");
         }
         else
         {
-            toggle = true;
-            if (Time.timeScale < 2f)
-                Time.timeScale += 0.005f * Time.fixedDeltaTime;
+           toggle = true;
+           if (Time.timeScale < 2f)
+             Time.timeScale += 0.005f * Time.fixedDeltaTime;
+
+          //  print(Time.timeScale + "TIMESCALE");
+            //Time.timeScale = 2f;
         }
     }
 
@@ -178,11 +183,13 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
        
-       if(isGrounded == false)
+       if(slide != null)
         {
-            // animator.SetBool("isSliding", false);
+            print("A slide is happening");
+            //slide = null;
+             animator.SetBool("isSliding", false);
             // StopCoroutine(Slide());
-            
+
         }
       
         animator.SetBool("isGrounded", true);
@@ -213,7 +220,7 @@ public class PlayerController : MonoBehaviour
         controller.height = 1;
         
        
-        yield return new WaitForSeconds(1.65f);
+        yield return new WaitForSeconds(1.75f);
         slide = null;
         isSliding = false;
         animator.SetBool("isSliding", false);
