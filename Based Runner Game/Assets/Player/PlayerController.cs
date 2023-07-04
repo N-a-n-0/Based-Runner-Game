@@ -186,13 +186,15 @@ public class PlayerController : MonoBehaviour
        if(slide != null)
         {
             print("A slide is happening");
-            //slide = null;
-             animator.SetBool("isSliding", false);
-            // StopCoroutine(Slide());
+            StopAllCoroutines();
+            slide = null;
+           //  animator.SetBool("isSliding", false);
+            
 
         }
       
         animator.SetBool("isGrounded", true);
+        animator.SetBool("isSliding", false);
         controller.center = controller.center = new Vector3(0, 0.2f, 0); 
         controller.height = 2;
         isSliding = false;
