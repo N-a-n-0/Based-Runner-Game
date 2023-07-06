@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 move;
-    public float forwardSpeed;
-    public float maxSpeed;
+    public static float forwardSpeed = 25;
+    public static float maxSpeed = 100;
 
     private bool jumpCannotHappen;
     private bool slideCannotHappen;

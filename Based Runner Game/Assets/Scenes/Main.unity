@@ -157,8 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd28041318fbcf4b90311872faafd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 25
-  maxSpeed: 50
   laneDistance: 4
   isGrounded: 1
   groundLayer:
@@ -1619,8 +1617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd28041318fbcf4b90311872faafd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 25
-  maxSpeed: 0
   laneDistance: 4
   isGrounded: 1
   groundLayer:
@@ -3423,8 +3419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd28041318fbcf4b90311872faafd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 25
-  maxSpeed: 0
   laneDistance: 4
   isGrounded: 1
   groundLayer:
