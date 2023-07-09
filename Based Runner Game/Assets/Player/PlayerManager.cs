@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
        // print(Coin.coinsCollected);
         if(gameOver)
         {
-            
+            PlayerController.forwardSpeed = 25;
             Time.timeScale = 0;
             gameOverPanel.SetActive(true);
         }

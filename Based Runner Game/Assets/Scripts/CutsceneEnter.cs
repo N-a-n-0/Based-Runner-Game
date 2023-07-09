@@ -4,38 +4,64 @@ using UnityEngine;
 
 public class CutsceneEnter : MonoBehaviour
 {
-    public GameObject thePlayer;
-    public GameObject cutsceneCam;
-   // public string forwardspeedString = PlayerController.forwardSpeed;
-    public float CurrentForwardSpeed = PlayerController.forwardSpeed;
-    void OnTriggerEnter(Collider other)
-    {
-         CurrentForwardSpeed = PlayerController.forwardSpeed;
+
+    public static bool powerUpChecker = false;
+
+    // public Animator animator;
+
+   // public CameraController script;
+
+  
+   public   Camera MainCamera;
+    public  GameObject cutsceneCam;
 
 
-    PlayerController.forwardSpeed = 0;
-    PlayerController.maxSpeed = 0;
 
-        print("TRIGGERED");
+    // public string forwardspeedString = PlayerController.forwardSpeed;
 
-        this.gameObject.GetComponent<BoxCollider>().enabled = false;
-       // cutsceneCam.SetActive(true);
-        //thePlayer.SetActive(false);
-        StartCoroutine(FinishCut());
-       
-    }
+
+    public float CurrentForwardSpeed = 25;
 
     IEnumerator FinishCut()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
+        cutsceneCam.SetActive(false);
+        // MainCamera.enabled = true;
+        //  cutsceneCam.enabled = false;
         PlayerController.forwardSpeed = CurrentForwardSpeed;
         PlayerController.maxSpeed = 100;
-        // thePlayer.SetActive(true);
-        //  cutsceneCam.SetActive(false);
-    }
+        powerUpChecker = false;
 
-     void Update()
+
+    }
+    
+
+
+
+    void Update()
         {
-        print(PlayerController.forwardSpeed);
+       // print(powerUpChecker);
+        if(powerUpChecker == true)
+        {
+            powerUpChecker = false;
+            cutsceneCam.SetActive(true);
+            CurrentForwardSpeed = PlayerController.forwardSpeed;
+            PlayerController.forwardSpeed = 0;
+            PlayerController.maxSpeed = 0;
+
+           
+
+            // MainCamera.enabled = false;
+            // cutsceneCam.enabled = true;
+            print("TRIGGERED");
+
+            //  this.gameObject.GetComponent<BoxCollider>().enabled = false;
+
+            StartCoroutine(FinishCut());
+           
+            //  animator.Play("StateName");
         }
+        print(PlayerController.forwardSpeed);
+     //   print(script.Camera.mainCamera);
+    }
 }

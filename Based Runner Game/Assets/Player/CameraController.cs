@@ -8,6 +8,15 @@ public class CameraController : MonoBehaviour
     public Transform target;
     private Vector3 offset;
     public int currentCharacterIndex = 0;
+
+   // public Camera publicMainCameraVar;
+   // public Camera publicCutSceneCameraVar;
+
+    [SerializeField]
+    public  Camera mainCamera;
+    [SerializeField]
+    public  Camera cutSceneCamera;
+
     public GameObject[] characters;
 
    // public GameObject[] characters =  CharacterSelector.characterTransforms;
