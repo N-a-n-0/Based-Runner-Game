@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Vector3 move;
     public static float forwardSpeed = 25;
-    public static float maxSpeed = 100;
+    public static float maxSpeed = 75;
 
     private bool jumpCannotHappen;
     private bool slideCannotHappen;
@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         if (!PlayerManager.isGameStarted || PlayerManager.gameOver)
             return;
 
@@ -68,116 +69,129 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-       // print(slide);
-        if (!PlayerManager.isGameStarted || PlayerManager.gameOver)
-            return;
-        //Increase speed if true
-        if (forwardSpeed < maxSpeed)
-            forwardSpeed += 0.1f * Time.deltaTime;
 
-        animator.SetBool("isGameStarted", true);
-        move.z = forwardSpeed;
-
-        isGrounded = Physics.CheckSphere(groundCheck.position, 0.17f, groundLayer);
-
-       // print(slideCannotHappen + "SLIDE");
-       // print(jumpCannotHappen + "JUMP");
-
-        animator.SetBool("isGrounded", isGrounded);
-        if (isGrounded && velocity.y < 0)
-            velocity.y = -1f;
-
-        if (isGrounded)
+        if (CutsceneEnter.powerupVar_PlayerController == false)
         {
-            // slideCannotHappen = true;
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp )
-            {
 
-               // StopCoroutine(Slide());
-             // if(jumpCannotHappen == false)
-               // {
+
+
+            // print(slide);
+
+            if (!PlayerManager.isGameStarted || PlayerManager.gameOver)
+                return;
+            //Increase speed if true
+            if (forwardSpeed < maxSpeed)
+                forwardSpeed += 0.1f * Time.deltaTime;
+
+            animator.SetBool("isGameStarted", true);
+            move.z = forwardSpeed;
+
+            isGrounded = Physics.CheckSphere(groundCheck.position, 0.17f, groundLayer);
+
+            // print(slideCannotHappen + "SLIDE");
+            // print(jumpCannotHappen + "JUMP");
+
+            animator.SetBool("isGrounded", isGrounded);
+            if (isGrounded && velocity.y < 0)
+                velocity.y = -1f;
+
+            if (isGrounded)
+            {
+                // slideCannotHappen = true;
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
+                {
+
+                    // StopCoroutine(Slide());
+                    // if(jumpCannotHappen == false)
+                    // {
                     //StopCoroutine(slide);
                     slideCannotHappen = true;
                     Jump();
-               // }
-                  
-                
-                
-            }
-                
-      
-
-            if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) )
-            {
+                    // }
 
 
-                //  StopCoroutine(slide);
-                if(slide == null)
-                {
-                    slide = Slide();
-                    jumpCannotHappen = true;
-                    StartCoroutine(slide);
+
                 }
 
-                
-                
-              
-               
+
+
+                if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+                {
+
+
+                    //  StopCoroutine(slide);
+                    if (slide == null)
+                    {
+                        slide = Slide();
+                        jumpCannotHappen = true;
+                        StartCoroutine(slide);
+                    }
+
+
+
+
+
+                }
+
             }
-              
+            else
+            {
+                velocity.y += gravity * Time.deltaTime;
+                if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) //&& !isSliding && animator.GetBool("isSliding") == false
+                {
+                    // slide = Slide();
+                    //   StartCoroutine(slide);
+                    velocity.y = -10;
+                }
+
+            }
+            controller.Move(velocity * Time.deltaTime);
+
+            //Gather the inputs on which lane we should be
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
+            {
+                desiredLane++;
+                if (desiredLane == 3)
+                    desiredLane = 2;
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)
+            {
+                desiredLane--;
+                if (desiredLane == -1)
+                    desiredLane = 0;
+            }
+
+            //Calculate where we should be in the future
+            Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
+            if (desiredLane == 0)
+                targetPosition += Vector3.left * laneDistance;
+            else if (desiredLane == 2)
+                targetPosition += Vector3.right * laneDistance;
+
+            //transform.position = targetPosition;
+            if (transform.position != targetPosition)
+            {
+                Vector3 diff = targetPosition - transform.position;
+                Vector3 moveDir = diff.normalized * 30 * Time.deltaTime;
+                if (moveDir.sqrMagnitude < diff.magnitude)
+                {
+                    controller.Move(moveDir);
+                }
+
+                else
+                {
+                    controller.Move(diff);
+                }
+                // controller.Move(diff);
+            }
+
+            controller.Move(move * Time.deltaTime);
         }
         else
         {
-            velocity.y += gravity * Time.deltaTime;
-           if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) //&& !isSliding && animator.GetBool("isSliding") == false
-            {
-                // slide = Slide();
-           //   StartCoroutine(slide);
-               velocity.y = -10;
-            }
-
-        }
-        controller.Move(velocity * Time.deltaTime);
-
-        //Gather the inputs on which lane we should be
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
-        {
-            desiredLane++;
-            if (desiredLane == 3)
-                desiredLane = 2;
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)
-        {
-            desiredLane--;
-            if (desiredLane == -1)
-                desiredLane = 0;
+            print("POWERUP ANIMATION IS CURRENTLY HAPPENING");
         }
 
-        //Calculate where we should be in the future
-        Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
-        if (desiredLane == 0)
-            targetPosition += Vector3.left * laneDistance;
-        else if (desiredLane == 2)
-            targetPosition += Vector3.right * laneDistance;
-
-        //transform.position = targetPosition;
-        if (transform.position != targetPosition)
-        {
-            Vector3 diff = targetPosition - transform.position;
-            Vector3 moveDir = diff.normalized * 30 * Time.deltaTime;
-            if (moveDir.sqrMagnitude < diff.magnitude)
-            {
-                controller.Move(moveDir);
-            }
-                
-            else
-            {
-                controller.Move(diff);
-            }
-               // controller.Move(diff);
-        }
-
-        controller.Move(move * Time.deltaTime);
     }
 
     private void Jump()

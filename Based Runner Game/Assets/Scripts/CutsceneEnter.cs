@@ -6,13 +6,14 @@ public class CutsceneEnter : MonoBehaviour
 {
 
     public static bool powerUpChecker = false;
+    public static bool powerupVar_PlayerController = false;
 
     // public Animator animator;
 
-   // public CameraController script;
+    // public CameraController script;
 
-  
-   public   Camera MainCamera;
+
+    public   Camera MainCamera;
     public  GameObject cutsceneCam;
 
 
@@ -29,9 +30,9 @@ public class CutsceneEnter : MonoBehaviour
         // MainCamera.enabled = true;
         //  cutsceneCam.enabled = false;
         PlayerController.forwardSpeed = CurrentForwardSpeed;
-        PlayerController.maxSpeed = 100;
+        PlayerController.maxSpeed = 75;
         powerUpChecker = false;
-
+        powerupVar_PlayerController = false;
 
     }
     
@@ -44,6 +45,7 @@ public class CutsceneEnter : MonoBehaviour
         if(powerUpChecker == true)
         {
             powerUpChecker = false;
+            powerupVar_PlayerController = true;
             cutsceneCam.SetActive(true);
             CurrentForwardSpeed = PlayerController.forwardSpeed;
             PlayerController.forwardSpeed = 0;

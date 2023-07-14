@@ -9,10 +9,13 @@ public class PowerUpObtained : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        this.gameObject.GetComponent<BoxCollider>().enabled = false;
         print(CutsceneEnter.powerUpChecker);
+       
         CutsceneEnter.powerUpChecker = true;
         print(CutsceneEnter.powerUpChecker);
        // CurrentForwardSpeed = PlayerController.forwardSpeed;
+
 
 
         //  PlayerController.forwardSpeed = 0;
@@ -21,7 +24,7 @@ public class PowerUpObtained : MonoBehaviour
         // cutsceneCam.enabled = true;
         //    print("TRIGGERED");
 
-           this.gameObject.GetComponent<BoxCollider>().enabled = false;
+         
 
         //  StartCoroutine(FinishCut());
         //  animator.Play("StateName");
