@@ -8,6 +8,9 @@ public class CutsceneEnter : MonoBehaviour
     public static bool powerUpChecker = false;
     public static bool powerupVar_PlayerController = false;
 
+    [SerializeField]
+   // public  bool playerObj;
+
     // public Animator animator;
 
     // public CameraController script;

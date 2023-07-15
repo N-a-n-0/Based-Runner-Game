@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour
     public static float forwardSpeed = 25;
     public static float maxSpeed = 75;
 
+    public static GameObject PlayerModel  =  null;
+
+    
+    
+
+
     private bool jumpCannotHappen;
     private bool slideCannotHappen;
 
@@ -37,7 +43,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-       
+        PlayerModel = this.gameObject;
+        print(PlayerModel);
         controller = GetComponent<CharacterController>();
         Time.timeScale = 1.2f;
     }

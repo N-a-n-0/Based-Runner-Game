@@ -3711,6 +3711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ce602c2eb6275449a6b956ed657656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerObj: 0
   MainCamera: {fileID: 963194227}
   cutsceneCam: {fileID: 959787906}
 --- !u!1 &2019165165

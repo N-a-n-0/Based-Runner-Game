@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        target = characters[PlayerPrefs.GetInt("SelectedCharacter", 0)].transform;
+      //  target = characters[PlayerPrefs.GetInt("SelectedCharacter", 0)].transform;
         offset = transform.position - target.position;   
     }
 
