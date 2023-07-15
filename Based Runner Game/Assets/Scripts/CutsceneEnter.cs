@@ -13,6 +13,7 @@ public class CutsceneEnter : MonoBehaviour
     // public CameraController script;
 
 
+
     public   Camera MainCamera;
     public  GameObject cutsceneCam;
 
@@ -21,37 +22,43 @@ public class CutsceneEnter : MonoBehaviour
     // public string forwardspeedString = PlayerController.forwardSpeed;
 
 
-    public float CurrentForwardSpeed = 25;
+    public static float CurrentForwardSpeed = 25;
 
     IEnumerator FinishCut()
     {
+        print("ITS ABOUT TO WAIT");
         yield return new WaitForSeconds(4);
+        PlayerController.forwardSpeed = CurrentForwardSpeed;
         cutsceneCam.SetActive(false);
         // MainCamera.enabled = true;
         //  cutsceneCam.enabled = false;
-        PlayerController.forwardSpeed = CurrentForwardSpeed;
+        
         PlayerController.maxSpeed = 75;
+
+
+        print(PlayerController.forwardSpeed + "DA SPEED");
+
         powerUpChecker = false;
         powerupVar_PlayerController = false;
-
+        print("IT MADE IT");
+        StopAllCoroutines();
     }
     
+
 
 
 
     void Update()
         {
        // print(powerUpChecker);
+
+        
+
         if(powerUpChecker == true)
         {
-            powerUpChecker = false;
-            powerupVar_PlayerController = true;
-            cutsceneCam.SetActive(true);
-            CurrentForwardSpeed = PlayerController.forwardSpeed;
-            PlayerController.forwardSpeed = 0;
-            PlayerController.maxSpeed = 0;
 
-           
+
+            cutsceneCam.SetActive(true);
 
             // MainCamera.enabled = false;
             // cutsceneCam.enabled = true;
