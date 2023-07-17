@@ -36,17 +36,20 @@ public class PlayerController : MonoBehaviour
 
     public float slideDuration = .1f;
 
-    
+    //public static bool storedPowerUpValue = CutsceneEnter.powerupVar_PlayerController;
 
 
     bool toggle = false;
 
     void Start()
     {
+        forwardSpeed = 25;
+        maxSpeed = 75;
         PlayerModel = this.gameObject;
         print(PlayerModel);
         controller = GetComponent<CharacterController>();
         Time.timeScale = 1.2f;
+        //storedPowerUpValue = false;
     }
 
     private void FixedUpdate()
@@ -80,7 +83,7 @@ public class PlayerController : MonoBehaviour
         if (CutsceneEnter.powerupVar_PlayerController == false)
         {
 
-
+            print("UPDATE FUNCTION IS RUNNING");
 
             // print(slide);
 
@@ -196,7 +199,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            print("POWERUP ANIMATION IS CURRENTLY HAPPENING");
+           // CutsceneEnter.powerupVar_PlayerController = false;
+            print("POWERUP ANIMATION IS CURRENTLY HAPPENING" + CutsceneEnter.powerupVar_PlayerController);
         }
 
     }

@@ -11,31 +11,37 @@ public class PowerUpObtained : MonoBehaviour
     public float ScaleValueIncrease = 1f;
     IEnumerator Waiter()
     {
-        while (ScaleValueIncrease >= 6f == false)
+        PlayerController.PlayerModel.transform.position += new Vector3(0, 3.5f, 0);
+        while (ScaleValueIncrease > 6f == false)
         {
-            yield return new WaitForSeconds(.1f);
-            ScaleValueIncrease += .2f;
+            yield return new WaitForSeconds(.15f);
+            ScaleValueIncrease += .170f;
             PlayerController.PlayerModel.transform.localScale = new Vector3(ScaleValueIncrease, ScaleValueIncrease, ScaleValueIncrease);
         }
+        timercheck = null;
+        StopAllCoroutines();
 
+
+        
           
-
-        if(timercheck != null)
-        {
-            timercheck = null;
-        }
+        
     }
 
     void OnTriggerEnter(Collider other)
     {
         print("BOX WAS HIT NOW TURNING OFF BOX COLLIDER");
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
+
+        timercheck = Waiter();
+
         print(CutsceneEnter.powerUpChecker);
        
         CutsceneEnter.powerUpChecker = true;
         print(CutsceneEnter.powerUpChecker);
 
-        CutsceneEnter.powerUpChecker = true;
+
+
+       // CutsceneEnter.powerUpChecker = true;
         CutsceneEnter.powerupVar_PlayerController = true;
        
         CutsceneEnter.CurrentForwardSpeed = PlayerController.forwardSpeed;
@@ -43,8 +49,9 @@ public class PowerUpObtained : MonoBehaviour
         PlayerController.maxSpeed = 0;
 
 
-        StartCoroutine(Waiter());
 
+        StartCoroutine(timercheck);
+        
 
 
 

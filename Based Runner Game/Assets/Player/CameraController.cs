@@ -24,15 +24,15 @@ public class CameraController : MonoBehaviour
     void Start()
     {
       //  target = characters[PlayerPrefs.GetInt("SelectedCharacter", 0)].transform;
-        offset = transform.position - target.position;   
+       // offset = transform.position - target.position;   
     }
 
     // Update is called once per frame
     void Update()
     {
       
-        Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, offset.z + target.position.z - 1);
-        transform.position = Vector3.Lerp(transform.position, newPosition, 10 * Time.deltaTime);
+       // Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, offset.z + target.position.z - 1);
+       // transform.position = Vector3.Lerp(transform.position, newPosition, 10 * Time.deltaTime);
 
     }
 }
