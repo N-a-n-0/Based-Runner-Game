@@ -229,11 +229,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.transform.tag == "Obstacle")
+        if (hit.transform.tag == "Obstacle" && CutsceneEnter.PowerApplies == false)
         {
             FindObjectOfType<AudioManager>().StopSound("MainTheme");
             PlayerManager.gameOver = true;
            FindObjectOfType<AudioManager>().PlaySound("GameOver");
+        }
+        else if(hit.transform.tag == "Obstacle" && CutsceneEnter.PowerApplies == true)
+        {
+           
+            Destroy(hit.gameObject);
         }
 
     }

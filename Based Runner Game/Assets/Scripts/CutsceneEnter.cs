@@ -10,6 +10,8 @@ public class CutsceneEnter : MonoBehaviour
 
     public static bool powerUpCheckerParent = false;
 
+    public static bool PowerApplies = false;
+
     [SerializeField]
    // public  bool playerObj;
 
@@ -37,14 +39,16 @@ public class CutsceneEnter : MonoBehaviour
         CutSceneFunction = null;
         PlayersScale = 6f;
         powerupVar_PlayerController = false;
-        powerUpCheckerParent = false;
+       // powerUpCheckerParent = false;
         CurrentForwardSpeed = 25;
     }
 
     IEnumerator FinishCut()
     {
         print("ITS ABOUT TO WAIT");
+        PowerApplies = true;
         yield return new WaitForSeconds(4);
+        
         PlayerController.forwardSpeed = CurrentForwardSpeed;
         cutsceneCam.SetActive(false);
         // MainCamera.enabled = true;
@@ -88,6 +92,7 @@ public class CutsceneEnter : MonoBehaviour
          PlayersScale = 6f;
        // powerUpCheckerParent = false;
         CutSceneFunction = null;
+        PowerApplies = false;
         StopAllCoroutines();
 
 
