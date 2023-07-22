@@ -16,6 +16,12 @@ public class PowerUpObtained : MonoBehaviour
         {
             yield return new WaitForSeconds(.15f);
             ScaleValueIncrease += .170f;
+
+            if (ScaleValueIncrease > 6f)
+            {
+                ScaleValueIncrease = 6f;
+            }
+
             PlayerController.PlayerModel.transform.localScale = new Vector3(ScaleValueIncrease, ScaleValueIncrease, ScaleValueIncrease);
         }
         timercheck = null;

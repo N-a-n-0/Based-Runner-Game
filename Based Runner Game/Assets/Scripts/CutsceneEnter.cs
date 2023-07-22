@@ -22,7 +22,11 @@ public class CutsceneEnter : MonoBehaviour
 
 
     public   Camera MainCamera;
-    public  GameObject cutsceneCam;
+    public  Camera cutsceneCam;
+
+    public Camera FirstPersonCamera;
+
+    public Animator animator;
 
     public float PlayersScale = 6f;
 
@@ -47,14 +51,18 @@ public class CutsceneEnter : MonoBehaviour
     {
         print("ITS ABOUT TO WAIT");
         PowerApplies = true;
+        yield return new WaitForSeconds(1);
+        animator.SetBool("PowerUp", false);
         yield return new WaitForSeconds(4);
-        
+       
         PlayerController.forwardSpeed = CurrentForwardSpeed;
-        cutsceneCam.SetActive(false);
-        // MainCamera.enabled = true;
+
+      
+        cutsceneCam.enabled = false;
+        FirstPersonCamera.enabled = true;
         //  cutsceneCam.enabled = false;
 
-        
+
         PlayerController.maxSpeed = 75;
 
 
@@ -79,9 +87,16 @@ public class CutsceneEnter : MonoBehaviour
         while (PlayersScale > 1f == true)
         {
             print("PLAYER IS SCALING BACK TO NORMAL");
-            yield return new WaitForSeconds(.2f);
-            PlayersScale -= .125f;
+            
+            yield return new WaitForSeconds(.15f);
+            PlayersScale -= .170f;
             print(PlayersScale);
+
+            if(PlayersScale <= 1f)
+            {
+                PlayersScale = 1f;
+            }
+
             PlayerController.PlayerModel.transform.localScale = new Vector3(PlayersScale, PlayersScale, PlayersScale);
         }
         print("all da code ran");
@@ -93,6 +108,9 @@ public class CutsceneEnter : MonoBehaviour
        // powerUpCheckerParent = false;
         CutSceneFunction = null;
         PowerApplies = false;
+
+        FirstPersonCamera.enabled = false;
+        MainCamera.enabled = true;
         StopAllCoroutines();
 
 
@@ -111,8 +129,9 @@ public class CutsceneEnter : MonoBehaviour
         if(powerUpChecker == true && CutSceneFunction == null)
         {
             CutSceneFunction = FinishCut();
-
-            cutsceneCam.SetActive(true);
+            animator.SetBool("PowerUp", true);
+            MainCamera.enabled = false;
+            cutsceneCam.enabled = true;
 
             // MainCamera.enabled = false;
             // cutsceneCam.enabled = true;
