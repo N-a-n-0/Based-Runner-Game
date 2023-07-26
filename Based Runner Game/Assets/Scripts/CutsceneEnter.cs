@@ -72,7 +72,7 @@ public class CutsceneEnter : MonoBehaviour
         powerupVar_PlayerController = false;
         print("IT MADE IT");
 
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(10);
 
         print("10 SECONDS HAVE PASSED");
 
