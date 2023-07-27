@@ -14,7 +14,7 @@ public class PowerUpObtained : MonoBehaviour
         PlayerController.PlayerModel.transform.position += new Vector3(0, 3.5f, 0);
         while (ScaleValueIncrease > 6f == false)
         {
-            yield return new WaitForSeconds(.15f);
+            yield return new WaitForSeconds(.1f);
             ScaleValueIncrease += .170f;
 
             if (ScaleValueIncrease > 6f)
