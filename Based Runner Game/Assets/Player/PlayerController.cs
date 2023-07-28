@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         
-        if (!PlayerManager.isGameStarted || PlayerManager.gameOver)
+        if (!PlayerManager.isGameStarted || PlayerManager.gameOver == false)
             return;
 
         //Increase Speed
@@ -80,15 +80,19 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (CutsceneEnter.powerupVar_PlayerController == false)
+        if (CutsceneEnter.powerupVar_PlayerController == false && PlayerManager.Final_GameOver_Check == false)
         {
 
-            print("UPDATE FUNCTION IS RUNNING");
+            print("UPDATE START");
 
             // print(slide);
 
-            if (!PlayerManager.isGameStarted || PlayerManager.gameOver)
+           if (!PlayerManager.isGameStarted || PlayerManager.gameOver )
+            {
+                print("UPDATE FIRST");
                 return;
+            }
+               
             //Increase speed if true
             if (forwardSpeed < maxSpeed)
                 forwardSpeed += 0.1f * Time.deltaTime;
@@ -105,7 +109,7 @@ public class PlayerController : MonoBehaviour
             if (isGrounded && velocity.y < 0)
                 velocity.y = -1f;
 
-            if (isGrounded)
+            if (isGrounded && PlayerManager.Final_GameOver_Check == false)
             {
                 // slideCannotHappen = true;
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
@@ -125,9 +129,9 @@ public class PlayerController : MonoBehaviour
 
 
 
-                if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+                if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && PlayerManager.Final_GameOver_Check == false)
                 {
-
+                    print("UPDATE SLIDE");
 
                     //  StopCoroutine(slide);
                     if (slide == null)
@@ -158,13 +162,13 @@ public class PlayerController : MonoBehaviour
             controller.Move(velocity * Time.deltaTime);
 
             //Gather the inputs on which lane we should be
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight &&  PlayerManager.Final_GameOver_Check == false)
             {
                 desiredLane++;
                 if (desiredLane == 3)
                     desiredLane = 2;
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft  && PlayerManager.Final_GameOver_Check == false)
             {
                 desiredLane--;
                 if (desiredLane == -1)
@@ -225,7 +229,11 @@ public class PlayerController : MonoBehaviour
         isSliding = false;
         slideCannotHappen = false;
         velocity.y = Mathf.Sqrt(jumpHeight * 5 * -gravity);
+
+
     }
+
+   
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -233,7 +241,8 @@ public class PlayerController : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().StopSound("MainTheme");
             PlayerManager.gameOver = true;
-           FindObjectOfType<AudioManager>().PlaySound("GameOver");
+           
+            FindObjectOfType<AudioManager>().PlaySound("GameOver");
         }
         else if(hit.transform.tag == "Obstacle" && CutsceneEnter.PowerApplies == true)
         {
