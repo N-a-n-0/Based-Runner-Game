@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         DisablePlayButton();
-        DataPersistenceManager.instance.NewGame();
+     //   DataPersistenceManager.instance.NewGame();
         SceneManager.LoadSceneAsync("Main");
     }
 

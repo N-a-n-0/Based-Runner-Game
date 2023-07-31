@@ -68,7 +68,9 @@ public class ShopManager : MonoBehaviour, IDataPersistence
     // Start is called before the first frame update
     void Start()
     {
+        
         Time.timeScale = 1;
+      
         int currentPos = 0;
 
         foreach(CharacterBlueprint character in characters)
@@ -98,9 +100,9 @@ public class ShopManager : MonoBehaviour, IDataPersistence
             character.SetActive(false);
         }
 
-
+        currentCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
         characterModels[currentCharacterIndex].SetActive(true);
-
+       
     }
 
     void Update()
@@ -149,6 +151,15 @@ public class ShopManager : MonoBehaviour, IDataPersistence
         }
         PlayerPrefs.SetInt("SelectedCharacter", currentCharacterIndex);
     }
+
+    public void ShowCurrentCharacter()
+    {
+        characterModels[currentCharacterIndex].SetActive(false);
+        int CurrentSelectedCharacter = PlayerPrefs.GetInt("SelectedCharacter", 0);
+        characterModels[CurrentSelectedCharacter].SetActive(true);
+    }
+   
+    
 
     public void ChangePrevious()
     {
