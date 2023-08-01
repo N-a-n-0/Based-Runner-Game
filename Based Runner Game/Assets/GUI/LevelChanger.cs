@@ -22,11 +22,9 @@ public class LevelChanger : MonoBehaviour
         yield return new WaitForSeconds(1);
     }
 
-    public void FadeToNextLevel()
-    {
-       
-    }
+  
 
+    
 
     public void FadeToLevel(int levelIndex)
     {
