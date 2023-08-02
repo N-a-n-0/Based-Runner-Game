@@ -15,7 +15,9 @@ public class GameData
 
     public SerializableDictionary<int, bool> charactersUnlocked;
 
-  //  public int playerSelected;
+    public SerializableDictionary<int, bool> Extras_;
+
+    //  public int playerSelected;
 
     public GameData()
     {
@@ -28,5 +30,7 @@ public class GameData
        // this.playerSelected = 0;
 
         charactersUnlocked = new SerializableDictionary<int, bool>();
+
+        Extras_ = new SerializableDictionary<int, bool>();
     }
 }

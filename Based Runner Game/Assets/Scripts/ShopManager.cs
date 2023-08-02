@@ -30,13 +30,13 @@ public class ShopManager : MonoBehaviour, IDataPersistence
         {
            data.charactersUnlocked.TryGetValue(i, out characters[i].isUnlocked);
             //if(character)
-            print(data.charactersUnlocked.TryGetValue(i, out characters[i].isUnlocked) + "CURRENT: " + i);
+           // print(data.charactersUnlocked.TryGetValue(i, out characters[i].isUnlocked) + "CURRENT: " + i);
             if(characters[i].isUnlocked)
             {
                
             }
 
-            print("RESULTS:" + characters[i].isUnlocked);
+          //  print("RESULTS:" + characters[i].isUnlocked);
         }
     }
     public void SaveData(GameData data)
