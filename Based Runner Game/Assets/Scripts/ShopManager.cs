@@ -17,9 +17,9 @@ public class ShopManager : MonoBehaviour, IDataPersistence
     public int coin;
 
 
-    
-
    
+
+
 
 
     public void LoadData(GameData data)
@@ -107,8 +107,9 @@ public class ShopManager : MonoBehaviour, IDataPersistence
 
     void Update()
     {
-       // coin++;
-       coinText.GetComponentInChildren<TextMeshProUGUI>().text = "Coins: " + coin;
+       
+        // coin++;
+        coinText.GetComponentInChildren<TextMeshProUGUI>().text = "Coins: " + coin;
         UpdateUI();
     }
     // Update is called once per frame

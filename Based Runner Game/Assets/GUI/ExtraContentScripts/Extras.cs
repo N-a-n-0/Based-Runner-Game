@@ -43,7 +43,11 @@ public class Extras : MonoBehaviour, IDataPersistence
         }
     }
 
+    public  void CheckExtraOut(int Art_Number)
+    {
 
+        print(extras[Art_Number].name);
+    }
 
     // Start is called before the first frame update
     void Start()
