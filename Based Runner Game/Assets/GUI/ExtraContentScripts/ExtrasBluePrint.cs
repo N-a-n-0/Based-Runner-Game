@@ -13,9 +13,9 @@ public class ExtrasBluePrint
 
     public bool isUnlocked;
 
-    public string Description;
+    public string description;
 
-    [SerializeField] public string id;
+    //[SerializeField] public string id;
 
 
     // [SerializeField] public string id;

@@ -43,10 +43,17 @@ public class Extras : MonoBehaviour, IDataPersistence
         }
     }
 
-    public  void CheckExtraOut(int Art_Number)
+    public GameObject[] ArtList()
+    {
+        return Art;
+    }
+
+    public  Image CheckExtraOut(int Art_Number)
     {
 
+    //  print( .sprite);
         print(extras[Art_Number].name);
+        return Art[Art_Number].GetComponent<Image>();
     }
 
     // Start is called before the first frame update
