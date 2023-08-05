@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Extras : MonoBehaviour, IDataPersistence
 {
@@ -61,15 +62,20 @@ public class Extras : MonoBehaviour, IDataPersistence
     {
         int currentIndex = 0;
 
-        foreach(ExtrasBluePrint extra in extras)
+        if(SceneManager.GetActiveScene().name == "Menu")
         {
-            if(extra.isUnlocked)
+            foreach (ExtrasBluePrint extra in extras)
             {
-                ArtLocation[currentIndex].GetComponent<Image>().sprite = Art[currentIndex].GetComponent<Image>().sprite;
+                if (extra.isUnlocked)
+                {
+                    ArtLocation[currentIndex].GetComponent<Image>().sprite = Art[currentIndex].GetComponent<Image>().sprite;
+                }
+                currentIndex++;
             }
-            currentIndex++;
+
         }
-       
+
+
 
     }
 

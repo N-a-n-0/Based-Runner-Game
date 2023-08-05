@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5308839037477235413}
   - component: {fileID: 5308839037477235414}
   - component: {fileID: 5308839037477235415}
+  - component: {fileID: 7000393721661370573}
   - component: {fileID: 5308839037477235412}
   m_Layer: 5
   m_Name: BlackFade
@@ -98,6 +99,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7000393721661370573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5308839037477235417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1bd5fa63949c1e4b9d3e8b6d07c7b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartGameButton: {fileID: 0}
+  ShopButton: {fileID: 0}
 --- !u!114 &5308839037477235412
 MonoBehaviour:
   m_ObjectHideFlags: 0

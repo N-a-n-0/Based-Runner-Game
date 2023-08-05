@@ -18,7 +18,9 @@ public class FileDataHandler
 
     public GameData Load()
     {
+        Debug.Log("DATA SHOULD BE LOADING");
         string fullPath = Path.Combine(dataDirPath, dataFileName);
+        Debug.Log(fullPath);
         GameData loadedData = null;
         if (File.Exists(fullPath))
         {
@@ -41,12 +43,15 @@ public class FileDataHandler
                Debug.LogError("Error occured when trying to load data from file: " + fullPath + "\n" + e);
             }
         }
+        Debug.Log(loadedData);
         return loadedData;
     }
 
     public void Save(GameData data)
     {
+        Debug.Log("DATA SHOULD BE SAVING");
         string fullPath = Path.Combine(dataDirPath, dataFileName);
+      
         Debug.Log(fullPath);
         try
         {

@@ -109,8 +109,12 @@ public class ShopManager : MonoBehaviour, IDataPersistence
     {
        
         // coin++;
-        coinText.GetComponentInChildren<TextMeshProUGUI>().text = "Coins: " + coin;
-        UpdateUI();
+        if(coinText != null)
+        {
+            coinText.GetComponentInChildren<TextMeshProUGUI>().text = "Coins: " + coin;
+            UpdateUI();
+        }
+
     }
     // Update is called once per frame
    

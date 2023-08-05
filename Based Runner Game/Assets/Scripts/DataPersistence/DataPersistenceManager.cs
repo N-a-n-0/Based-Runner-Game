@@ -8,6 +8,10 @@ using UnityEngine.SceneManagement;
 
 public class DataPersistenceManager : MonoBehaviour
 {
+    [Header("Debugging")]
+    [SerializeField] private bool initializeDataIfNull = false;
+
+
     [Header("File Storage Config")]
 
     [SerializeField] private string fileName;
@@ -82,7 +86,11 @@ public class DataPersistenceManager : MonoBehaviour
 
         this.gameData = dataHandler.Load();
 
-
+        if(this.gameData == null && initializeDataIfNull)
+        {
+            Debug.Log("NEW GAME");
+            NewGame();
+        }
 
         if (this.gameData == null)
         {
@@ -122,6 +130,13 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        print("The game closed");
+        SaveGame();
+    }
+
+    private void OnApplicationPause()
+    {
+        print("The game paused");
         SaveGame();
     }
 
@@ -132,4 +147,10 @@ public class DataPersistenceManager : MonoBehaviour
         return new List<IDataPersistence>(dataPersistenceObjects);
 
     }
+
+    public bool HasGameData()
+    {
+        return gameData != null;
+    }
+
 }

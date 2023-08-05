@@ -48,8 +48,8 @@ public class ArtSelection : MonoBehaviour
             ArtDescription.text = extras_Reference.extras[0].description;
             ArtArea.GetComponent<Image>().sprite = ArtSelected.sprite;
         }
-       
 
+        extras_Reference.extras[0].isUnlocked = true;
     }
 
     public void Art_01()
@@ -63,8 +63,8 @@ public class ArtSelection : MonoBehaviour
             ArtDescription.text = extras_Reference.extras[1].description;
             ArtArea.GetComponent<Image>().sprite = ArtSelected.sprite;
         }
-          
 
+        extras_Reference.extras[1].isUnlocked = true;
     }
 
     public void Art_02()

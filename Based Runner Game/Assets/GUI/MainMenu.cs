@@ -11,12 +11,21 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button StartGameButton;
     [SerializeField] private Button ShopButton;
 
+    private void Start()
+    {
+        
+    }
 
 
     public void PlayGame()
     {
         DisablePlayButton();
-     //   DataPersistenceManager.instance.NewGame();
+        if (DataPersistenceManager.instance.HasGameData())
+            {
+            Debug.Log("NO DATA? NEW GAME THEN!!!!!");
+            DataPersistenceManager.instance.NewGame();
+            }
+      
         SceneManager.LoadSceneAsync("Main");
     }
 

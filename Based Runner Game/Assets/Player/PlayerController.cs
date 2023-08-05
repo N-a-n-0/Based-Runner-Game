@@ -83,13 +83,13 @@ public class PlayerController : MonoBehaviour
         if (CutsceneEnter.powerupVar_PlayerController == false && PlayerManager.Final_GameOver_Check == false)
         {
 
-            print("UPDATE START");
+          //  print("UPDATE START");
 
             // print(slide);
 
            if (!PlayerManager.isGameStarted || PlayerManager.gameOver )
             {
-                print("UPDATE FIRST");
+             //   print("UPDATE FIRST");
                 return;
             }
                
