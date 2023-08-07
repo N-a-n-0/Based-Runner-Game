@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 8dc822832bcf9a240b9d3829262c7241
+guid: 35eb523dc024ce54d9595ad039ea3446
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLUE HOUSE
+    second: {fileID: 2100000, guid: 0b80ad2b8635b434381dac0887174be3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
