@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
+        
         if (CutsceneEnter.powerupVar_PlayerController == false && PlayerManager.Final_GameOver_Check == false)
         {
 
@@ -136,9 +136,16 @@ public class PlayerController : MonoBehaviour
                     //  StopCoroutine(slide);
                     if (slide == null)
                     {
+                        controller.center = new Vector3(0, -0.3f, 0);
+                        controller.height = .2f;
+
                         slide = Slide();
                         jumpCannotHappen = true;
                         StartCoroutine(slide);
+                    }
+                    else
+                    {
+                        print("SLIDE IS ALREADY HAPPENING ");
                     }
 
 
@@ -155,7 +162,7 @@ public class PlayerController : MonoBehaviour
                 {
                     // slide = Slide();
                     //   StartCoroutine(slide);
-                    velocity.y = -10;
+                    velocity.y = -50;
                 }
 
             }
@@ -185,8 +192,8 @@ public class PlayerController : MonoBehaviour
             //transform.position = targetPosition;
             if (transform.position != targetPosition)
             {
-                Vector3 diff = targetPosition - transform.position;
-                Vector3 moveDir = diff.normalized * 30 * Time.deltaTime;
+                Vector2 diff = targetPosition - transform.position;
+                Vector2 moveDir = diff.normalized * 30 * Time.deltaTime;
                 if (moveDir.sqrMagnitude < diff.magnitude)
                 {
                     controller.Move(moveDir);
@@ -204,7 +211,7 @@ public class PlayerController : MonoBehaviour
         else
         {
            // CutsceneEnter.powerupVar_PlayerController = false;
-            print("POWERUP ANIMATION IS CURRENTLY HAPPENING" + CutsceneEnter.powerupVar_PlayerController);
+           // print("POWERUP ANIMATION IS CURRENTLY HAPPENING" + CutsceneEnter.powerupVar_PlayerController);
         }
 
     }
@@ -257,19 +264,18 @@ public class PlayerController : MonoBehaviour
        
         isSliding = true;
         animator.SetBool("isSliding", true);
-        controller.center = new Vector3(0, -0.2f, 0);
-        controller.height = 1;
-        
+       
        
         yield return new WaitForSeconds(1.75f);
         slide = null;
         isSliding = false;
+         jumpCannotHappen = false;
         animator.SetBool("isSliding", false);
 
         controller.center = new Vector3(0,0.2f,0);
         controller.height = 2;
 
-        jumpCannotHappen = false;
+       
        
     }
 }

@@ -39,9 +39,9 @@ public class PlayerManager : MonoBehaviour
         gameOver = false;
         PlayerController.forwardSpeed = 0;
 
-       // 
-
-        yield return new WaitForSeconds(2);
+        // 
+        yield return null;
+        //yield return new WaitForSeconds(2);
         
 
 

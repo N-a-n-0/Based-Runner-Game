@@ -86,11 +86,11 @@ public class CutsceneEnter : MonoBehaviour
         print("DA CURRENT SCALE" + PlayersScale);
         while (PlayersScale > 1f == true)
         {
-            print("PLAYER IS SCALING BACK TO NORMAL");
+            //print("PLAYER IS SCALING BACK TO NORMAL");
             
             yield return new WaitForSeconds(.15f);
             PlayersScale -= .170f;
-            print(PlayersScale);
+         //   print(PlayersScale);
 
             if(PlayersScale <= 1f)
             {
