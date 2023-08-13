@@ -1,23 +1,11 @@
 fileFormatVersion: 2
-guid: 6a67e63ca25aef24f978aa4d1cf9bd58
+guid: a019f952de1d16547a32b55f33562354
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: 3001360720907961150
-    second: metarig|CameraAction.001
-  - first:
       74: -7536546058115350168
-    second: death1
-  - first:
-      74: -7650237148514564381
-    second: metarig|PointAction
-  - first:
-      74: -2159078299999970091
-    second: metarig|PointAction.001
-  - first:
-      74: -7642746809985227131
-    second: metarig|PointAction.002
+    second: Death Animation
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -48,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: death1
+      name: Death Animation
       takeName: metarig|metarigAction.002
       internalID: 0
       firstFrame: 0
-      lastFrame: 63
+      lastFrame: 55
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
