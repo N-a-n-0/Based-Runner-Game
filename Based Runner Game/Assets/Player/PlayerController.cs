@@ -79,6 +79,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(PlayerManager.gameOver == true)
+        {
+            animator.SetBool("Game Over", true);
+        }
 
         if (CutsceneEnter.powerupVar_PlayerController == false && PlayerManager.Final_GameOver_Check == false)
         {
@@ -233,7 +237,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-   
+    
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {

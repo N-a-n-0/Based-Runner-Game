@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static bool gameOver;
-    public GameObject gameOverPanel;
+  //  public GameObject gameOverPanel;
 
     public static bool Final_GameOver_Check;
 
@@ -20,7 +20,7 @@ public class PlayerManager : MonoBehaviour
 
     public static bool GameOverCutscene;
 
-    public IEnumerator GAMEOVER = null;
+    //public IEnumerator GAMEOVER = null;
 
     // public GameData data;
 
@@ -33,7 +33,7 @@ public class PlayerManager : MonoBehaviour
         Final_GameOver_Check = false;
     }
 
-    public IEnumerator GameOverTimer()
+   /* public IEnumerator GameOverTimer()
     {
         Final_GameOver_Check = true;
         gameOver = false;
@@ -53,16 +53,30 @@ public class PlayerManager : MonoBehaviour
        
         
       
-    }
+    }*/
+
+  /* public void GameOverMenu()
+    {
+        Final_GameOver_Check = true;
+      //  gameOver = false;
+       
+
+
+
+        gameOverPanel.SetActive(true);
+      //  GameOverCutscene = true;
+        Time.timeScale = 0;
+        print("GAMEOVER_RAN");
+    }*/
 
     // Update is called once per frame
     void Update()
     {
        // print(Coin.coinsCollected);
-        if(gameOver == true && GAMEOVER == null)
+       /* if(gameOver == true )
         {
-            GAMEOVER = GameOverTimer();
-            StartCoroutine(GAMEOVER);
+            //GAMEOVER = GameOverTimer();
+           // StartCoroutine(GAMEOVER);
 
             print("GAMEOVER IS CURRENTLY TRUE ");
             
@@ -76,7 +90,7 @@ public class PlayerManager : MonoBehaviour
                
             }
            
-        }
+        }*/
 
         coinsText.text = "Coins: " + numberOfCoins;
         

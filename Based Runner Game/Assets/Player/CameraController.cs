@@ -19,6 +19,8 @@ public class CameraController : MonoBehaviour
 
     public GameObject[] characters;
 
+        
+
    // public GameObject[] characters =  CharacterSelector.characterTransforms;
 
     void Start()
@@ -35,4 +37,11 @@ public class CameraController : MonoBehaviour
        // transform.position = Vector3.Lerp(transform.position, newPosition, 10 * Time.deltaTime);
 
     }
+
+    public void CullingMaskGameOverSettings()
+    {
+        mainCamera.cullingMask = LayerMask.GetMask("Ground", "Player");
+
+    }
+
 }
