@@ -111,6 +111,8 @@ public class CutsceneEnter : MonoBehaviour
 
         FirstPersonCamera.enabled = false;
         MainCamera.enabled = true;
+        CharacterController controller = CharacterSelector.CurrentSelectedCharacter.GetComponent<CharacterController>();
+        controller.radius = .2f;
         StopAllCoroutines();
 
 
