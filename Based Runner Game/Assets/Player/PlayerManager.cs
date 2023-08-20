@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         gameOver = false;
-        Time.timeScale = 1;
+      //  Time.timeScale = 1;
         isGameStarted = false;
         numberOfCoins = 0;
         Final_GameOver_Check = false;

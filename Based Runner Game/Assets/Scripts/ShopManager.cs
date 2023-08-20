@@ -69,7 +69,7 @@ public class ShopManager : MonoBehaviour, IDataPersistence
     void Start()
     {
         
-        Time.timeScale = 1;
+       // Time.timeScale = 1;
       
         int currentPos = 0;
 

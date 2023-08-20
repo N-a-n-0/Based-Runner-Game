@@ -25,6 +25,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
+       // Time.timeScale = 1;
       //  target = characters[PlayerPrefs.GetInt("SelectedCharacter", 0)].transform;
        // offset = transform.position - target.position;   
     }

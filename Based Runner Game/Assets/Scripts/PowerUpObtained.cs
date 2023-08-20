@@ -27,8 +27,6 @@ public class PowerUpObtained : MonoBehaviour
         timercheck = null;
         StopAllCoroutines();
 
-
-        
           
         
     }

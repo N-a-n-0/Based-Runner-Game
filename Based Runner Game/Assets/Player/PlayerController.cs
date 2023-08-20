@@ -44,11 +44,11 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         forwardSpeed = 25;
-        maxSpeed = 75;
+        maxSpeed = 45;
         PlayerModel = this.gameObject;
         print(PlayerModel);
         controller = GetComponent<CharacterController>();
-        Time.timeScale = 1.2f;
+        Time.timeScale = 1f;
         //storedPowerUpValue = false;
     }
 
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         if (toggle)
         {
             toggle = false;
-            if (forwardSpeed < maxSpeed)
+           if (forwardSpeed < maxSpeed)
                 forwardSpeed += 0.1f * Time.fixedDeltaTime;
           //  print(forwardSpeed + "FORWARD SPEED");
         }
