@@ -88,8 +88,8 @@ public class CutsceneEnter : MonoBehaviour
         {
             print("PLAYER IS SCALING BACK TO NORMAL");
             
-            yield return new WaitForSeconds(.15f);
-            PlayersScale -= .170f;
+            yield return new WaitForSeconds(10 * Time.deltaTime);
+            PlayersScale -= .1f;
             print(PlayersScale);
 
             if(PlayersScale <= 1f)
