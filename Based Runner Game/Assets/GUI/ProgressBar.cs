@@ -40,7 +40,7 @@ public class ProgressBar : MonoBehaviour
         if(timeLeft > 0 && Decreasing == true)
         {
             Increasing=false;
-            print("TIME IS GOING DOWN");
+          //  print("TIME IS GOING DOWN");
             timeLeft -= Time.deltaTime;
             slider.value = timeLeft / maxTime;
         }
@@ -51,7 +51,7 @@ public class ProgressBar : MonoBehaviour
 
         if(Increasing == true && slider.value < 1)
         {
-            print("TIME IS GOING UP");
+          //  print("TIME IS GOING UP");
             timeLeft += Time.deltaTime;
             slider.value = timeLeft / maxTime;
             //  slider.value -= 0.1f * Time.deltaTime;

@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator slide;
 
     private int desiredLane = 1;//0:left, 1:middle, 2:right
-    public float laneDistance = 2.5f;//The distance between tow lanes
+    public const int  laneDistance = 4;//The distance between tow lanes
 
     public bool isGrounded;
     public LayerMask groundLayer;
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isGameStarted", true);
             move.z = forwardSpeed;
 
-            isGrounded = Physics.CheckSphere(groundCheck.position, 0.17f, groundLayer);
+            isGrounded = Physics.CheckSphere(groundCheck.position, .05f, groundLayer);
 
             // print(slideCannotHappen + "SLIDE");
             // print(jumpCannotHappen + "JUMP");
@@ -181,21 +181,32 @@ public class PlayerController : MonoBehaviour
 
             //Calculate where we should be in the future
             Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
+            print(targetPosition);
             if (desiredLane == 0)
+            {
+                print("MOVED LEFT HAPPEN");
                 targetPosition += Vector3.left * laneDistance;
+
+            }
+               
             else if (desiredLane == 2)
+            {
+                print("MOVED RIGHT HAPPEN");
                 targetPosition += Vector3.right * laneDistance;
+            }
+              
 
             //transform.position = targetPosition;
             if (transform.position != targetPosition)
             {
                 Vector3 diff = targetPosition - transform.position;
                 Vector3 moveDir = diff.normalized * 30 * Time.deltaTime;
+               // print("move DIR" + moveDir.sqrMagnitude);
                 if (moveDir.sqrMagnitude < diff.magnitude)
                 {
                     controller.Move(moveDir);
                 }
-
+                
                 else
                 {
                     controller.Move(diff);
