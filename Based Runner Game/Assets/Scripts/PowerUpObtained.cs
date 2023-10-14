@@ -33,6 +33,7 @@ public class PowerUpObtained : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+       // ProgressBar.targetProgress += 1f;
         print("BOX WAS HIT NOW TURNING OFF BOX COLLIDER");
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
 

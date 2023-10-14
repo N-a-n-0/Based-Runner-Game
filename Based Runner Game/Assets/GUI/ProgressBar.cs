@@ -14,7 +14,7 @@ public class ProgressBar : MonoBehaviour
 
     float timeLeft = 0;
 
-    private float targetProgress = 0;
+    public static float targetProgress = 0;
 
     public  bool Decreasing = false;
 
@@ -23,6 +23,7 @@ public class ProgressBar : MonoBehaviour
     private void Awake()
     {
         slider = gameObject.GetComponent<Slider>();
+        targetProgress = 0;
     }
 
     // Start is called before the first frame update
@@ -36,7 +37,9 @@ public class ProgressBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        slider.value = targetProgress;
 
+        /*
         if(timeLeft > 0 && Decreasing == true)
         {
             Increasing=false;
@@ -62,7 +65,7 @@ public class ProgressBar : MonoBehaviour
         {
             Decreasing = true;
         }
-
+        */
     }
 
 
