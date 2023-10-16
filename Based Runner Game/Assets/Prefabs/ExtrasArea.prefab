@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &284826827275755422
 RectTransform:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &284826827301230263
 RectTransform:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &284826827579407913
 RectTransform:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &284826827733894942
 RectTransform:
   m_ObjectHideFlags: 0
@@ -712,47 +712,45 @@ MonoBehaviour:
   extras:
   - name: mario
     IDNumber: 0
-    ArtLocation: {fileID: 284826829168966281}
-    Art: {fileID: 284826828800310725}
     isUnlocked: 0
-    id: 
+    description: its a me da mario dario been going through rough times ever since
+      peach left me dwag speaking of that you think you can send vemo me a couple
+      of dollars its for research purposes
   - name: biden
-    IDNumber: 0
-    ArtLocation: {fileID: 284826829168966281}
-    Art: {fileID: 284826827301230258}
+    IDNumber: 1
     isUnlocked: 0
-    id: 
+    description: joe biden JOE BIDEN
   - name: cherry
-    IDNumber: 0
-    ArtLocation: {fileID: 284826829168966281}
-    Art: {fileID: 284826827733894941}
+    IDNumber: 2
     isUnlocked: 0
-    id: 
+    description: MAKE SURE TO SUB TO CRACKEDCRACKERONCRACK !@#$%^&*() AT TWITCH>TTV
+      CRACKEDCRACKERONCRACK
   - name: monkey
-    IDNumber: 0
-    ArtLocation: {fileID: 284826829168966281}
-    Art: {fileID: 284826827275755421}
+    IDNumber: 3
     isUnlocked: 0
-    id: 
+    description: da monkey DK
   - name: quagmire
-    IDNumber: 0
-    ArtLocation: {fileID: 284826829168966281}
-    Art: {fileID: 284826828765395967}
+    IDNumber: 4
     isUnlocked: 0
-    id: 
+    description: quagmire toelit gaming
   - name: peter
-    IDNumber: 0
-    ArtLocation: {fileID: 284826829168966281}
-    Art: {fileID: 284826827579407908}
+    IDNumber: 5
     isUnlocked: 0
-    id: 
+    description: lois im bruhing
+  Art:
+  - {fileID: 284826828800310725}
+  - {fileID: 284826827301230258}
+  - {fileID: 284826827733894941}
+  - {fileID: 284826827275755421}
+  - {fileID: 284826828765395967}
+  - {fileID: 284826827579407908}
   ArtLocation:
-  - {fileID: 284826829168966281}
-  - {fileID: 284826828838440223}
-  - {fileID: 284826827661730470}
-  - {fileID: 284826828567621505}
-  - {fileID: 284826827770175649}
-  - {fileID: 284826827631132668}
+  - {fileID: 284826828800310725}
+  - {fileID: 284826827301230258}
+  - {fileID: 284826827733894941}
+  - {fileID: 284826827275755421}
+  - {fileID: 284826828765395967}
+  - {fileID: 284826827579407908}
 --- !u!1 &284826828765395967
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &284826828765395936
 RectTransform:
   m_ObjectHideFlags: 0
@@ -846,7 +844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &284826828800310726
 RectTransform:
   m_ObjectHideFlags: 0

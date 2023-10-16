@@ -68,7 +68,7 @@ public class CutsceneEnter : MonoBehaviour
 
         print(PlayerController.forwardSpeed + "DA SPEED");
 
-        powerUpChecker = false;
+     //   powerUpChecker = false;
         powerupVar_PlayerController = false;
         print("IT MADE IT");
 

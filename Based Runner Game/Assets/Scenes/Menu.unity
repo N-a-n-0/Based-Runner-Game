@@ -2301,22 +2301,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 284826827275755421, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826827301230258, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826827579407908, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826827733894941, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 284826828577378721, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2402,34 +2386,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: Art.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: Art.Array.data[0]
-      value: 
-      objectReference: {fileID: 476566697}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: Art.Array.data[1]
-      value: 
-      objectReference: {fileID: 656256066}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: Art.Array.data[2]
-      value: 
-      objectReference: {fileID: 216472009}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: Art.Array.data[3]
-      value: 
-      objectReference: {fileID: 1106759233}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: Art.Array.data[4]
-      value: 
-      objectReference: {fileID: 1533810101}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: Art.Array.data[5]
-      value: 
-      objectReference: {fileID: 1551820258}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
       propertyPath: ArtLocation.Array.data[0]
       value: 
       objectReference: {fileID: 952945592}
@@ -2454,90 +2410,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1420119757}
     - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[0].IDNumber
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[1].IDNumber
+      propertyPath: extras.Array.data[0].isUnlocked
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[2].IDNumber
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[3].IDNumber
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[4].IDNumber
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[5].IDNumber
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[0].Description
-      value: 'It''s a me da mario '
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[0].description
-      value: its a me da mario dario been going through rough times ever since peach
-        left me dwag speaking of that you think you can send vemo me a couple of
-        dollars its for research purposes
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[1].Description
-      value: Joe Biden
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[1].description
-      value: joe biden JOE BIDEN
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[2].Description
-      value: Cracker
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[2].description
-      value: MAKE SURE TO SUB TO CRACKEDCRACKERONCRACK !@#$%^&*() AT TWITCH>TTV CRACKEDCRACKERONCRACK
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[3].Description
-      value: DK Donkey KONG
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[3].description
-      value: da monkey DK
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[4].Description
-      value: Quagmire toilet gaming
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[4].description
-      value: quagmire toelit gaming
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[5].Description
-      value: ' Lois im bruhing '
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: extras.Array.data[5].description
-      value: lois im bruhing
       objectReference: {fileID: 0}
     - target: {fileID: 284826828577378750, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
       propertyPath: m_Name
       value: ExtrasArea
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828765395967, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 284826828800310725, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
@@ -5484,7 +5362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2129842584
 RectTransform:
   m_ObjectHideFlags: 0

@@ -29,9 +29,6 @@ public class Extras : MonoBehaviour, IDataPersistence
     }
     public void SaveData(GameData data)
     {
-        
-        
-
 
         for (int i = 0; i < extras.Length; i++)
         {

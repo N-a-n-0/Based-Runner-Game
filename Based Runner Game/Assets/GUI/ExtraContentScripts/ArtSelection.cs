@@ -49,7 +49,7 @@ public class ArtSelection : MonoBehaviour
             ArtArea.GetComponent<Image>().sprite = ArtSelected.sprite;
         }
 
-        extras_Reference.extras[0].isUnlocked = true;
+      //  extras_Reference.extras[0].isUnlocked = true;
     }
 
     public void Art_01()
@@ -122,4 +122,7 @@ public class ArtSelection : MonoBehaviour
             ArtArea.GetComponent<Image>().sprite = ArtSelected.sprite;
         }
     }
+
+
+
 }
