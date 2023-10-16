@@ -181,17 +181,17 @@ public class PlayerController : MonoBehaviour
 
             //Calculate where we should be in the future
             Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
-            print(targetPosition);
+           // print(targetPosition);
             if (desiredLane == 0)
             {
-                print("MOVED LEFT HAPPEN");
+               // print("MOVED LEFT HAPPEN");
                 targetPosition += Vector3.left * laneDistance;
 
             }
                
             else if (desiredLane == 2)
             {
-                print("MOVED RIGHT HAPPEN");
+              //  print("MOVED RIGHT HAPPEN");
                 targetPosition += Vector3.right * laneDistance;
             }
               

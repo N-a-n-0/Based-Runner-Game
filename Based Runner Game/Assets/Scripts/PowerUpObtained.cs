@@ -33,35 +33,36 @@ public class PowerUpObtained : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-       // ProgressBar.targetProgress += 1f;
-        print("BOX WAS HIT NOW TURNING OFF BOX COLLIDER");
-        this.gameObject.GetComponent<BoxCollider>().enabled = false;
 
-        timercheck = Waiter();
+        if (CutsceneEnter.powerUpChecker == false)
+        {
+            // ProgressBar.targetProgress += 1f;
+            print("BOX WAS HIT NOW TURNING OFF BOX COLLIDER");
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
 
-        print(CutsceneEnter.powerUpChecker);
-       
-        CutsceneEnter.powerUpChecker = true;
-        print(CutsceneEnter.powerUpChecker);
+            timercheck = Waiter();
 
+            print(CutsceneEnter.powerUpChecker);
 
-
-       // CutsceneEnter.powerUpChecker = true;
-        CutsceneEnter.powerupVar_PlayerController = true;
-       
-        CutsceneEnter.CurrentForwardSpeed = PlayerController.forwardSpeed;
-        PlayerController.forwardSpeed = 0;
-        PlayerController.maxSpeed = 0;
+            CutsceneEnter.powerUpChecker = true;
+            print(CutsceneEnter.powerUpChecker);
 
 
 
-        StartCoroutine(timercheck);
-        
+            // CutsceneEnter.powerUpChecker = true;
+            CutsceneEnter.powerupVar_PlayerController = true;
+
+            CutsceneEnter.CurrentForwardSpeed = PlayerController.forwardSpeed;
+            PlayerController.forwardSpeed = 0;
+            PlayerController.maxSpeed = 0;
 
 
+
+            StartCoroutine(timercheck);
+
+        }
 
         // CurrentForwardSpeed = PlayerController.forwardSpeed;
-
 
 
         //  PlayerController.forwardSpeed = 0;

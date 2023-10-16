@@ -7,6 +7,8 @@ public class Coin : MonoBehaviour, IDataPersistence
     public static int coinsCollected;
     public float ScaleValueIncrease = 1f;
     public IEnumerator timercheck = null;
+
+    public GameObject coinModel;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +68,11 @@ public class Coin : MonoBehaviour, IDataPersistence
         if(other.tag == "Player")
         {
 
-            ProgressBar.targetProgress += 0.10f;
+            if(CutsceneEnter.powerUpChecker == false)
+            {
+                ProgressBar.targetProgress += 0.10f;
+            }
+           
 
             if (ProgressBar.targetProgress >= 1)
             {
@@ -91,17 +97,18 @@ public class Coin : MonoBehaviour, IDataPersistence
 
                 StartCoroutine(timercheck);
             }
-            print("THIS RAN");
+          //  print("THIS RAN");
             FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
             coinsCollected++;
            
             PlayerManager.numberOfCoins += 1;
             //PlayerPrefs.SetInt("NumberOfCoins", PlayerPrefs.GetInt("NumberOfCoins", 0) + 1);
-           // Destroy(gameObject);
+            // Destroy(gameObject);
 
-            Debug.Log(coinsCollected);
+            //  Debug.Log(coinsCollected);
 
-            Destroy(gameObject);
+            // Destroy(gameObject);
+            Destroy(coinModel);
         }
     }
 }
