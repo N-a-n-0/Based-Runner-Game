@@ -11,7 +11,8 @@ public class Unlockable_Content : MonoBehaviour
 
     public Extras extras_Reference;
 
-    int randomNumber = 0;
+    public static bool ArtUnlocked = false;
+    public static int randomNumber = 0; 
     
 
     // Start is called before the first frame update
@@ -25,20 +26,23 @@ public class Unlockable_Content : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(ArtUnlocked == true)
+        {
+            print("UNLOCKABLE NUMBER" + randomNumber);
+            print("WE HAVE ENTERED THE IF STATEMENT");
+            ArtUnlocked = false;
+            Unlock_Art();
+        }
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        print("EXTRA CONTENT HIT BOX WAS HIT");
-        NewRandomNumber();
-    }
 
     
-   public void NewRandomNumber()
+   public void Unlock_Art()
     {
        
-        randomNumber = Random.Range(0, 6);
+      //  randomNumber = Random.Range(0, 6);
 
        // print(randomNumber);
             if (extras_Reference.extras[randomNumber].isUnlocked == false)
