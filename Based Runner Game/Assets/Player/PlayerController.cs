@@ -273,8 +273,9 @@ public class PlayerController : MonoBehaviour
         isSliding = true;
         animator.SetBool("isSliding", true);
         controller.center = new Vector3(0, -0.4f, 0);
-        controller.height = .4f;
+        controller.height = .6f;
         
+
        
         yield return new WaitForSeconds(1.75f);
         slide = null;
