@@ -17,17 +17,17 @@ public class GameData
 
     public SerializableDictionary<int, bool> Extras_;
 
-    //  public int playerSelected;
+   
 
     public GameData()
     {
-        //this.deathCount = 0;
+       
 
        
 
         this.coins = 0;
 
-       // this.playerSelected = 0;
+       
 
         charactersUnlocked = new SerializableDictionary<int, bool>();
 

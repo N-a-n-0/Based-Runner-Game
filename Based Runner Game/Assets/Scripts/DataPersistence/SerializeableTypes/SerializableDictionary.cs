@@ -29,7 +29,7 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IS
 
         if(keys.Count != values.Count)
         {
-            Debug.LogError("SOMETHING TERRIBLE HAPPEN MY BRUH BUT AMOUNT KEYS: " + keys.Count + "DOES NOT MATCH CURRENT COUNT: " + values.Count);
+            Debug.LogError("SOMETHING HAS HAPPEN BUT AMOUNT KEYS: " + keys.Count + "DOES NOT MATCH CURRENT COUNT: " + values.Count);
         }
 
 
