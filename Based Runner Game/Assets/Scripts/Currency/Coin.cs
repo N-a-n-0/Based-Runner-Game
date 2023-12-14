@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour, IDataPersistence
 {
-    public static int coinsCollected;
+    public static int coinsCollected = 0;
     public float ScaleValueIncrease = 1f;
     public IEnumerator timercheck = null;
 
@@ -61,10 +61,12 @@ public class Coin : MonoBehaviour, IDataPersistence
 
     void coinPowerUpLogic(Collider other)
     {
-        print("COINS COLLECTED" + coinsCollected);
+      
         if (other.tag == "Player")
         {
-
+            coinsCollected++;
+            PlayerManager.numberOfCoins = coinsCollected;
+            print("COINS COLLECTED" + coinsCollected);
             if (CutsceneEnter.powerUpChecker == false)
             {
                 ProgressBar.targetProgress += 0.10f;
@@ -96,10 +98,8 @@ public class Coin : MonoBehaviour, IDataPersistence
             }
            
             FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
-            coinsCollected++;
-
-            PlayerManager.numberOfCoins += 1;
            
+
             Destroy(coinModel);
         }
     }

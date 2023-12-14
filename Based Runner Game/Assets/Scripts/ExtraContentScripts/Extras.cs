@@ -18,13 +18,13 @@ public class Extras : MonoBehaviour, IDataPersistence
           {
               data.Extras_.TryGetValue(i, out extras[i].isUnlocked);
               
-              print(data.Extras_.TryGetValue(i, out extras[i].isUnlocked) + "CURRENT: " + i);
+      //        print(data.Extras_.TryGetValue(i, out extras[i].isUnlocked) + "CURRENT: " + i);
               if (extras[i].isUnlocked)
               {
-                print("THIS ARTWORK IS UNLCOKED");
+           //     print("THIS ARTWORK IS UNLCOKED");
               }
 
-              print("RESULTS:" + extras[i].isUnlocked);
+            //  print("RESULTS:" + extras[i].isUnlocked);
           }
     }
     public void SaveData(GameData data)
@@ -50,7 +50,7 @@ public class Extras : MonoBehaviour, IDataPersistence
     {
 
     
-        print(extras[Art_Number].name);
+     //   print(extras[Art_Number].name);
         return Art[Art_Number].GetComponent<Image>();
     }
 

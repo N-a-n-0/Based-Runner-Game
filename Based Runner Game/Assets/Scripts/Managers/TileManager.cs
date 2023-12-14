@@ -25,7 +25,7 @@ public class TileManager : MonoBehaviour
         {
             if(gameStarted == false)
             {
-                print(gameStarted);
+              //  print(gameStarted);
 
               
                 gameStarted = true;

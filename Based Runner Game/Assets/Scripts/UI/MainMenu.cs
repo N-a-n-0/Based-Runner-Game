@@ -20,11 +20,11 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         DisablePlayButton();
-        if (DataPersistenceManager.instance.HasGameData())
-            {
-            Debug.Log("NO DATA? NEW GAME THEN!!!!!");
-            DataPersistenceManager.instance.NewGame();
-            }
+       // if (DataPersistenceManager.instance.HasGameData())
+        //    {
+          //  Debug.Log("NO DATA? NEW GAME THEN!!!!!");
+         //   DataPersistenceManager.instance.NewGame();
+         //   }
       
         SceneManager.LoadSceneAsync("Main");
     }

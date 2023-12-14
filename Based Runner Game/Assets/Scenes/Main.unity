@@ -1809,31 +1809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5dea167aea0a24fa50f56d1cb270fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &775843014 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4239513803834718892, guid: 9e32370a6a551764c8d4ec5a7b41f8b3, type: 3}
-  m_PrefabInstance: {fileID: 1565988575}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &775843017
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 775843014}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d736b571d65997d4a9c3c6d5b8d36fb7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &827929021
 GameObject:
   m_ObjectHideFlags: 0
@@ -3362,7 +3337,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 10000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -5162,7 +5137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTime: 3
   Decreasing: 0
-  Increasing: 0
 --- !u!114 &1958841526
 MonoBehaviour:
   m_ObjectHideFlags: 0

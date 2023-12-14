@@ -31,12 +31,12 @@ public class AudioManager : MonoBehaviour
         {
             if(s ==null)
             {
-                Debug.LogWarning("Sound: " + name + " not found!");
+         //       Debug.LogWarning("Sound: " + name + " not found!");
             }
 
             if (s.name == name)
             {
-                print(s.volume);
+         //       print(s.volume);
                
                 s.source.Play();
             }
@@ -52,7 +52,7 @@ public class AudioManager : MonoBehaviour
         {
             if (s.name == name)
             {
-                print(s.volume);
+         //       print(s.volume);
                
                 s.source.Stop();
             }

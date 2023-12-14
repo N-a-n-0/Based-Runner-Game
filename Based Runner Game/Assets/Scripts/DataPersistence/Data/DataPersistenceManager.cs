@@ -121,7 +121,7 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistenceObj.SaveData( gameData);
         }
        
-        Debug.Log("Loaded coin count = " + gameData.coins);
+        Debug.Log("Saved coin count = " + gameData.coins);
 
 
         dataHandler.Save(gameData);
@@ -133,7 +133,7 @@ public class DataPersistenceManager : MonoBehaviour
         print("The game closed");
         SaveGame();
     }
-
+    
     private void OnApplicationPause()
     {
         print("The game paused");
