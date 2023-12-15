@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: ebf01c13563c90e46a26d493345e576c, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -2408,6 +2408,10 @@ PrefabInstance:
     - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
       propertyPath: extras.Array.data[0].isUnlocked
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
+      propertyPath: extras.Array.data[0].description
+      value: it's a me Mr. Video game
       objectReference: {fileID: 0}
     - target: {fileID: 284826828577378750, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
       propertyPath: m_Name
