@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour, IDataPersistence
+public class Coin : MonoBehaviour//, IDataPersistence
 {
-    public static int coinsCollected = 0;
+  
     public float ScaleValueIncrease = 1f;
     public IEnumerator timercheck = null;
 
@@ -14,27 +14,30 @@ public class Coin : MonoBehaviour, IDataPersistence
     void Start()
     {
         ScaleValueIncrease = 1f;
+      //  print(CoinManager.coinsCollected);
     }
 
     
     void Update()
     {
         transform.Rotate(80 * Time.deltaTime, 0, 0);
+      //  print(CoinManager.coinsCollected);
     }
     
-    public void LoadData(GameData data)
+    /*public void LoadData(GameData data)
     {
         coinsCollected = data.coins;
+        print("COINS COLLECTED IN LOAD DATA: " + coinsCollected);
         
     }
     public void SaveData(GameData data)
     {
         data.coins = coinsCollected;
-
-    }
+        print("CURRENT SAVED DATA FOR COINS " + data.coins);
+    }*/
 
     public int getCoins()
-        { return coinsCollected; }
+        { return CoinManager.coinsCollected; }
 
 
     IEnumerator Waiter()
@@ -64,9 +67,9 @@ public class Coin : MonoBehaviour, IDataPersistence
       
         if (other.tag == "Player")
         {
-            coinsCollected++;
-            PlayerManager.numberOfCoins = coinsCollected;
-            print("COINS COLLECTED" + coinsCollected);
+            CoinManager.coinsCollected ++;
+            PlayerManager.numberOfCoins = CoinManager.coinsCollected;
+            print("COINS COLLECTED" + CoinManager.coinsCollected);
             if (CutsceneEnter.powerUpChecker == false)
             {
                 ProgressBar.targetProgress += 0.10f;

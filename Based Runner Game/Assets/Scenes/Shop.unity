@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 6510c6c6a08b7664eb4319f07276048d, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -927,6 +927,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146855799}
   m_CullTransparentMesh: 1
+--- !u!1001 &1246391070
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 863770656847929651, guid: b03297242fc17574d844a23974e281bb, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 863770656847929651, guid: b03297242fc17574d844a23974e281bb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.220958
+      objectReference: {fileID: 0}
+    - target: {fileID: 863770656847929651, guid: b03297242fc17574d844a23974e281bb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.984579
+      objectReference: {fileID: 0}
+    - target: {fileID: 863770656847929651, guid: b03297242fc17574d844a23974e281bb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 375.59894
+      objectReference: {fileID: 0}
+    - target: {fileID: 863770656847929651, guid: b03297242fc17574d844a23974e281bb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 863770656847929651, guid: b03297242fc17574d844a23974e281bb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863770656847929651, guid: b03297242fc17574d844a23974e281bb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863770656847929651, guid: b03297242fc17574d844a23974e281bb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863770656847929651, guid: b03297242fc17574d844a23974e281bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863770656847929651, guid: b03297242fc17574d844a23974e281bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863770656847929651, guid: b03297242fc17574d844a23974e281bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863770656847929653, guid: b03297242fc17574d844a23974e281bb, type: 3}
+      propertyPath: m_Name
+      value: CoinManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b03297242fc17574d844a23974e281bb, type: 3}
 --- !u!1 &1457272201
 GameObject:
   m_ObjectHideFlags: 0

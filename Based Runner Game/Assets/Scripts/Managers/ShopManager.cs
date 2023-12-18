@@ -14,8 +14,7 @@ public class ShopManager : MonoBehaviour, IDataPersistence
     public Button buyButton;
     public TMP_Text coinText;
 
-    public int coin;
-
+    
 
    
 
@@ -24,7 +23,7 @@ public class ShopManager : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        coin = data.coins;
+        CoinManager.coinsCollected = data.coins;
 
         for (int i= 0; i< characters.Length; i++)
         {
@@ -40,7 +39,7 @@ public class ShopManager : MonoBehaviour, IDataPersistence
     }
     public void SaveData(GameData data)
     {
-        data.coins = coin;
+        data.coins = CoinManager.coinsCollected;
 
 
         for (int i = 0; i < characters.Length; i++)
@@ -108,7 +107,7 @@ public class ShopManager : MonoBehaviour, IDataPersistence
        
         if(coinText != null)
         {
-            coinText.GetComponentInChildren<TextMeshProUGUI>().text = "Coins: " + coin;
+            coinText.GetComponentInChildren<TextMeshProUGUI>().text = "Coins: " + CoinManager.coinsCollected;
             UpdateUI();
         }
 
@@ -126,7 +125,7 @@ public class ShopManager : MonoBehaviour, IDataPersistence
 
         
         characterPlayerModel.isUnlocked = true;
-        coin -= characterPlayerModel.price;
+        CoinManager.coinsCollected -= characterPlayerModel.price;
 
     }
 
@@ -197,7 +196,7 @@ public class ShopManager : MonoBehaviour, IDataPersistence
           
                 buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy - " + c.price;
            
-            if (c.price < coin)
+            if (c.price < CoinManager.coinsCollected)
                 {
                 buyButton.interactable = true;
                 }
