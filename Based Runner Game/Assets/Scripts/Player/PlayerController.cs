@@ -17,10 +17,6 @@ public class PlayerController : MonoBehaviour
     public static GameObject child_Obj_Reference;
 
 
-
-    private bool jumpCannotHappen;
-    private bool slideCannotHappen;
-
     private IEnumerator slide;
 
     private int desiredLane = 1;//0:left, 1:middle, 2:right
@@ -126,7 +122,7 @@ public class PlayerController : MonoBehaviour
 
                     
                     
-                    slideCannotHappen = true;
+                   // slideCannotHappen = true;
                     Jump();
                   
 
@@ -144,7 +140,7 @@ public class PlayerController : MonoBehaviour
                     if (slide == null)
                     {
                         slide = Slide();
-                        jumpCannotHappen = true;
+                      //  jumpCannotHappen = true;
                         StartCoroutine(slide);
                     }
 
@@ -171,14 +167,31 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight &&  PlayerManager.Final_GameOver_Check == false)
             {
                 desiredLane++;
+                slideCancel();
+
+                //CONSIDER THIS A GOOD SPOT FOR THE LANE CHANGE ANIMATION CODE ***************************************************************
+
                 if (desiredLane == 3)
+                {
+                   
                     desiredLane = 2;
+
+                }
+                   
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft  && PlayerManager.Final_GameOver_Check == false)
             {
                 desiredLane--;
+                slideCancel();
+
+                //CONSIDER THIS A GOOD SPOT FOR THE LANE CHANGE ANIMATION CODE ***************************************************************
+
                 if (desiredLane == -1)
+                {
+                   
                     desiredLane = 0;
+                }
+                   
             }
 
             //Calculate where we should be in the future
@@ -186,14 +199,14 @@ public class PlayerController : MonoBehaviour
            
             if (desiredLane == 0)
             {
-              
+             
                 targetPosition += Vector3.left * laneDistance;
 
             }
                
             else if (desiredLane == 2)
             {
-             
+               
                 targetPosition += Vector3.right * laneDistance;
             }
               
@@ -206,11 +219,13 @@ public class PlayerController : MonoBehaviour
              
                 if (moveDir.sqrMagnitude < diff.magnitude)
                 {
+                    slideCancel();
                     controller.Move(moveDir);
                 }
                 
                 else
                 {
+                    slideCancel();
                     controller.Move(diff);
                 }
                
@@ -228,23 +243,13 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-       
-       if(slide != null)
-        {
-            print("A slide is happening");
-            StopAllCoroutines();
-            slide = null;
-           
-            
 
-        }
-      
-        animator.SetBool("isGrounded", true);
-        animator.SetBool("isSliding", false);
-        controller.center = controller.center = new Vector3(0, 0, 0); 
-        controller.height = 2;
-        isSliding = false;
-        slideCannotHappen = false;
+        slideCancel();
+    
+       
+       
+      //  isSliding = false;
+      //  slideCannotHappen = false;
         velocity.y = Mathf.Sqrt(jumpHeight * 5 * -gravity);
 
 
@@ -287,17 +292,10 @@ public class PlayerController : MonoBehaviour
         controller.center = new Vector3(0,0,0);
         controller.height = 1.75f;
 
-        jumpCannotHappen = false;
+       // jumpCannotHappen = false;
        
     }
 
-
-
-
-
-    //RETURN FUNCTIONS
-
-   
 
     //not this parent object but the child object that stores the visual model you see in game
     public  GameObject returnChildGameObject()
@@ -309,5 +307,21 @@ public class PlayerController : MonoBehaviour
     public static Animator getAnimator(GameObject obj)
     {
         return obj.GetComponent<Animator>();
+    }
+
+
+    public void slideCancel()
+    {
+        if (slide != null)
+        {
+            print("A slide is happening");
+            StopAllCoroutines();
+            slide = null;
+            animator.SetBool("isSliding", false);
+
+            controller.center = controller.center = new Vector3(0, 0, 0);
+            controller.height = 1.6f;
+        }
+        
     }
 }
