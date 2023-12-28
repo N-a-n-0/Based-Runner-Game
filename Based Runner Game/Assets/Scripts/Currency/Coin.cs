@@ -24,25 +24,15 @@ public class Coin : MonoBehaviour//, IDataPersistence
       //  print(CoinManager.coinsCollected);
     }
     
-    /*public void LoadData(GameData data)
-    {
-        coinsCollected = data.coins;
-        print("COINS COLLECTED IN LOAD DATA: " + coinsCollected);
-        
-    }
-    public void SaveData(GameData data)
-    {
-        data.coins = coinsCollected;
-        print("CURRENT SAVED DATA FOR COINS " + data.coins);
-    }*/
+    
 
     public int getCoins()
         { return CoinManager.coinsCollected; }
 
 
-    IEnumerator Waiter()
-    {
-        PlayerController.PlayerModel.transform.position += new Vector3(0, 3.5f, 0);
+   // IEnumerator Waiter()
+   // {
+       /* PlayerController.PlayerModel.transform.position += new Vector3(0, 3.5f, 0);
         while (ScaleValueIncrease > 6f == false)
         {
             yield return new WaitForSeconds(.1f);
@@ -59,8 +49,8 @@ public class Coin : MonoBehaviour//, IDataPersistence
         StopAllCoroutines();
 
 
-
-    }
+        */
+   // }
 
     void coinPowerUpLogic(Collider other)
     {
@@ -70,36 +60,46 @@ public class Coin : MonoBehaviour//, IDataPersistence
             CoinManager.coinsCollected ++;
             PlayerManager.numberOfCoins = CoinManager.coinsCollected;
             print("COINS COLLECTED" + CoinManager.coinsCollected);
-            if (CutsceneEnter.powerUpChecker == false)
+            if (ProgressBar.targetProgress < 1 && CutsceneEnter.powerUpChecker == false)
             {
-                ProgressBar.targetProgress += 0.10f;
+                ProgressBar.targetProgress += .5f;
             }
 
 
-            if (ProgressBar.targetProgress >= 1)
+            if (ProgressBar.targetProgress >= 1 && CutsceneEnter.powerUpChecker == false)
             {
                 ProgressBar.targetProgress = 0;
-                timercheck = Waiter();
-
-                print(CutsceneEnter.powerUpChecker);
-
                 CutsceneEnter.powerUpChecker = true;
-                print(CutsceneEnter.powerUpChecker);
-
-
-
                
-                CutsceneEnter.powerupVar_PlayerController = true;
-
-                CutsceneEnter.CurrentForwardSpeed = PlayerController.forwardSpeed;
-                PlayerController.forwardSpeed = 0;
-                PlayerController.maxSpeed = 0;
 
 
+                /*
+                  timercheck = Waiter();
 
-                StartCoroutine(timercheck);
+                  print(CutsceneEnter.powerUpChecker);
+
+                  CutsceneEnter.powerUpChecker = true;
+                  print(CutsceneEnter.powerUpChecker);
+
+
+
+
+                  CutsceneEnter.powerupVar_PlayerController = true;
+
+                  CutsceneEnter.CurrentForwardSpeed = PlayerController.forwardSpeed;
+                  PlayerController.forwardSpeed = 0;
+                  PlayerController.maxSpeed = 0;
+
+
+
+                  StartCoroutine(timercheck);
+                */
             }
-           
+            else
+            {
+                print("Conditions for power up has been met while power up has already been activated");
+            }
+
             FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
            
 

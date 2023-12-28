@@ -9,8 +9,11 @@ public class PowerUpObtained : MonoBehaviour
     public IEnumerator timercheck = null;
 
     public float ScaleValueIncrease = 1f;
+
+    //Waiter increases the scale of PlayerModel
     IEnumerator Waiter()
     {
+
         PlayerController.PlayerModel.transform.position += new Vector3(0, 3.5f, 0);
         while (ScaleValueIncrease > 6f == false)
         {
@@ -30,31 +33,13 @@ public class PowerUpObtained : MonoBehaviour
           
         
     }
-
+    //Power up is attached to the PowerUp prefab
     void powerUpLogic()
     {
-        print("BOX WAS HIT NOW TURNING OFF BOX COLLIDER");
-        this.gameObject.GetComponent<BoxCollider>().enabled = false;
-
-        timercheck = Waiter();
-
-        print(CutsceneEnter.powerUpChecker);
 
         CutsceneEnter.powerUpChecker = true;
-        print(CutsceneEnter.powerUpChecker);
-
-
-
-       
-        CutsceneEnter.powerupVar_PlayerController = true;
-
-        CutsceneEnter.CurrentForwardSpeed = PlayerController.forwardSpeed;
-        PlayerController.forwardSpeed = 0;
-        PlayerController.maxSpeed = 0;
-
-
-
-        StartCoroutine(timercheck);
+             ProgressBar.targetProgress = 0;
+      
     }
 
     void OnTriggerEnter(Collider other)
@@ -62,9 +47,13 @@ public class PowerUpObtained : MonoBehaviour
 
         if (CutsceneEnter.powerUpChecker == false)
         {
-            
-            powerUpLogic();
+          
+                powerUpLogic(); 
 
+        }
+        else
+        {
+            print("POWER UP IS ALREADY IN PROGRESS RIGHT HERE SHOULD ADD TO THE PLAYER OVERALL SCORE IF POWER UP WAS OBTAINED AGAIN");
         }
 
        

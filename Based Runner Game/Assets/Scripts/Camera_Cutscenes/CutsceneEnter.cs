@@ -12,16 +12,27 @@ public class CutsceneEnter : MonoBehaviour
 
     public static bool PowerApplies = false;
 
-    [SerializeField]
-   
-    public   Camera MainCamera;
-    public  Camera cutsceneCam;
+
+    public Camera MainCamera;
+    public Camera cutsceneCam;
 
     public Camera FirstPersonCamera;
 
     public Animator animator;
 
-    public float PlayersScale = 6f;
+    //REFERENCES BELOW
+    public static Animator child_Animator_Reference;
+
+    public static Camera MainCamera_Reference;
+
+    public static Camera cutsceneCam_Reference;
+
+    public static Camera FirstPersonCamera_Reference;
+
+    //______________________________________________
+
+    public static float PlayersScale = 6f;
+   
 
 
     public static IEnumerator CutSceneFunction = null;
@@ -31,20 +42,33 @@ public class CutsceneEnter : MonoBehaviour
 
     void Start()
     {
+        MainCamera_Reference = getCamera(MainCamera);
+        cutsceneCam_Reference = getCamera(cutsceneCam);
+        FirstPersonCamera_Reference = getCamera(FirstPersonCamera);
+
+
+        child_Animator_Reference = returnAnimator();
         powerUpChecker = false;
         CutSceneFunction = null;
         PlayersScale = 6f;
         powerupVar_PlayerController = false;
         CurrentForwardSpeed = 25;
+
+        print(MainCamera_Reference);
+        print(cutsceneCam_Reference);
+        print(FirstPersonCamera_Reference);
+
     }
 
+    
+    /*
     IEnumerator FinishCut()
     {
         print("ITS ABOUT TO WAIT");
         PowerApplies = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1); // one second will pass here
         animator.SetBool("PowerUp", false);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(4); // four seconds will pass here 
        
         PlayerController.forwardSpeed = CurrentForwardSpeed;
         //Speed is being saved here
@@ -69,24 +93,6 @@ public class CutsceneEnter : MonoBehaviour
         PlayerController.forwardSpeed = 0;
         PlayerController.maxSpeed = 0;
 
-      
-       
-        while (PlayersScale > 1f == true)
-        {
-            print("PLAYER IS SCALING BACK TO NORMAL");
-            
-            yield return new WaitForSeconds(10 * Time.deltaTime);
-            PlayersScale -= .1f;
-            print(PlayersScale);
-
-            if(PlayersScale <= 1f)
-            {
-                PlayersScale = 1f;
-            }
-
-            PlayerController.PlayerModel.transform.localScale = new Vector3(PlayersScale, PlayersScale, PlayersScale);
-        }
-        //set values back to the player
         PlayerController.forwardSpeed = CurrentForwardSpeed;
         PlayerController.maxSpeed = 75;
         powerUpChecker = false;
@@ -104,24 +110,40 @@ public class CutsceneEnter : MonoBehaviour
 
 
 
-    }
+    }*/
 
     void Update()
         {
      
-       
-        if(powerUpChecker == true && CutSceneFunction == null)
+       /*
+        if(powerUpChecker == true && ProgressBar.targetProgress >= 1)
         {
-            CutSceneFunction = FinishCut();
-            animator.SetBool("PowerUp", true);
+           // CutSceneFunction = FinishCut();
+           // animator.SetBool("PowerUp", true);
             MainCamera.enabled = false;
             cutsceneCam.enabled = true;
 
            
             print("TRIGGERED");
-            StartCoroutine(CutSceneFunction);
-           
-        }
+            //StartCoroutine(CutSceneFunction);
+          //  PlayerFunctions.playerPowerUp();
+
+        }*/
       
+    }
+
+
+    //RETURN FUNCTIONS
+
+
+
+    public  Animator returnAnimator()
+    {
+        return animator;
+    }
+
+    public Camera getCamera(Camera cam)
+    {
+        return cam;
     }
 }

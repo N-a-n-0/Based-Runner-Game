@@ -713,9 +713,7 @@ MonoBehaviour:
   - name: mario
     IDNumber: 0
     isUnlocked: 0
-    description: its a me da mario dario been going through rough times ever since
-      peach left me dwag speaking of that you think you can send vemo me a couple
-      of dollars its for research purposes
+    description: 
   - name: biden
     IDNumber: 1
     isUnlocked: 0

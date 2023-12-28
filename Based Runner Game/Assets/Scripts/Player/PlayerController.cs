@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,10 @@ public class PlayerController : MonoBehaviour
 
     public static GameObject PlayerModel  =  null;
 
-    
-    
+    public GameObject childPlayerModel;
+
+    public static GameObject child_Obj_Reference;
+
 
 
     private bool jumpCannotHappen;
@@ -31,7 +34,8 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 2;
     private Vector3 velocity;
 
-    public Animator animator;
+    [SerializeField]
+    public static Animator animator;
     private bool isSliding = false;
 
     public float slideDuration = .1f;
@@ -42,13 +46,19 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        child_Obj_Reference = returnChildGameObject();
+        animator = childPlayerModel.GetComponent<Animator>();
+        print(animator);
         forwardSpeed = 25;
         maxSpeed = 45;
         PlayerModel = this.gameObject;
         print(PlayerModel);
         controller = GetComponent<CharacterController>();
         Time.timeScale = 1f;
-        
+
+      //  childPlayerModel.transform.localScale = new Vector3(.5f, .5f, .5f);
+
+
     }
 
     private void FixedUpdate()
@@ -279,5 +289,25 @@ public class PlayerController : MonoBehaviour
 
         jumpCannotHappen = false;
        
+    }
+
+
+
+
+
+    //RETURN FUNCTIONS
+
+   
+
+    //not this parent object but the child object that stores the visual model you see in game
+    public  GameObject returnChildGameObject()
+    {
+
+        return childPlayerModel;
+    }
+
+    public static Animator getAnimator(GameObject obj)
+    {
+        return obj.GetComponent<Animator>();
     }
 }
