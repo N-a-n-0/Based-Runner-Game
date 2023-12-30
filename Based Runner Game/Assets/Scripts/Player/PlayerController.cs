@@ -140,7 +140,8 @@ public class PlayerController : MonoBehaviour
                     if (slide == null)
                     {
                         slide = Slide();
-                      //  jumpCannotHappen = true;
+                        //  jumpCannotHappen = true;
+                        StopAllCoroutines();
                         StartCoroutine(slide);
                     }
 

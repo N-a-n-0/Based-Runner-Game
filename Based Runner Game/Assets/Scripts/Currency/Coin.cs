@@ -62,7 +62,7 @@ public class Coin : MonoBehaviour//, IDataPersistence
             print("COINS COLLECTED" + CoinManager.coinsCollected);
             if (ProgressBar.targetProgress < 1 && CutsceneEnter.powerUpChecker == false)
             {
-                ProgressBar.targetProgress += .5f;
+                ProgressBar.targetProgress += .01f;
             }
 
 
