@@ -220,13 +220,13 @@ public class PlayerController : MonoBehaviour
              
                 if (moveDir.sqrMagnitude < diff.magnitude)
                 {
-                    slideCancel();
+                   
                     controller.Move(moveDir);
                 }
                 
                 else
                 {
-                    slideCancel();
+                
                     controller.Move(diff);
                 }
                
@@ -313,8 +313,9 @@ public class PlayerController : MonoBehaviour
 
     public void slideCancel()
     {
-        if (slide != null)
-        {
+       
+        //if (slide != null)
+      //  {
             print("A slide is happening");
             StopAllCoroutines();
             slide = null;
@@ -322,7 +323,7 @@ public class PlayerController : MonoBehaviour
 
             controller.center = controller.center = new Vector3(0, 0, 0);
             controller.height = 1.6f;
-        }
-        
+        //  }
+        print(slide);
     }
 }

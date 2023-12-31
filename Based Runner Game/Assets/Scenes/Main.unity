@@ -4920,7 +4920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd28041318fbcf4b90311872faafd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childPlayerModel: {fileID: 0}
+  childPlayerModel: {fileID: 419798128}
   isGrounded: 1
   groundLayer:
     serializedVersion: 2

@@ -1,31 +1,13 @@
 {
     "m_SelectedDeviceId": "3336485247373098",
     "m_SelectedPackage": {
-        "deviceId": "3336485247373098",
-        "name": "com.DefaultCompany.BasedRunnerGame",
-        "processId": 17971,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "3336485247373098",
-            "name": "com.DefaultCompany.BasedRunnerGame",
-            "processId": 28938,
-            "exited": true
-        },
-        {
-            "deviceId": "3336485247373098",
-            "name": "com.nianticlabs.pokemongo",
-            "processId": 21493,
-            "exited": true
-        },
-        {
-            "deviceId": "3336485247373098",
-            "name": "com.DefaultCompany.BasedRunnerGame",
-            "processId": 29393,
-            "exited": true
-        },
         {
             "deviceId": "3336485247373098",
             "name": "com.DefaultCompany.BasedRunnerGame",
@@ -36,12 +18,24 @@
             "deviceId": "3336485247373098",
             "name": "com.DefaultCompany.BasedRunnerGame",
             "processId": 17088,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "3336485247373098",
             "name": "com.DefaultCompany.BasedRunnerGame",
             "processId": 17971,
+            "exited": true
+        },
+        {
+            "deviceId": "3336485247373098",
+            "name": "com.DefaultCompany.BasedRunnerGame",
+            "processId": 15152,
+            "exited": true
+        },
+        {
+            "deviceId": "3336485247373098",
+            "name": "com.unity3d.mobileremote",
+            "processId": 17822,
             "exited": false
         }
     ],
