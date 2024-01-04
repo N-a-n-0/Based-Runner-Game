@@ -31,7 +31,7 @@ public class ShopManager : MonoBehaviour, IDataPersistence
            
             if(characters[i].isUnlocked)
             {
-               
+                print("This character Index is unlocked  INDEX: " + i);
             }
 
           

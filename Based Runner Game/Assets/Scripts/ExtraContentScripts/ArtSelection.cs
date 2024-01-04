@@ -26,7 +26,7 @@ public class ArtSelection : MonoBehaviour
         SelectedArea.SetActive(false);
     }
 
-
+    // each of these Art_## functions are attached to a button ***********
     public void Art_00()
     {
         if (extras_Reference.extras[0].isUnlocked == true)

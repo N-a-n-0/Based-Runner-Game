@@ -16,15 +16,12 @@ public class GameData
     public SerializableDictionary<int, bool> charactersUnlocked;
 
     public SerializableDictionary<int, bool> Extras_;
+    public SerializableDictionary<int, bool> Levels_Unlocked;
+    public SerializableDictionary<int, int> Level_HighScores;
 
-   
 
     public GameData()
     {
-       
-
-       
-
         this.coins = 0;
 
        
@@ -32,5 +29,9 @@ public class GameData
         charactersUnlocked = new SerializableDictionary<int, bool>();
 
         Extras_ = new SerializableDictionary<int, bool>();
+
+        Levels_Unlocked = new SerializableDictionary<int, bool>();
+
+        Level_HighScores = new SerializableDictionary<int, int>();
     }
 }
