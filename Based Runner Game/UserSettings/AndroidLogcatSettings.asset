@@ -1,31 +1,13 @@
 {
     "m_SelectedDeviceId": "3336485247373098",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "3336485247373098",
+        "name": "com.DefaultCompany.BasedRunnerGame",
+        "processId": 26920,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "3336485247373098",
-            "name": "com.DefaultCompany.BasedRunnerGame",
-            "processId": 29660,
-            "exited": true
-        },
-        {
-            "deviceId": "3336485247373098",
-            "name": "com.DefaultCompany.BasedRunnerGame",
-            "processId": 17088,
-            "exited": true
-        },
-        {
-            "deviceId": "3336485247373098",
-            "name": "com.DefaultCompany.BasedRunnerGame",
-            "processId": 17971,
-            "exited": true
-        },
         {
             "deviceId": "3336485247373098",
             "name": "com.DefaultCompany.BasedRunnerGame",
@@ -36,6 +18,36 @@
             "deviceId": "3336485247373098",
             "name": "com.unity3d.mobileremote",
             "processId": 17822,
+            "exited": true
+        },
+        {
+            "deviceId": "3336485247373098",
+            "name": "com.DefaultCompany.BasedRunnerGame",
+            "processId": 5196,
+            "exited": true
+        },
+        {
+            "deviceId": "3336485247373098",
+            "name": "com.sec.android.app.launcher",
+            "processId": 4718,
+            "exited": false
+        },
+        {
+            "deviceId": "3336485247373098",
+            "name": "com.DefaultCompany.BasedRunnerGame",
+            "processId": 20933,
+            "exited": true
+        },
+        {
+            "deviceId": "3336485247373098",
+            "name": "com.unity3d.mobileremote",
+            "processId": 19611,
+            "exited": false
+        },
+        {
+            "deviceId": "3336485247373098",
+            "name": "com.DefaultCompany.BasedRunnerGame",
+            "processId": 26920,
             "exited": false
         }
     ],

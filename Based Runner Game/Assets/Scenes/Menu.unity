@@ -3119,6 +3119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c59a824e6393a469985b22379a493d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterModel: {fileID: 0}
+  Level_Locations: []
+  Level_Location_HighScores: 
+  positions: []
+  currentLevel: 0
 --- !u!1 &1106759233 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 284826827275755421, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
@@ -5195,8 +5200,8 @@ RectTransform:
   m_Father: {fileID: 1713075860}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0.3}
+  m_AnchorMax: {x: 0.5, y: 0.6}
   m_AnchoredPosition: {x: -47, y: 164}
   m_SizeDelta: {x: 1337.9385, y: 1003.0674}
   m_Pivot: {x: 0.5, y: 0.5}
