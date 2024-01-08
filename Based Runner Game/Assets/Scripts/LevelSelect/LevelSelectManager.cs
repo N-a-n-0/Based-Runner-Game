@@ -115,6 +115,7 @@ public class LevelSelectManager : MonoBehaviour, IDataPersistence
             // print("POINT HAS BEEN REACHED");
 
         }
+
         else
         {
             Pervious_Level_Button.enabled = false;
@@ -131,6 +132,10 @@ public class LevelSelectManager : MonoBehaviour, IDataPersistence
         {
             print("You have reached the end of the array");
         }
+        else if (Level_info[currentLevel + 1].isUnlocked == false)
+        {
+            print("The next level has not been unlocked yet please play the current level to unlock it");
+        }
         else
         {
             currentLevel++;
@@ -144,6 +149,11 @@ public class LevelSelectManager : MonoBehaviour, IDataPersistence
         if (currentLevel - 1 < 0)
         {
             print("You have reached the end of the array");
+        }
+
+        else if (Level_info[currentLevel - 1].isUnlocked == false)
+        {
+            print("The next level has not been unlocked yet please play the current level to unlock it");
         }
         else
         {

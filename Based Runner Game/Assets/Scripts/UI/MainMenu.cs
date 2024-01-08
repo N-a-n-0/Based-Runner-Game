@@ -41,6 +41,14 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync("Shop");
     }
 
+
+    public void GoToLevels()
+    {
+       // DisableShopButton();
+
+        SceneManager.LoadSceneAsync("Level_Select");
+    }
+
     private void DisablePlayButton()
     {
         StartGameButton.interactable = false;
