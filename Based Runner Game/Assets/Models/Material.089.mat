@@ -57,6 +57,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _EmissiveMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 5b908af0d6c919f439e88c273c612097, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -91,16 +95,29 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - Amount: 0
+    - Amplitude: 0
+    - CutoutThresh: 0
+    - Distance: 0
+    - Speed: 0
     - _AlphaClip: 0
+    - _Amount: 1
+    - _Amplitude: 1
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
+    - _CurveStrength: 0
     - _Cutoff: 0.5
+    - _CutoutThresh: 0.2
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Distance: 1
     - _DstBlend: 0
+    - _DynamicEmissionLM: 0
+    - _Emission: 1
+    - _EmissionLM: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -114,14 +131,16 @@ Material:
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Speed: 1
     - _SrcBlend: 1
     - _Surface: 0
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
-    - _Color: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 1, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _TintColor: {r: 0.7169812, g: 0.16571736, b: 0.16571736, a: 1}
   m_BuildTextureStacks: []
