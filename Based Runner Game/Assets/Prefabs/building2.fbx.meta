@@ -1,17 +1,14 @@
 fileFormatVersion: 2
-guid: a019f952de1d16547a32b55f33562354
+guid: b3efa7b764c044143819aa05bd288c3a
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable:
-  - first:
-      74: -7536546058115350168
-    second: Death Animation
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 9866f8141e9549c4489a23c960150ad9, type: 2}
+      name: Material.062
+    second: {fileID: 2100000, guid: c3e8690836de5914cbb757731a2b4d2a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -39,36 +36,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Death Animation
-      takeName: metarig|metarigAction.002
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 55
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []

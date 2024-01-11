@@ -91,6 +91,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - Amount: 0
+    - Amplitude: 0
+    - CutoutThresh: 0
+    - Distance: 0
+    - Speed: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -122,4 +127,8 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+<<<<<<< Updated upstream
+=======
+    - _TintColor: {r: 1, g: 0.9873833, b: 0.8537736, a: 1}
+>>>>>>> Stashed changes
   m_BuildTextureStacks: []
