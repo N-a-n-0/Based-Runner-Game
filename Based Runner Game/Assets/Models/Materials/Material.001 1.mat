@@ -107,7 +107,7 @@ Material:
     - _Distance: 1
     - _DstBlend: 0
     - _DynamicEmissionLM: 0
-    - _Emission: 1
+    - _Emission: 1.23
     - _EmissionLM: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1

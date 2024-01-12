@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
 
     public float gravity = -12f;
-    public float jumpHeight = 2;
+    public float jumpHeight = 5;
     private Vector3 velocity;
 
     [SerializeField]
@@ -168,8 +168,16 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight &&  PlayerManager.Final_GameOver_Check == false)
             {
                 desiredLane++;
+               
                 slideCancel();
-
+                if (isGrounded == true && animator.GetBool ("LaneRight") == false)
+               {
+                    animator.SetBool("LaneRight", true);
+                }
+               else
+                {
+                    animator.SetBool("LaneRight", false);
+                }
                 //CONSIDER THIS A GOOD SPOT FOR THE LANE CHANGE ANIMATION CODE ***************************************************************
 
                 if (desiredLane == 3)
@@ -178,13 +186,21 @@ public class PlayerController : MonoBehaviour
                     desiredLane = 2;
 
                 }
-                   
+              // animator.SetBool("LaneRight", false);
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft  && PlayerManager.Final_GameOver_Check == false)
             {
                 desiredLane--;
+              
                 slideCancel();
-
+               if (isGrounded == true && animator.GetBool("LaneLeft") == false)
+               {
+                    animator.SetBool("LaneLeft", true);
+               }
+               else
+                {
+                    animator.SetBool("LaneLeft", false);
+                }
                 //CONSIDER THIS A GOOD SPOT FOR THE LANE CHANGE ANIMATION CODE ***************************************************************
 
                 if (desiredLane == -1)
@@ -192,7 +208,7 @@ public class PlayerController : MonoBehaviour
                    
                     desiredLane = 0;
                 }
-                   
+              //  animator.SetBool("LaneLeft", false);
             }
 
             //Calculate where we should be in the future

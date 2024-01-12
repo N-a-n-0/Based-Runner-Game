@@ -45,4 +45,10 @@ public class GameOverAnimation : MonoBehaviour
         print("GAMEOVER_RAN");
     }
 
+    public void Game_False()
+    {
+        PlayerManager.gameOver = false;
+        PlayerController.animator.SetBool("Game Over", false);
+    }
+
 }

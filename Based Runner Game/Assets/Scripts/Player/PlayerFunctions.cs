@@ -157,4 +157,20 @@ public class PlayerFunctions : MonoBehaviour
     }
 
 
+    public void LaneChange_Left()
+    {
+        
+            PlayerController.animator.SetBool("LaneLeft", false);
+        
+      
+
+    }
+
+    public void LaneChange_Right()
+    {
+       
+            PlayerController.animator.SetBool("LaneRight", false);
+        
+    }
+
 }

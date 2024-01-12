@@ -4,7 +4,7 @@
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_TintColor("Tint Color", Color) = (1, 1, 1, 1)
-		_Emission("Emission", Range(0, 1)) = 0
+		_Emission("Emission", Range(0, 3)) = 0
 		CutoutThresh("Cutout Threshold", Range(0.0,1.0)) = 0.0
 		Distance("Distance", Float) = 0
 		Amplitude("Amplitude", Float) = 0
