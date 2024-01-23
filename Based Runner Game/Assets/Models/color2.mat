@@ -10,11 +10,10 @@ Material:
   m_Name: color2
   m_Shader: {fileID: 4800000, guid: 845386bf50f92fb40832c0ef7ddad857, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _EMISSION
-  m_LightmapFlags: 2
+  m_InvalidKeywords: []
+  m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 1
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
@@ -46,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9ef61c97a9e1bca488ac6ae1d53a71a5, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -114,9 +113,9 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.77835834, g: 0.19971518, b: 0.8301887, a: 1}
     - _Color: {r: 0.77835834, g: 0.19971518, b: 0.8301887, a: 1}
-    - _EmissionColor: {r: 0.4433962, g: 0.039738327, b: 0.21353538, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _TintColor: {r: 0, g: 0.9195555, b: 0.9622642, a: 1}
+    - _TintColor: {r: 0.14351194, g: 0.19743848, b: 0.4056604, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &2024126874017593355
 MonoBehaviour:
