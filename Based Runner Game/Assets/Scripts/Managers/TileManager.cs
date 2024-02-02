@@ -1,16 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class TileManager : MonoBehaviour
 {
     public GameObject[] tilePrefabs;
+    public GameObject[] eventTilePrefabs;
     public float zSpawn = 0;
     public float tileLength = 30;
 
     public int numberOfTiles = 5;
 
     public bool gameStarted = false;
+
+    public bool endOfLevelReached = false;
+
+    public int totalTilesSpawned = 0;
+
+    [Range(0, 1000)]
+    public int tileCount;
 
     private List<GameObject> activeTiles = new List<GameObject>();
 
@@ -29,12 +37,16 @@ public class TileManager : MonoBehaviour
 
               
                 gameStarted = true;
-                SpawnTile(0);
-                 
+                CustomSpawnTile(0); //Spawning the starter tile right here :)
+              
+
+
             }
             else
             {
-                SpawnTile(Random.Range(1, tilePrefabs.Length));
+                SpawnTile(Random.Range(0, tilePrefabs.Length));
+
+               
 
             }
             
@@ -45,17 +57,45 @@ public class TileManager : MonoBehaviour
    
     void Update()
     {
-        if(playerTransform.position.z -35 > zSpawn-(numberOfTiles * tileLength))
+        if (totalTilesSpawned == tileCount && SceneManager.GetActiveScene().name != "Main")
         {
-            SpawnTile(Random.Range(1, tilePrefabs.Length));
-            DeleteTile();
+            endOfLevelReached = true;
         }
+
+        if (endOfLevelReached == false)
+        {
+           
+            if (playerTransform.position.z - 35 > zSpawn - (numberOfTiles * tileLength))
+            {
+                SpawnTile(Random.Range(0, tilePrefabs.Length));
+                
+                DeleteTile();
+            }
+            
+        }
+        else if(totalTilesSpawned == tileCount && endOfLevelReached == true)
+        {
+            print("BRUH");
+           // endOfLevelReached = false;
+            CustomSpawnTile(1);
+        }
+       
+        
     }
 
     public void SpawnTile(int tileIndex)
     {
 
         GameObject go = Instantiate(tilePrefabs[tileIndex], transform.forward * zSpawn, transform.rotation);
+        totalTilesSpawned++;
+        activeTiles.Add(go);
+        zSpawn += tileLength;
+    }
+    public void CustomSpawnTile(int tileIndex)
+    {
+
+        GameObject go = Instantiate(eventTilePrefabs[tileIndex], transform.forward * zSpawn, transform.rotation);
+        totalTilesSpawned++;
         activeTiles.Add(go);
         zSpawn += tileLength;
     }
@@ -67,4 +107,7 @@ public class TileManager : MonoBehaviour
 
        
     }
+
+
+
 }

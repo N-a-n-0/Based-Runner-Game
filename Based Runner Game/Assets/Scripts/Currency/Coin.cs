@@ -13,7 +13,8 @@ public class Coin : MonoBehaviour//, IDataPersistence
     
     void Start()
     {
-        ScaleValueIncrease = 1f;
+      //  Time.timeScale = 5;
+       ScaleValueIncrease = 1f;
       //  print(CoinManager.coinsCollected);
     }
 

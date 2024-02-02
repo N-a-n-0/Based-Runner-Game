@@ -18,6 +18,7 @@ public class LevelSelectManager : MonoBehaviour, IDataPersistence
     public Button Enter_Level_Button;
 
     public LevelBluePrint[] Level_info;
+   
 
     public static LevelBluePrint[] Level_info_Reference;
 
@@ -29,7 +30,7 @@ public class LevelSelectManager : MonoBehaviour, IDataPersistence
 
     // public List<Transform> positions;
 
-    public int currentLevel;
+    public static int currentLevel;
 
     
 
@@ -37,7 +38,7 @@ public class LevelSelectManager : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-
+        currentLevel = data.current_Level;
 
         for (int i = 0; i < Level_Locations.Length; i++)
         {
@@ -63,6 +64,7 @@ public class LevelSelectManager : MonoBehaviour, IDataPersistence
     }
     public void SaveData(GameData data)
     {
+        data.current_Level = currentLevel;
         //level_HighScore is our local variable
         //Level_HighScores is our SerializableDictionary with our saved values when the game shuts down
 
@@ -180,9 +182,10 @@ public class LevelSelectManager : MonoBehaviour, IDataPersistence
 
     }
 
-
+    //IDEA WITH NAME AND CURRENTLEVEL
     public void Enter_Current_Level()
     {
+        SceneManager.LoadSceneAsync("Level_" + currentLevel);
 
     }
 
@@ -195,9 +198,13 @@ public class LevelSelectManager : MonoBehaviour, IDataPersistence
     }
 
 
+    public static void UnlockedNextLevel()
+    {
+        Level_info_Reference[currentLevel+1].isUnlocked = true;
+    }
 
 
 
-    
+
 
 }

@@ -10,7 +10,7 @@ public class GameData
     
 
     public int coins;
-
+    public int current_Level;
     
 
     public SerializableDictionary<int, bool> charactersUnlocked;

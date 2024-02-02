@@ -125,7 +125,7 @@ Material:
     - _DistortionStrengthScaled: 0.1
     - _DstBlend: 0
     - _DynamicEmissionLM: 0
-    - _Emission: 0.075
+    - _Emission: 0
     - _EmissionLM: 0
     - _EnvironmentReflections: 1
     - _FlipbookBlending: 0
@@ -160,5 +160,5 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _TintColor: {r: 1, g: 0.8448514, b: 0, a: 1}
+    - _TintColor: {r: 1, g: 0.8353394, b: 0, a: 1}
   m_BuildTextureStacks: []

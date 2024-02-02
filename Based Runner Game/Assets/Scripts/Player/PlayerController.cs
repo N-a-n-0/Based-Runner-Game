@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -40,17 +41,17 @@ public class PlayerController : MonoBehaviour
 
     bool toggle = false;
 
-    void Start()
-    {
+    void Start() 
+    { 
         child_Obj_Reference = returnChildGameObject();
         animator = childPlayerModel.GetComponent<Animator>();
         print(animator);
-        forwardSpeed = 25;
+        forwardSpeed = 50;
         maxSpeed = 45;
         PlayerModel = this.gameObject;
         print(PlayerModel);
         controller = GetComponent<CharacterController>();
-        Time.timeScale = 1f;
+        Time.timeScale = 1.5f;
 
       //  childPlayerModel.transform.localScale = new Vector3(.5f, .5f, .5f);
 
@@ -108,6 +109,10 @@ public class PlayerController : MonoBehaviour
 
             isGrounded = Physics.CheckSphere(groundCheck.position, .05f, groundLayer);
 
+            if(isGrounded == true)
+            {
+                animator.SetBool("Jump", false);
+            }
            
 
             animator.SetBool("isGrounded", isGrounded);
@@ -260,13 +265,13 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-
+       
         slideCancel();
-    
-       
-       
-      //  isSliding = false;
-      //  slideCannotHappen = false;
+        animator.SetBool("Jump", true);
+
+
+        //  isSliding = false;
+        //  slideCannotHappen = false;
         velocity.y = Mathf.Sqrt(jumpHeight * 5 * -gravity);
 
 
