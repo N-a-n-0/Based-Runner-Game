@@ -46,12 +46,12 @@ public class PlayerController : MonoBehaviour
         child_Obj_Reference = returnChildGameObject();
         animator = childPlayerModel.GetComponent<Animator>();
         print(animator);
-        forwardSpeed = 50;
+        forwardSpeed = 25;
         maxSpeed = 45;
         PlayerModel = this.gameObject;
         print(PlayerModel);
         controller = GetComponent<CharacterController>();
-        Time.timeScale = 1.5f;
+        Time.timeScale = 1.25f;
 
       //  childPlayerModel.transform.localScale = new Vector3(.5f, .5f, .5f);
 
