@@ -1195,6 +1195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1557871160}
+  pointsPerSecond: 25
 --- !u!4 &411532235
 Transform:
   m_ObjectHideFlags: 0
@@ -5129,7 +5130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 0000000
+  m_text: 'Score: 0
 
 '
   m_isRightToLeft: 0
