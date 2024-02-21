@@ -17,7 +17,7 @@ public class GameData
 
     public SerializableDictionary<int, bool> Extras_;
     public SerializableDictionary<int, bool> Levels_Unlocked;
-    public SerializableDictionary<int, int> Level_HighScores;
+    public SerializableDictionary<int, float> Level_HighScores;
 
 
     public GameData()
@@ -32,6 +32,6 @@ public class GameData
 
         Levels_Unlocked = new SerializableDictionary<int, bool>();
 
-        Level_HighScores = new SerializableDictionary<int, int>();
+        Level_HighScores = new SerializableDictionary<int, float>();
     }
 }

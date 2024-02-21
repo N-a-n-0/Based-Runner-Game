@@ -7,7 +7,7 @@ public class LevelBluePrint
 {
     public string level_Name;
     // public int Level_Number;
-    public int level_HighScore;
+    public float level_HighScore;
 
     public bool isUnlocked;
 
