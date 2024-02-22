@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,13 +20,12 @@ public class PlayerController : MonoBehaviour
 
     public static GameObject child_Obj_Reference;
 
-
     private IEnumerator slide;
 
     private int desiredLane = 1;//0:left, 1:middle, 2:right
     public const int  laneDistance = 4;//The distance between tow lanes
 
-    public bool isGrounded;
+    public static bool isGrounded;
     public LayerMask groundLayer;
     public Transform groundCheck;
 
@@ -33,13 +35,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     public static Animator animator;
-    private bool isSliding = false;
-
+    public static bool isSliding = false;
+   
     public float slideDuration = .1f;
 
-    
 
     bool toggle = false;
+
 
     void Start() 
     { 
@@ -340,7 +342,8 @@ public class PlayerController : MonoBehaviour
             print("A slide is happening");
             StopAllCoroutines();
             slide = null;
-            animator.SetBool("isSliding", false);
+        isSliding = false;
+        animator.SetBool("isSliding", false);
 
             controller.center = controller.center = new Vector3(0, 0, 0);
             controller.height = 1.6f;

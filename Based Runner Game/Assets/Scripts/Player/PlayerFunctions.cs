@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class PlayerFunctions : MonoBehaviour
 {
     public static IEnumerator powerUp_In_Progress = null;
+
+
+    public TMP_Text comboText;
+    public static TMP_Text comboText_Reference;
+    public static string comboRating = "";
+    public static int comboRatingNumber = 0;
     public void Start()
     {
-     
+        comboText_Reference = comboText;
     }
 
     public void Update()
     {
-        if(CutsceneEnter.powerUpChecker == true && powerUp_In_Progress == null) //THIS IS WHERE YOU LEFT OFF REMEMBER THAT OKAY 
+       
+        if (CutsceneEnter.powerUpChecker == true && powerUp_In_Progress == null) //THIS IS WHERE YOU LEFT OFF REMEMBER THAT OKAY 
         {
           //  StartCoroutine(scaleUp_scaleDown(5, 1));
             powerUp_In_Progress = playerPowerUp();
@@ -166,10 +174,44 @@ public class PlayerFunctions : MonoBehaviour
 
     }
 
+
+
     public void LaneChange_Right()
     {
        
             PlayerController.animator.SetBool("LaneRight", false);
+        
+    }
+
+
+
+    public void comboStringChange_1()
+    {
+        comboRatingNumber = 1;
+               comboRating = "BASED!";
+        
+       
+    }
+
+    public void comboStringChange_2()
+    {
+        comboRatingNumber = 2;
+        comboRating = "GREAT!";
+        
+    }
+
+    public void comboStringChange_3()
+    {
+        comboRatingNumber = 3;
+        comboRating = "NICE!";
+        
+    }
+
+
+    public void comboStringChange_4()
+    {
+        comboRatingNumber = 4;
+        comboRating = "Meh...";
         
     }
 
