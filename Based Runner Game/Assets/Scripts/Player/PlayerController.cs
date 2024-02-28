@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator slide;
 
     private int desiredLane = 1;//0:left, 1:middle, 2:right
-    public const int  laneDistance = 4;//The distance between tow lanes
+    public const float  laneDistance = 2.5f;//The distance between tow lanes
 
     public static bool isGrounded;
     public LayerMask groundLayer;
@@ -127,9 +127,11 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
                 {
 
-                    
-                    
-                   // slideCannotHappen = true;
+
+
+                    // slideCannotHappen = true;
+                   // PlayerFunctions.comboRatingNumber = 1;
+                    isGrounded = false;
                     Jump();
                   
 
@@ -336,13 +338,14 @@ public class PlayerController : MonoBehaviour
 
     public void slideCancel()
     {
-       
+        PlayerFunctions.comboRatingNumber = 1;
+        isSliding = false;
         //if (slide != null)
-      //  {
-            print("A slide is happening");
+        //  {
+        print("A slide is happening");
             StopAllCoroutines();
             slide = null;
-        isSliding = false;
+       
         animator.SetBool("isSliding", false);
 
             controller.center = controller.center = new Vector3(0, 0, 0);

@@ -23,18 +23,18 @@ public class ComboSystem : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         print("COMBO TRIGGERED");
-        if(PlayerController.isSliding == true || PlayerController.isGrounded == false)
+        if((PlayerController.isSliding == true || PlayerController.isGrounded == false))
         {
             // comboHit = true;
-            stylePoints(PlayerFunctions.comboRatingNumber);
+            stylePoints();
             PlayerFunctions.comboText_Reference.text = PlayerFunctions.comboRating;
         }
     }
 
-    public void stylePoints(int rating)
+    public void stylePoints()
     {
 
-        switch(rating)
+        switch(PlayerFunctions.comboRatingNumber)
         {
             case 1:
                 Score.currentScore += 1000;
