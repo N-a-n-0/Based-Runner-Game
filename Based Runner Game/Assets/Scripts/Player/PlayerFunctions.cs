@@ -12,6 +12,10 @@ public class PlayerFunctions : MonoBehaviour
     public static TMP_Text comboText_Reference;
     public static string comboRating = "";
     public static int comboRatingNumber = 0;
+
+
+    public static bool powerUpAnimation = false;
+
     public void Start()
     {
         comboText_Reference = comboText;
@@ -44,8 +48,9 @@ public class PlayerFunctions : MonoBehaviour
         controller.radius = 0.2f;
     }
 
+    
 
-   
+
 
     public static IEnumerator playerPowerUp()
     {
@@ -54,6 +59,7 @@ public class PlayerFunctions : MonoBehaviour
         PlayerController.forwardSpeed = 0;
         PlayerController.maxSpeed = 0;
 
+        
         CutsceneEnter.PowerApplies = true;
         
         CutsceneEnter.MainCamera_Reference.enabled = false;
@@ -62,6 +68,7 @@ public class PlayerFunctions : MonoBehaviour
       
 
         CutsceneEnter.child_Animator_Reference.SetBool("PowerUp", true);
+
       //  PlayerController.PlayerModel.transform.position = new Vector3(0, 5, 0);
        
 
@@ -69,7 +76,13 @@ public class PlayerFunctions : MonoBehaviour
         //PlayerController.child_Obj_Reference.transform.localScale = new Vector3(.5f, .5f, .5f);
       
     //    PlayerController.animator.enabled = false;
-        yield return new WaitForSeconds(3);
+
+        while(powerUpAnimation == false)
+        {
+            print("bruh");
+            yield return new WaitForSeconds(.01f);
+        }
+        powerUpAnimation = false;
       //  PlayerController.animator.enabled = true;
         PlayerController.animator.SetBool("Growing", false);
         // CutsceneEnter.powerupVar_PlayerController = true;
@@ -84,6 +97,7 @@ public class PlayerFunctions : MonoBehaviour
         CutsceneEnter.powerupVar_PlayerController = false;
 
         yield return new WaitForSeconds(10);
+        //CameraFunctions.powerUpAnimation = false;
         CutsceneEnter.child_Animator_Reference.SetBool("PowerUp", false);
         PlayerController.animator.SetBool("Shrinking", true);
         CutsceneEnter.child_Animator_Reference.SetBool("PowerDeactivate", true);
@@ -215,4 +229,6 @@ public class PlayerFunctions : MonoBehaviour
         
     }
 
+
+  
 }
