@@ -18,11 +18,11 @@ public class PlayerController : MonoBehaviour
 
     public GameObject childPlayerModel;
 
-    public static GameObject child_Obj_Reference;
+    public static GameObject child_Obj_Reference; //Might be useless look into this
 
     private IEnumerator slide;
 
-    private int desiredLane = 1;//0:left, 1:middle, 2:right
+    public static int desiredLane = 1;//0:left, 1:middle, 2:right
     public const float  laneDistance = 2.5f;//The distance between tow lanes
 
     public static bool isGrounded;
@@ -44,7 +44,16 @@ public class PlayerController : MonoBehaviour
 
 
     void Start() 
-    { 
+    {
+        desiredLane = 1;
+
+       //****** ALL THESE VALUES IN BETWEEN THESE TWO COMMENTS SET THE POWERUP VARIBLES TO THEIR DEAFULTS 
+        CutsceneEnter.PowerApplies = false;
+        CutsceneEnter.powerUpChecker = false;
+        PlayerFunctions.powerUpAnimation = false;
+        PlayerFunctions.powerUp_In_Progress = null; 
+        //****** THIS SOLVES THE POWERUP BUG WHERE A PLAYER LEAVES MID GAME
+
         child_Obj_Reference = returnChildGameObject();
         animator = childPlayerModel.GetComponent<Animator>();
         print(animator);
@@ -60,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate() //handles physics 
     {
         
         if (!PlayerManager.isGameStarted || PlayerManager.gameOver == false)
@@ -86,7 +95,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(PlayerManager.gameOver == true)
+   
+
+
+        if (PlayerManager.gameOver == true)
         {
             animator.SetBool("Game Over", true);
         }
@@ -321,8 +333,6 @@ public class PlayerController : MonoBehaviour
        // jumpCannotHappen = false;
        
     }
-
-
     //not this parent object but the child object that stores the visual model you see in game
     public  GameObject returnChildGameObject()
     {

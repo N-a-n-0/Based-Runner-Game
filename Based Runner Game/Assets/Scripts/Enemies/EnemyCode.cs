@@ -28,8 +28,23 @@ public class EnemyCode : MonoBehaviour
 
         if (enemyDistance_ZAxis < playerDistance_ZAxis + distanceRequired) 
         {
+
+            switch(PlayerController.desiredLane)
+            {
+                case 0:
+                    animator.SetBool("Lane0", true);
+                    break;
+                case 1:
+                    animator.SetBool("Lane1", true);
+                    break;
+
+                case 2:
+                    animator.SetBool("Lane2", true);
+                    break;
+
+            }
             animator.SetBool("playerDistance", true);
-            print("Player is within enemies range!!!");
+       //     print("Player is within enemies range!!!");
 
         }
     }

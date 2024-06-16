@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         DisablePlayButton();
+
        // if (DataPersistenceManager.instance.HasGameData())
         //    {
           //  Debug.Log("NO DATA? NEW GAME THEN!!!!!");

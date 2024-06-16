@@ -19,7 +19,7 @@ public class LevelChanger : MonoBehaviour
 
     
 
-    public void FadeToLevel(int levelIndex)
+    public void FadeToLevel( )
     {
         animator.SetTrigger("FadeOut");
     }

@@ -453,7 +453,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childPlayerModel: {fileID: 1637840296}
-  isGrounded: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -920,6 +919,7 @@ GameObject:
   - component: {fileID: 430974235}
   - component: {fileID: 430974234}
   - component: {fileID: 430974233}
+  - component: {fileID: 430974239}
   m_Layer: 0
   m_Name: PowerUpCamera
   m_TagString: MainCamera
@@ -1059,6 +1059,18 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &430974239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430974232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8cadcb7b85bc747a2853ad336f1df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &448633107
 GameObject:
   m_ObjectHideFlags: 0
@@ -4883,6 +4895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9458509d2054b71499bc8a396014acad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboText: {fileID: 0}
 --- !u!114 &1767857142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5251,7 +5264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childPlayerModel: {fileID: 1767857139}
-  isGrounded: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6453,7 +6465,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childPlayerModel: {fileID: 0}
-  isGrounded: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

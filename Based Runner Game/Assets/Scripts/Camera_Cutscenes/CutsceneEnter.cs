@@ -8,7 +8,7 @@ public class CutsceneEnter : MonoBehaviour
     public static bool powerUpChecker = false;
     public static bool powerupVar_PlayerController = false;
 
-    public static bool powerUpCheckerParent = false;
+   // public static bool powerUpCheckerParent = false;
 
     public static bool PowerApplies = false;
 

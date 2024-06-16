@@ -19,18 +19,19 @@ public class Score : MonoBehaviour
     void Start()
     {
         scoreIncreasing = true;
+        currentScore = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerManager.isGameStarted == true && scoreIncreasing == true)
+        if (PlayerManager.isGameStarted == true && scoreIncreasing == true && PlayerManager.gameOver == false)
         {
 
 
             currentScore += pointsPerSecond * Time.deltaTime;
-           
+            scoreText.text = "Score: " + Mathf.Round(currentScore);
         }
-        scoreText.text = "Score: " + Mathf.Round(currentScore);
+      
     }
 }

@@ -183,8 +183,6 @@ public class PlayerFunctions : MonoBehaviour
     {
         
             PlayerController.animator.SetBool("LaneLeft", false);
-        
-      
 
     }
 

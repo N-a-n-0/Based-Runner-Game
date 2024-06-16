@@ -41,7 +41,7 @@ public class GameOverAnimation : MonoBehaviour
        
         gameOverPanel.SetActive(true);
       
-        Time.timeScale = 0;
+     //   Time.timeScale = 0;
         print("GAMEOVER_RAN");
     }
 
