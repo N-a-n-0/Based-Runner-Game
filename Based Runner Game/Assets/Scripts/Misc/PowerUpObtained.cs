@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class PowerUpObtained : MonoBehaviour
 {
-    
-
     public IEnumerator timercheck = null;
 
     public float ScaleValueIncrease = 1f;
-
     //Waiter increases the scale of PlayerModel
     IEnumerator Waiter()
     {
@@ -24,14 +21,10 @@ public class PowerUpObtained : MonoBehaviour
             {
                 ScaleValueIncrease = 6f;
             }
-
             PlayerController.PlayerModel.transform.localScale = new Vector3(ScaleValueIncrease, ScaleValueIncrease, ScaleValueIncrease);
         }
         timercheck = null;
         StopAllCoroutines();
-
-          
-        
     }
     //Power up is attached to the PowerUp prefab
     void powerUpLogic()

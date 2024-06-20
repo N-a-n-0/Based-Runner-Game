@@ -48,34 +48,17 @@ public class PlayerFunctions : MonoBehaviour
         controller.radius = 0.2f;
     }
 
-    
-
-
 
     public static IEnumerator playerPowerUp()
-    {
-       
+    { 
         CutsceneEnter.CurrentForwardSpeed = PlayerController.forwardSpeed;
         PlayerController.forwardSpeed = 0;
         PlayerController.maxSpeed = 0;
-
-        
         CutsceneEnter.PowerApplies = true;
-        
         CutsceneEnter.MainCamera_Reference.enabled = false;
         CutsceneEnter.cutsceneCam_Reference.enabled = true;
         PlayerController.animator.SetBool("Growing", true);
-      
-
         CutsceneEnter.child_Animator_Reference.SetBool("PowerUp", true);
-
-      //  PlayerController.PlayerModel.transform.position = new Vector3(0, 5, 0);
-       
-
-        // ScaleCharacterModel();
-        //PlayerController.child_Obj_Reference.transform.localScale = new Vector3(.5f, .5f, .5f);
-      
-    //    PlayerController.animator.enabled = false;
 
         while(powerUpAnimation == false)
         {
@@ -83,21 +66,11 @@ public class PlayerFunctions : MonoBehaviour
             yield return new WaitForSeconds(.01f);
         }
         powerUpAnimation = false;
-      //  PlayerController.animator.enabled = true;
         PlayerController.animator.SetBool("Growing", false);
-        // CutsceneEnter.powerupVar_PlayerController = true;
-
-        PlayerController.forwardSpeed = CutsceneEnter.CurrentForwardSpeed;
-
-
-       
-      //  CutsceneEnter.FirstPersonCamera_Reference.enabled = true;
-    
-
+        PlayerController.forwardSpeed = CutsceneEnter.CurrentForwardSpeed;   
         CutsceneEnter.powerupVar_PlayerController = false;
 
         yield return new WaitForSeconds(10);
-        //CameraFunctions.powerUpAnimation = false;
         CutsceneEnter.child_Animator_Reference.SetBool("PowerUp", false);
         PlayerController.animator.SetBool("Shrinking", true);
         CutsceneEnter.child_Animator_Reference.SetBool("PowerDeactivate", true);
@@ -105,28 +78,18 @@ public class PlayerFunctions : MonoBehaviour
         CutsceneEnter.CurrentForwardSpeed = PlayerController.forwardSpeed;
         PlayerController.forwardSpeed = 0;
         PlayerController.maxSpeed = 0;
-      //  PlayerController.PlayerModel.transform.position += new Vector3(0, 2f, 0);
+      
         yield return new WaitForSeconds(2.5f);
-
         PlayerController.animator.SetBool("Shrinking", false);
         CutsceneEnter.child_Animator_Reference.SetBool("PowerDeactivate", false);
         CutsceneEnter.cutsceneCam_Reference.enabled = false;
-
-       
-
-       
-
         
         PlayerController.maxSpeed = 75;
-       
         CutsceneEnter.powerupVar_PlayerController = false;
-        // CutsceneEnter.PlayersScale = 6f;
         PlayerController.forwardSpeed = CutsceneEnter.CurrentForwardSpeed;
-
 
         CutsceneEnter.FirstPersonCamera_Reference.enabled = false;
         CutsceneEnter.MainCamera_Reference.enabled = true;
-    
         CutsceneEnter.PowerApplies = false;
         CutsceneEnter.powerUpChecker = false;
         powerUp_In_Progress = null;

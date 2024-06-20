@@ -20,7 +20,7 @@ public class TileManager : MonoBehaviour
     [Range(0, 1000)]
     public int tileCount;
 
-    private List<GameObject> activeTiles = new List<GameObject>();
+    public List<GameObject> activeTiles = new List<GameObject>();
 
 
 
@@ -79,13 +79,10 @@ public class TileManager : MonoBehaviour
            // endOfLevelReached = false;
             CustomSpawnTile(1);
         }
-       
-        
     }
 
     public void SpawnTile(int tileIndex)
     {
-
         GameObject go = Instantiate(tilePrefabs[tileIndex], transform.forward * zSpawn, transform.rotation);
         totalTilesSpawned++;
         activeTiles.Add(go);
@@ -105,7 +102,6 @@ public class TileManager : MonoBehaviour
             Destroy(activeTiles[0]);
         activeTiles.RemoveAt(0);
 
-       
     }
 
 
