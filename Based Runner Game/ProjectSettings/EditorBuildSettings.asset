@@ -23,7 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels_Folder/Level_1.unity
     guid: b21ed8bf688f34442871ea9fa5df2dd4
-  - enabled: 1
-    path: Assets/Scenes/MicroGaneTest.unity
-    guid: f6dcf614c5dee8d49978b7e04da4e3a5
   m_configObjects: {}
