@@ -6,6 +6,13 @@ public class MicroGame : MonoBehaviour
 {
     float curSpeed = 25;
     float savedSpeed = 25;
+
+    public Animator animator;
+
+
+    public Camera MainCamera;
+
+    public Camera MicroGameCamera;
     void Update()
     {
         curSpeed = PlayerController.forwardSpeed;
@@ -17,7 +24,10 @@ public class MicroGame : MonoBehaviour
         savedSpeed = curSpeed;
         if (other.CompareTag("Player"))
         {
+            MainCamera.enabled = false;
+            MicroGameCamera.enabled = true;
             Debug.Log("Collision: CURSPEED " + curSpeed);
+            animator.SetBool("Touched", true);
         }
         PlayerController.forwardSpeed = 0;
 
@@ -26,7 +36,9 @@ public class MicroGame : MonoBehaviour
 
     private IEnumerator returnSpeedPlz()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(3f);
+        MainCamera.enabled = true;
+        MicroGameCamera.enabled = false;
         PlayerController.forwardSpeed = savedSpeed;
     }
 }
