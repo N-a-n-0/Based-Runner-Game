@@ -7,7 +7,7 @@ public class CutsceneEnter : MonoBehaviour
     public static bool powerUpChecker = false;
     public static bool powerupVar_PlayerController = false;
 
-   // public static bool powerUpCheckerParent = false;
+    // public static bool powerUpCheckerParent = false;
 
     public static bool PowerApplies = false;
     public Camera MainCamera;
@@ -29,7 +29,7 @@ public class CutsceneEnter : MonoBehaviour
     //______________________________________________
 
     public static float PlayersScale = 6f;
-   
+
 
 
     public static IEnumerator CutSceneFunction = null;
@@ -57,7 +57,7 @@ public class CutsceneEnter : MonoBehaviour
 
     }
 
-    
+
     /*
     IEnumerator FinishCut()
     {
@@ -110,23 +110,23 @@ public class CutsceneEnter : MonoBehaviour
     }*/
 
     void Update()
-        {
-     
-       /*
-        if(powerUpChecker == true && ProgressBar.targetProgress >= 1)
-        {
-           // CutSceneFunction = FinishCut();
-           // animator.SetBool("PowerUp", true);
-            MainCamera.enabled = false;
-            cutsceneCam.enabled = true;
+    {
 
-           
-            print("TRIGGERED");
-            //StartCoroutine(CutSceneFunction);
-          //  PlayerFunctions.playerPowerUp();
+        /*
+         if(powerUpChecker == true && ProgressBar.targetProgress >= 1)
+         {
+            // CutSceneFunction = FinishCut();
+            // animator.SetBool("PowerUp", true);
+             MainCamera.enabled = false;
+             cutsceneCam.enabled = true;
 
-        }*/
-      
+
+             print("TRIGGERED");
+             //StartCoroutine(CutSceneFunction);
+           //  PlayerFunctions.playerPowerUp();
+
+         }*/
+
     }
 
 
@@ -134,7 +134,7 @@ public class CutsceneEnter : MonoBehaviour
 
 
 
-    public  Animator returnAnimator()
+    public Animator returnAnimator()
     {
         return animator;
     }

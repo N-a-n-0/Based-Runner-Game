@@ -20,25 +20,25 @@ public class TileManager : MonoBehaviour
     [Range(0, 1000)]
     public int tileCount;
 
-    public List<GameObject> activeTiles = new List<GameObject>();
+    private List<GameObject> activeTiles = new List<GameObject>();
 
 
 
     public Transform playerTransform;
-    
+
     void Start()
     {
 
-       for(int i = 0; i < numberOfTiles; i++)
+        for (int i = 0; i < numberOfTiles; i++)
         {
-            if(gameStarted == false)
+            if (gameStarted == false)
             {
-              //  print(gameStarted);
+                //  print(gameStarted);
 
-              
+
                 gameStarted = true;
-                CustomSpawnTile(0); //Spawning the starter tile right here :)
-              
+                CustomSpawnTile(0); //Spawning the starter tile right here :) //sus
+
 
 
             }
@@ -46,15 +46,15 @@ public class TileManager : MonoBehaviour
             {
                 SpawnTile(Random.Range(0, tilePrefabs.Length));
 
-               
+
 
             }
-            
+
         }
 
     }
 
-   
+
     void Update()
     {
         if (totalTilesSpawned == tileCount && SceneManager.GetActiveScene().name != "Main")
@@ -64,25 +64,28 @@ public class TileManager : MonoBehaviour
 
         if (endOfLevelReached == false)
         {
-           
+
             if (playerTransform.position.z - 35 > zSpawn - (numberOfTiles * tileLength))
             {
                 SpawnTile(Random.Range(0, tilePrefabs.Length));
-                
+
                 DeleteTile();
             }
-            
+
         }
-        else if(totalTilesSpawned == tileCount && endOfLevelReached == true)
+        else if (totalTilesSpawned == tileCount && endOfLevelReached == true)
         {
             print("BRUH");
-           // endOfLevelReached = false;
+            // endOfLevelReached = false;
             CustomSpawnTile(1);
         }
+
+
     }
 
     public void SpawnTile(int tileIndex)
     {
+
         GameObject go = Instantiate(tilePrefabs[tileIndex], transform.forward * zSpawn, transform.rotation);
         totalTilesSpawned++;
         activeTiles.Add(go);
@@ -98,9 +101,10 @@ public class TileManager : MonoBehaviour
     }
     private void DeleteTile()
     {
-       
-            Destroy(activeTiles[0]);
+
+        Destroy(activeTiles[0]);
         activeTiles.RemoveAt(0);
+
 
     }
 
