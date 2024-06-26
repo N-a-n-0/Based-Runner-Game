@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
     bool toggle = false;
 
+    
+
 
     void Start() 
     {
@@ -95,8 +97,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-   
 
+      
 
         if (PlayerManager.gameOver == true)
         {
@@ -297,6 +299,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        
+
+
+
         if (hit.transform.tag == "Obstacle" && CutsceneEnter.PowerApplies == false)
         {
             FindObjectOfType<AudioManager>().StopSound("MainTheme");

@@ -11,12 +11,11 @@ using TMPro;
 public class MicroMath : MonoBehaviour
 {
 
+    public GameObject ParentObj;
+
     public TMP_Text ProblemText;
 
-  //  public Button Answer_1;
-   // public Button Answer_2;
-  //  public Button Answer_3;
-
+    public TMP_Text Objective;
 
 
 
@@ -28,20 +27,23 @@ public class MicroMath : MonoBehaviour
 
     void Start()
     {
-
+        print("START FUNCTION RAN NICE");
+        Objective.text = "SOLVE IT";
         buttonText_1 = Answers[0].GetComponentInChildren<TMP_Text>();
         buttonText_2 = Answers[1].GetComponentInChildren<TMP_Text>();
         buttonText_3 = Answers[2].GetComponentInChildren<TMP_Text>();
-      //  GenerateAnswer();
+        GenerateAnswer();
 
-       
+
 
     }
 
 
     public void GenerateAnswer()
     {
-        MicroGame.timeNeeded = 5f;
+       
+
+      //  MicroGame.timeNeeded = 5f;
         int x = Random.Range(1, 10);
         int y = Random.Range(1, 10);
 
@@ -53,9 +55,10 @@ public class MicroMath : MonoBehaviour
              + "Answer is: " + answer);
         int correctPick = UnityEngine.Random.Range(0, 2) + 1;
         print("Correct pick button number is:" + correctPick);
-        // Answers[correctPick].onClick.AddListener(CorrectPick);
 
-      //  buttonText = myButton.GetComponentInChildren<Text>();
+       
+
+     
         //Continue this test micro minigame 
 
         //Figure out how to make the answer buttons randoms and not static everytime 
@@ -94,13 +97,10 @@ public class MicroMath : MonoBehaviour
             buttonText_1.text = (answer + UnityEngine.Random.Range(4, 5)).ToString();
         }
 
-
-
-       
-
-
-
     }
+
+   
+        
 
     public void CorrectPick()
     {

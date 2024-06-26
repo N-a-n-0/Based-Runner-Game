@@ -16,6 +16,9 @@ public class PlayerFunctions : MonoBehaviour
 
     public static bool powerUpAnimation = false;
 
+
+
+
     public void Start()
     {
         comboText_Reference = comboText;
