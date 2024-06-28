@@ -8,16 +8,8 @@ public class MicroGameManager : MonoBehaviour
     public static float curSpeed = 25;
     public float savedSpeed = curSpeed;
 
-   // public Animator animator;
-
-
-    
-
-    //public Camera MicroGameCamera;
-
     public static bool alreadyEntered = false;// Used this bool to fix the issues we were having with speed
 
-    //public static bool StartMiniGame = false; //I may want to use this throughout many scripts where the activation of microgames are dependent on this static bool var
 
     public static int timeNeeded = 5; //I wanna possibly give each microminigame its own custom timer using this var that we can just reference and change 
 
@@ -28,20 +20,23 @@ public class MicroGameManager : MonoBehaviour
 
     public MicroMath MiniG_1;
 
+    public IEnumerator ActiveCoroutine = null;
+
     void Update()
     {
 
        
 
-        if (alreadyEntered == true && CameraFunctions.MicroGameEndReached == true )
+        if (alreadyEntered == true && CameraFunctions.MicroGameEndReached == true && ActiveCoroutine == null)
         {
 
 
-
-          
-            StartCoroutine(returnSpeedPlz());
+            ActiveCoroutine = returnSpeedPlz();
 
 
+            StartCoroutine(ActiveCoroutine);
+
+            
         }
     }
 
@@ -50,14 +45,6 @@ public class MicroGameManager : MonoBehaviour
     {
 
         print("Entered this minigame");
-
-
-
-
-         alreadyEntered = false;
-
-
-
 
 
         //moved these  lines right here in the if statement 
@@ -78,6 +65,7 @@ public class MicroGameManager : MonoBehaviour
             yield return new WaitForSeconds(1);
             print( VisibleTimer + "Second has passed");
         }
+        MiniG_1.RemoveListeners();
         MiniG_1.GenerateAnswer();
         MicroGame.MicroCamRef.enabled = false;
         
@@ -87,7 +75,9 @@ public class MicroGameManager : MonoBehaviour
         CameraFunctions.MicroGameEndReached = false;
 
         MicroGameObj_1.SetActive(false);
+        
         // MicroGM.MicroGameParentObj[0].SetActive(false);
-
+        ActiveCoroutine = null;
+        alreadyEntered = false;
     }
 }

@@ -13,8 +13,10 @@ public class MicroGame : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
         //The reason you had that speed error is because you had PlayerController.forwardSpeed = 0; outside of the if statement and you didn't have any conditions stopping the player from retriggering the OnTriggerEnter
+
+        print("MicroGameManager.alreadyEntered" + MicroGameManager.alreadyEntered);
 
         if (other.CompareTag("Player") && MicroGameManager.alreadyEntered == false)
         {

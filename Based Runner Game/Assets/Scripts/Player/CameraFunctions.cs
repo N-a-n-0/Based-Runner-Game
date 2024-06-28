@@ -21,17 +21,10 @@ public class CameraFunctions : MonoBehaviour
     }
 
 
-    public   void MicroMiniGameTimer()
+    public void MicroMiniGameTimer()
     {
         MicroGameEndReached = true;
-       // while (MicroGameEndReached == false)
-      //  {
-      //      yield return new WaitForSeconds(.1f);
-      //  }
-
-
        
-      
     }
 
     public void MicroGameAnimEnded()

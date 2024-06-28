@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using TMPro;
+
 //using static System.Net.Mime.MediaTypeNames;
 
 
@@ -18,20 +19,29 @@ public class MicroMath : MonoBehaviour
     public TMP_Text Objective;
 
 
-
     public Button[] Answers;
- 
-    private TMP_Text buttonText_1;
-    private TMP_Text buttonText_2;
-    private TMP_Text buttonText_3;
+
+    private TMP_Text[] buttonTexts;
+
+  //  private TMP_Text buttonText_1;
+ //   private TMP_Text buttonText_2;
+  //  private TMP_Text buttonText_3;
 
     void Start()
     {
         print("START FUNCTION RAN NICE");
         Objective.text = "SOLVE IT";
-        buttonText_1 = Answers[0].GetComponentInChildren<TMP_Text>();
-        buttonText_2 = Answers[1].GetComponentInChildren<TMP_Text>();
-        buttonText_3 = Answers[2].GetComponentInChildren<TMP_Text>();
+
+        buttonTexts = new TMP_Text[Answers.Length];
+
+        for(int i = 0; i < Answers.Length; i++)
+        {
+            buttonTexts[i] = Answers[i].GetComponentInChildren<TMP_Text>();
+        }    
+
+       // buttonText_1 = Answers[0].GetComponentInChildren<TMP_Text>();
+      //  buttonText_2 = Answers[1].GetComponentInChildren<TMP_Text>();
+      //  buttonText_3 = Answers[2].GetComponentInChildren<TMP_Text>();
         GenerateAnswer();
 
 
@@ -56,12 +66,27 @@ public class MicroMath : MonoBehaviour
         int correctPick = UnityEngine.Random.Range(0, 2) + 1;
         print("Correct pick button number is:" + correctPick);
 
-       
 
-     
+
+
         //Continue this test micro minigame 
 
         //Figure out how to make the answer buttons randoms and not static everytime 
+
+        for (int i = 0; i < Answers.Length; i++)
+        {
+            if (i == correctPick)
+            {
+                Answers[i].onClick.AddListener(CorrectPick);
+                buttonTexts[i].text = answer.ToString();
+            }
+            else
+            {
+                Answers[i].onClick.AddListener(IncorrectPick);
+                buttonTexts[i].text = (answer + Random.Range(1, 50)).ToString();
+            }
+        }
+        /*
         if (correctPick == 0) 
         {
             Answers[correctPick].onClick.AddListener(CorrectPick); //Left button is the answer
@@ -96,7 +121,7 @@ public class MicroMath : MonoBehaviour
             Answers[0].onClick.AddListener(IncorrectPick);
             buttonText_1.text = (answer + UnityEngine.Random.Range(4, 5)).ToString();
         }
-
+        */
     }
 
    
@@ -109,30 +134,23 @@ public class MicroMath : MonoBehaviour
 
 
 
-        for(int i = 0; i < Answers.Length; i++)
-        {
-            Answers[i].onClick.RemoveListener(CorrectPick);
-        }
-        for (int i = 0; i < Answers.Length; i++)
-        {
-            Answers[i].onClick.RemoveListener(IncorrectPick);
-        }
+        RemoveListeners();
     }
 
     public void IncorrectPick()
     {
         print("This is the incorrect answer button");
-        for (int i = 0; i < Answers.Length; i++)
-        {
-            Answers[i].onClick.RemoveListener(CorrectPick);
-        }
-
-        for (int i = 0; i < Answers.Length; i++)
-        {
-            Answers[i].onClick.RemoveListener(IncorrectPick);
-        }
+        RemoveListeners();
     }
 
+
+    public void RemoveListeners()
+    {
+       foreach(Button button in Answers)
+        {
+            button.onClick.RemoveAllListeners();
+        }
+    }
     // Start is called before the first frame update
    
 
