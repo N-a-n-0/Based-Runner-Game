@@ -23,13 +23,21 @@ public class MicroMath : MonoBehaviour
 
     private TMP_Text[] buttonTexts;
 
-  //  private TMP_Text buttonText_1;
- //   private TMP_Text buttonText_2;
-  //  private TMP_Text buttonText_3;
+    public static bool AnswerPicked = false;
+
+    public Animator anim ;
+
+    //  private TMP_Text buttonText_1;
+    //   private TMP_Text buttonText_2;
+    //  private TMP_Text buttonText_3;
 
     void Start()
     {
+       
         print("START FUNCTION RAN NICE");
+
+     //   Animator anim = Objective.GetComponent<Animator>();
+
         Objective.text = "SOLVE IT";
 
         buttonTexts = new TMP_Text[Answers.Length];
@@ -83,7 +91,7 @@ public class MicroMath : MonoBehaviour
             else
             {
                 Answers[i].onClick.AddListener(IncorrectPick);
-                buttonTexts[i].text = (answer + Random.Range(1, 50)).ToString();
+                buttonTexts[i].text = (answer + Random.Range(1, 50)).ToString(); 
             }
         }
         /*
@@ -130,17 +138,29 @@ public class MicroMath : MonoBehaviour
     public void CorrectPick()
     {
 
-        print("This is the answer button");
 
+        anim.SetBool("Correct", true);
+        print("This is the Correct button");
+        Objective.text = "Correct";
+         
+       
 
-
-        RemoveListeners();
+      //  RemoveListeners();
     }
 
     public void IncorrectPick()
     {
-        print("This is the incorrect answer button");
-        RemoveListeners();
+
+        anim.SetBool("Incorrect", true);
+
+        print("This is the incorrect button");
+        Objective.text = "Incorrect";
+        
+        
+
+
+       // RemoveListeners();
+
     }
 
 
@@ -150,14 +170,22 @@ public class MicroMath : MonoBehaviour
         {
             button.onClick.RemoveAllListeners();
         }
+        Objective.text = "SOLVE IT";
     }
     // Start is called before the first frame update
    
 
 
     // Update is called once per frame
+
     void Update()
     {
         
+       
+       if(AnswerPicked == true)
+        {
+            //Make a variable when the game has been run. put something in the update function to be 0
+       //     print("Answer Selected");
+        }
     }
 }

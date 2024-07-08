@@ -8,6 +8,8 @@ using UnityEngine;
 public class Sound
 {
     public string name;
+    public bool Music;
+    public bool SFX;
     public AudioClip clip;
 
 
@@ -18,7 +20,7 @@ public class Sound
    
     public bool loop;
 
-    [HideInInspector]
+   // [HideInInspector]
     public AudioSource source;
 }
 

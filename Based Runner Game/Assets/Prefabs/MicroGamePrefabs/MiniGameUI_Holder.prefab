@@ -416,13 +416,14 @@ GameObject:
   - component: {fileID: 6373027999775846174}
   - component: {fileID: 6373027999775846176}
   - component: {fileID: 6373027999775846175}
+  - component: {fileID: 7342263016870353712}
   m_Layer: 5
   m_Name: MiniGameUI_Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6373027999775846174
 RectTransform:
   m_ObjectHideFlags: 0
@@ -482,6 +483,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7342263016870353712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6373027999775846173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3702b7cd16666a24e814f12f4185ef54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParentObj: {fileID: 6373027999775846173}
+  ProblemText: {fileID: 6373028000924547275}
+  Objective: {fileID: 6373028000827043235}
+  Answers:
+  - {fileID: 6373028000208432310}
+  - {fileID: 6373028000033657381}
+  - {fileID: 6373028000884183589}
+  anim: {fileID: 0}
 --- !u!1 &6373028000033657379
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +636,6 @@ GameObject:
   - component: {fileID: 6373028000053741389}
   - component: {fileID: 6373028000053741391}
   - component: {fileID: 6373028000053741390}
-  - component: {fileID: 6373028000053741392}
   m_Layer: 5
   m_Name: MathMiniGame
   m_TagString: Untagged
@@ -687,25 +707,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6373028000053741392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6373028000053741388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3702b7cd16666a24e814f12f4185ef54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ParentObj: {fileID: 6373027999775846173}
-  ProblemText: {fileID: 6373028000924547275}
-  Objective: {fileID: 0}
-  Answers:
-  - {fileID: 6373028000208432310}
-  - {fileID: 6373028000033657381}
-  - {fileID: 6373028000884183589}
 --- !u!1 &6373028000208432308
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,7 +951,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6373028000053741392}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MicroMath, Assembly-CSharp
         m_MethodName: GenerateAnswer
         m_Mode: 1
@@ -1108,6 +1109,7 @@ GameObject:
   - component: {fileID: 6373028000827043234}
   - component: {fileID: 6373028000827043236}
   - component: {fileID: 6373028000827043235}
+  - component: {fileID: 3618820392760053076}
   m_Layer: 5
   m_Name: Objective
   m_TagString: Untagged
@@ -1232,6 +1234,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3618820392760053076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6373028000827043233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2302f0c7339205f4eb9f6747e43eb7d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6373028000884183587
 GameObject:
   m_ObjectHideFlags: 0

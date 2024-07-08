@@ -1,83 +1,99 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
+
+
+[System.Serializable]
+public class MicroGameTemplate
+{
+    public string name;
+    public int miniGameTime;
+    public GameObject MicroGameObj;
+}
+
 
 public class MicroGameManager : MonoBehaviour
 {
+    public MicroGameTemplate[] microGameTemplates;
+
     public static float curSpeed = 25;
     public float savedSpeed = curSpeed;
 
     public static bool alreadyEntered = false;// Used this bool to fix the issues we were having with speed
 
+    public static int VisibleTimer;
 
-    public static int timeNeeded = 5; //I wanna possibly give each microminigame its own custom timer using this var that we can just reference and change 
-
-    public static int VisibleTimer = timeNeeded;
-
-
-    public GameObject MicroGameObj_1;
 
     public MicroMath MiniG_1;
-
+     
     public IEnumerator ActiveCoroutine = null;
+
+    public static bool timeRanOut;
+
+    public static int forloopIndex;
+
+    void Start()
+    {
+         
+    }
 
     void Update()
     {
-
-       
 
         if (alreadyEntered == true && CameraFunctions.MicroGameEndReached == true && ActiveCoroutine == null)
         {
 
 
-            ActiveCoroutine = returnSpeedPlz();
+            ActiveCoroutine = MathMicrogame_0(); //maybe make the 0 part of the function name be some kind of int varaible to make it easier to call Ienumerators EXAMPLE: "MathMicrogame_" + MiniGame_ID rather than making a new if statement 
 
 
             StartCoroutine(ActiveCoroutine);
 
-            
         }
     }
 
   
-    private IEnumerator returnSpeedPlz()
+    private IEnumerator MathMicrogame_0()
     {
 
         print("Entered this minigame");
 
-
-        //moved these  lines right here in the if statement 
         savedSpeed = curSpeed;
 
 
         CutsceneEnter.MainCamera_Reference.enabled = false;
-        MicroGameObj_1.SetActive(true);
+        microGameTemplates[0].MicroGameObj.SetActive(true);
          
        
-       VisibleTimer =  timeNeeded;
+       VisibleTimer = microGameTemplates[0].miniGameTime;
       
-        
-        for (int i = timeNeeded; i > 0; i--)
+
+        //need to figure out a way to cutoff the MicroGame once the player gets the correct answer. Maybe another animation? Maybe use code from MicroMath?
+
+        for (forloopIndex = VisibleTimer; forloopIndex > 0; forloopIndex--)
         {
-           
+            print(VisibleTimer + "Seconds left");
             VisibleTimer--;
             yield return new WaitForSeconds(1);
-            print( VisibleTimer + "Second has passed");
+            
         }
-        MiniG_1.RemoveListeners();
-        MiniG_1.GenerateAnswer();
-        MicroGame.MicroCamRef.enabled = false;
-        
-        CutsceneEnter.MainCamera_Reference.enabled = true;
-      //  MicroGameCamera.enabled = false;
-        PlayerController.forwardSpeed = savedSpeed;
-        CameraFunctions.MicroGameEndReached = false;
+        timeRanOut = true;
+ 
+            MiniG_1.RemoveListeners();
+            MiniG_1.GenerateAnswer();
 
-        MicroGameObj_1.SetActive(false);
-        
-        // MicroGM.MicroGameParentObj[0].SetActive(false);
-        ActiveCoroutine = null;
-        alreadyEntered = false;
+            MicroGame.MicroCamRef.enabled = false;
+            CutsceneEnter.MainCamera_Reference.enabled = true;
+
+            PlayerController.forwardSpeed = savedSpeed;
+            CameraFunctions.MicroGameEndReached = false;
+
+            microGameTemplates[0].MicroGameObj.SetActive(false);
+
+
+            ActiveCoroutine = null;
+            alreadyEntered = false;
+     
+       
     }
 }

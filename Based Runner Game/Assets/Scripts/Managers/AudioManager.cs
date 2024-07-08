@@ -6,12 +6,17 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
-   
+    public AudioMixer mainAudioMixerInGame;
+
+    public AudioMixerGroup audioMixerGroupMusic;
+    public AudioMixerGroup audioMixerGroupSFX;
+
     void Start()
     {
-     
-        
-        foreach(Sound s in sounds)
+      //  AudioMixerGroup[] audioMixerGroups = mainAudioMixerInGame.FindMatchingGroups("MainAudioMixer");
+
+
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -19,8 +24,30 @@ public class AudioManager : MonoBehaviour
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
+
+            if(s.Music == true)
+            {
+                print("This is a song");
+                s.source.outputAudioMixerGroup = audioMixerGroupMusic;
+            }
+            else if(s.SFX == true) 
+            {
+                print("This is a Sound Effect");
+                s.source.outputAudioMixerGroup = audioMixerGroupSFX;
+            }
+            else
+            {
+                print("THIS SOUND OR SONG DOES NOT HAVE AN AUDIO GROUP MIXER ASSIGNED!!! SETTINGS SET BY PLAYER MAY BE IGNORED !!!");
+            }
+
+          //  s.source.outputAudioMixerGroup = "MasterVol";
+
         }
         PlaySound("MainTheme");
+
+        mainAudioMixerInGame.SetFloat("MasterVol", PlayerPrefs.GetFloat("master"));
+        mainAudioMixerInGame.SetFloat("MusicVol", PlayerPrefs.GetFloat("music"));
+        mainAudioMixerInGame.SetFloat("SfxVol", PlayerPrefs.GetFloat("sfx"));
 
     }
 
