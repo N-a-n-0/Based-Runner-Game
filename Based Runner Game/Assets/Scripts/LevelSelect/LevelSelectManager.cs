@@ -107,6 +107,8 @@ public class LevelSelectManager : MonoBehaviour, IDataPersistence
     // Start is called before the first frame update
     void Start()
     {
+        Level_info[0].isUnlocked = true;
+        //FIGURE OUT WHY THE MOBILE VERSION BROKE WHEN CLOSING AND OPENING THE APP FOR THE LEVEL SELECT
         Level_info_Reference = Level_info;
 
 

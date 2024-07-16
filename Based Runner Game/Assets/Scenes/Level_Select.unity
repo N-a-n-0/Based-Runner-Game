@@ -2420,6 +2420,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 757512593}
     - target: {fileID: 4835353590216563787, guid: ab6516cfddaf38942b392cf6276e039a, type: 3}
+      propertyPath: Level_info.Array.data[0].isUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835353590216563787, guid: ab6516cfddaf38942b392cf6276e039a, type: 3}
       propertyPath: Level_info.Array.data[0].level_Name
       value: Level_1
       objectReference: {fileID: 0}

@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     public float slideDuration = .1f;
 
 
-    bool toggle = false;
+    public bool toggle = false;
 
     
 
@@ -73,39 +73,42 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate() //handles physics 
     {
-        
-        if (!PlayerManager.isGameStarted || PlayerManager.gameOver == false)
-            return;
-
         //Increase Speed
         if (toggle)
         {
             toggle = false;
-           if (forwardSpeed < maxSpeed)
-                forwardSpeed += 0.1f * Time.fixedDeltaTime;
-        
+            if (forwardSpeed < maxSpeed)
+            { }
+              //  forwardSpeed += 0.1f * Time.fixedDeltaTime;
+
         }
         else
         {
-           toggle = true;
-           if (Time.timeScale < 2f)
-             Time.timeScale += 0.005f * Time.fixedDeltaTime;
+           
+            toggle = true;
+            if (Time.timeScale < 2f)
+                Time.timeScale += .001f * Time.fixedDeltaTime;
 
-         
+
         }
+        if (!PlayerManager.isGameStarted || PlayerManager.gameOver == false)
+            return;
+
+        
     }
 
     void Update()
     {
-
-      
+     //   print("Forward speed: " + forwardSpeed);
+       // print("Time Scale: " + Time.timeScale);
 
         if (PlayerManager.gameOver == true)
         {
+            print("forwardSpeed: " + forwardSpeed);
             animator.SetBool("Game Over", true);
         }
 
-        if (CutsceneEnter.powerupVar_PlayerController == false && PlayerManager.Final_GameOver_Check == false)
+        if (CutsceneEnter.powerupVar_PlayerController == false  )
         {
 
           
@@ -118,7 +121,7 @@ public class PlayerController : MonoBehaviour
                
             //Increase speed if true
             if (forwardSpeed < maxSpeed)
-                forwardSpeed += 0.1f * Time.deltaTime;
+               // forwardSpeed += 0.1f * Time.deltaTime;
 
             animator.SetBool("isGameStarted", true);
             move.z = forwardSpeed;
@@ -135,7 +138,7 @@ public class PlayerController : MonoBehaviour
             if (isGrounded && velocity.y < 0)
                 velocity.y = -1f;
 
-            if (isGrounded && PlayerManager.Final_GameOver_Check == false)
+            if (isGrounded && PlayerManager.gameOver == false)
             {
                 
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
@@ -155,7 +158,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-                if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && PlayerManager.Final_GameOver_Check == false)
+                if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && PlayerManager.gameOver == false)
                 {
                     print("UPDATE SLIDE");
 
@@ -188,7 +191,7 @@ public class PlayerController : MonoBehaviour
             controller.Move(velocity * Time.deltaTime);
 
             //Gather the inputs on which lane we should be
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight &&  PlayerManager.Final_GameOver_Check == false)
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight &&  PlayerManager.gameOver == false)
             {
                 desiredLane++;
                
@@ -211,7 +214,7 @@ public class PlayerController : MonoBehaviour
                 }
               // animator.SetBool("LaneRight", false);
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft  && PlayerManager.Final_GameOver_Check == false)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft  && PlayerManager.gameOver == false)
             {
                 desiredLane--;
               

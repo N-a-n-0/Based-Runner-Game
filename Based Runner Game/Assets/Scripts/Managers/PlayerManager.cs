@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     public static bool gameOver;
  
 
-    public static bool Final_GameOver_Check;
+    //public static bool Final_GameOver_Check;
 
     public static bool isGameStarted;
     public GameObject startingText;
@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
      
         isGameStarted = false;
         numberOfCoins = 0;
-        Final_GameOver_Check = false;
+     //   Final_GameOver_Check = false;
     }
 
  

@@ -70,7 +70,7 @@ public class MicroGameManager : MonoBehaviour
 
         //need to figure out a way to cutoff the MicroGame once the player gets the correct answer. Maybe another animation? Maybe use code from MicroMath?
 
-        for (forloopIndex = VisibleTimer; forloopIndex > 0; forloopIndex--)
+        for (forloopIndex = VisibleTimer; forloopIndex > 0; forloopIndex--) // this will probably need to be  awhile loop and we should run the timer off of something else we need to find a way to make sure the time doesnt overwrite if last sec
         {
             print(VisibleTimer + "Seconds left");
             VisibleTimer--;

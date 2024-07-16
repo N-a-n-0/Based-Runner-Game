@@ -37,7 +37,7 @@ public class GameOverAnimation : MonoBehaviour
 
     public void GameOverMenu()
     {
-        PlayerManager.Final_GameOver_Check = true;
+       // PlayerManager.Final_GameOver_Check = true;
 
         gameOverPanel.SetActive(true);
 
