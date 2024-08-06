@@ -49,7 +49,8 @@ public class PlayerController : MonoBehaviour
     {
         desiredLane = 1;
 
-       //****** ALL THESE VALUES IN BETWEEN THESE TWO COMMENTS SET THE POWERUP VARIBLES TO THEIR DEAFULTS 
+        //****** ALL THESE VALUES IN BETWEEN THESE TWO COMMENTS SET THE POWERUP VARIBLES TO THEIR DEAFULTS 
+        PlayerFunctions.powerUpAnimFinished = false;
         CutsceneEnter.PowerApplies = false;
         CutsceneEnter.powerUpChecker = false;
         PlayerFunctions.powerUpAnimation = false;
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour
         child_Obj_Reference = returnChildGameObject();
         animator = childPlayerModel.GetComponent<Animator>();
         print(animator);
-        forwardSpeed = 25;
+        forwardSpeed = 40;
         maxSpeed = 45;
         PlayerModel = this.gameObject;
         print(PlayerModel);
@@ -104,11 +105,12 @@ public class PlayerController : MonoBehaviour
 
         if (PlayerManager.gameOver == true)
         {
-            print("forwardSpeed: " + forwardSpeed);
+          //  print("forwardSpeed: " + forwardSpeed);
             animator.SetBool("Game Over", true);
+            PlayerManager.gameOver = true;
         }
 
-        if (CutsceneEnter.powerupVar_PlayerController == false  )
+        if (CutsceneEnter.powerupVar_PlayerController == false  && PlayerManager.gameOver == false && MicroGameManager.alreadyEntered == false )
         {
 
           
@@ -118,9 +120,10 @@ public class PlayerController : MonoBehaviour
              
                 return;
             }
-               
+
+          //  print("GAMEOVER VALUE: " + PlayerManager.gameOver + "\n" + "powerupVar_PlayerController Value: " + CutsceneEnter.powerupVar_PlayerController); //Why does sometimes when the player gets a gameover they continue to move despite the if statement conditions?   
             //Increase speed if true
-            if (forwardSpeed < maxSpeed)
+            //if (forwardSpeed < maxSpeed)
                // forwardSpeed += 0.1f * Time.deltaTime;
 
             animator.SetBool("isGameStarted", true);
@@ -138,7 +141,7 @@ public class PlayerController : MonoBehaviour
             if (isGrounded && velocity.y < 0)
                 velocity.y = -1f;
 
-            if (isGrounded && PlayerManager.gameOver == false)
+            if (isGrounded && PlayerManager.gameOver == false && PlayerFunctions.powerUpAnimFinished == false)
             {
                 
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
@@ -184,14 +187,14 @@ public class PlayerController : MonoBehaviour
                 if (SwipeManager.swipeDown || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) 
                 {
                    
-                    velocity.y = -10;
+                    velocity.y = -35;
                 }
 
             }
             controller.Move(velocity * Time.deltaTime);
 
             //Gather the inputs on which lane we should be
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight &&  PlayerManager.gameOver == false)
+            if ( (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight) &&  PlayerManager.gameOver == false && PlayerFunctions.powerUpAnimFinished == false)
             {
                 desiredLane++;
                
@@ -214,8 +217,9 @@ public class PlayerController : MonoBehaviour
                 }
               // animator.SetBool("LaneRight", false);
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft  && PlayerManager.gameOver == false)
+            if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)  && PlayerManager.gameOver == false && PlayerFunctions.powerUpAnimFinished == false)
             {
+
                 desiredLane--;
               
                 slideCancel();

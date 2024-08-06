@@ -20,7 +20,10 @@ public class CameraController : MonoBehaviour
 
 
 
-
+    public void GameOver()
+    {
+        PlayerManager.gameOver = true;
+    }
 
     public void CullingMaskGameOverSettings()
     {

@@ -22,7 +22,7 @@ public class SwipeManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
          //   touchStartTime = 0;
-            touchStartTime = Time.time;
+            touchStartTime = Time.unscaledTime;
           //  print("Screen has been just touched");
             tap = true;
             isDraging = true;
@@ -34,15 +34,15 @@ public class SwipeManager : MonoBehaviour
 
             //CHECKING TAP HERE
 
-            touchStartTime = Time.time - touchStartTime;
-            print(touchStartTime);
+            touchStartTime = Time.unscaledTime - touchStartTime;
+        //    print(touchStartTime);
            
-            print("swipeDelta.magnitude" + swipeDelta.magnitude);
+         //   print("swipeDelta.magnitude" + swipeDelta.magnitude);
             
             swipeDelta = (Vector2)Input.mousePosition - startTouch;
 
 
-            if ((swipeDelta.magnitude < maxTapDistance) && touchStartTime < 0.15f) ////(swipeLeft == false || swipeRight == false || swipeDown == false || swipeUp == false) 
+            if ((swipeDelta.magnitude < maxTapDistance) && touchStartTime < 0.15f && MicroGameManager.alreadyEntered == false) ////(swipeLeft == false || swipeRight == false || swipeDown == false || swipeUp == false) 
             {
                 PlayerController.forwardSpeed += .2f;
                 print("this is a tap ");
@@ -54,6 +54,7 @@ public class SwipeManager : MonoBehaviour
                 InputCheckText.text = "SWIPED, Total Speed is: " + PlayerController.forwardSpeed;
             }
             //********************************************************
+
 
 
             isDraging = false;
@@ -70,7 +71,7 @@ public class SwipeManager : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
-                touchStartTime = Time.time;
+                touchStartTime = Time.unscaledTime;
                 tap = true;
                 isDraging = true;
                 startTouch = touch.position;
@@ -104,7 +105,7 @@ public class SwipeManager : MonoBehaviour
 
         //Did we cross the distance?
 
-        if (swipeDelta.magnitude > 100)
+        if (swipeDelta.magnitude > 40)
         {
             print("swipeDelta.magnitude" + swipeDelta.magnitude);
             //Which direction?

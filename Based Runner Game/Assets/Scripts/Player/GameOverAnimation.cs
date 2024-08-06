@@ -47,8 +47,8 @@ public class GameOverAnimation : MonoBehaviour
 
     public void Game_False()
     {
-        PlayerManager.gameOver = false;
-        PlayerController.animator.SetBool("Game Over", false);
+        PlayerManager.gameOver = true;
+        PlayerController.animator.SetBool("Game Over", true);
     }
 
 }

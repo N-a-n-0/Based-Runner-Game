@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Universalgametext
+  m_Controller: {fileID: 9100000, guid: 9e69cfe4b7b0b3a4dba69bbab0c0c021, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: ef2024f40921f814cacd44962e94feec, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ef2024f40921f814cacd44962e94feec, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: aa1545063dd70184fa742f420dd46faa, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: aa1545063dd70184fa742f420dd46faa, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5322b17cd064da946a3847f0044dce95, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5322b17cd064da946a3847f0044dce95, type: 2}

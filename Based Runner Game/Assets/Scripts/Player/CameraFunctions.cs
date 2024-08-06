@@ -6,6 +6,7 @@ public class CameraFunctions : MonoBehaviour
 {
     
     public static bool MicroGameEndReached = false;
+    public static bool MicroGameStartReached = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +21,20 @@ public class CameraFunctions : MonoBehaviour
         PlayerFunctions.powerUpAnimation = true;
     }
 
-
-    public void MicroMiniGameTimer()
+     
+    public void MicroGameAnimStart()
     {
-        MicroGameEndReached = true;
+        print("Start of animation");
+        MicroGameStartReached = true;
        
     }
+
+    public void MicroStartFalse() //instead of using a start anim function for the camera I should use a function in usefulfunctions scripts for the text animations
+    {
+        MicroGameStartReached = false;
+    }
+  
+    
 
     public void MicroGameAnimEnded()
     {

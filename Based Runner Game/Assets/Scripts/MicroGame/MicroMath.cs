@@ -23,7 +23,7 @@ public class MicroMath : MonoBehaviour
 
     private TMP_Text[] buttonTexts;
 
-    public static bool AnswerPicked = false;
+     
 
     public Animator anim ;
 
@@ -33,12 +33,12 @@ public class MicroMath : MonoBehaviour
 
     void Start()
     {
-       
+        MicroGameManager.MiniG_1 = this;
         print("START FUNCTION RAN NICE");
 
-     //   Animator anim = Objective.GetComponent<Animator>();
+        //   Animator anim = Objective.GetComponent<Animator>();
 
-        Objective.text = "SOLVE IT";
+      //  MicroGameManager.ObjectiveText = "SOLVE IT";
 
         buttonTexts = new TMP_Text[Answers.Length];
 
@@ -59,9 +59,9 @@ public class MicroMath : MonoBehaviour
 
     public void GenerateAnswer()
     {
-       
 
-      //  MicroGame.timeNeeded = 5f;
+        
+        //  MicroGame.timeNeeded = 5f;
         int x = Random.Range(1, 10);
         int y = Random.Range(1, 10);
 
@@ -83,6 +83,7 @@ public class MicroMath : MonoBehaviour
 
         for (int i = 0; i < Answers.Length; i++)
         {
+            
             if (i == correctPick)
             {
                 Answers[i].onClick.AddListener(CorrectPick);
@@ -137,40 +138,54 @@ public class MicroMath : MonoBehaviour
 
     public void CorrectPick()
     {
+        if(MicroGameManager.AnswerPicked == false)
+        {
+            MicroGameManager.AnswerPicked = true;
+            MicroGameManager.UniversalObjectiveTextAnimReference.SetBool("Success", true);
+            // MicroGameManager.forloopIndex = 0;
+            // MicroGameManager.VisibleTimer = 0;
+            print("This is the Correct button");
+         //   Objective.text = "Correct";
+
+             MicroGameManager.ObjectiveText = "Success!!!";
+        }
 
 
-        anim.SetBool("Correct", true);
-        print("This is the Correct button");
-        Objective.text = "Correct";
-         
-       
 
-      //  RemoveListeners();
+
+        //  RemoveListeners();
     }
 
     public void IncorrectPick()
     {
+        if (MicroGameManager.AnswerPicked == false)
+        {
+            MicroGameManager.AnswerPicked = true;
+            MicroGameManager.UniversalObjectiveTextAnimReference.SetBool("Failure", true);
+            //  MicroGameManager.forloopIndex = 0;
+            //  MicroGameManager.VisibleTimer = 0;
+            print("This is the incorrect button");
+          //  Objective.text = "Incorrect";
 
-        anim.SetBool("Incorrect", true);
+            MicroGameManager.ObjectiveText = "Incorrect!!!"; 
 
-        print("This is the incorrect button");
-        Objective.text = "Incorrect";
-        
-        
+            // RemoveListeners();
+        }
 
-
-       // RemoveListeners();
 
     }
+
+    
 
 
     public void RemoveListeners()
     {
-       foreach(Button button in Answers)
+        MicroGameManager.AnswerPicked = false;
+        foreach (Button button in Answers)
         {
             button.onClick.RemoveAllListeners();
         }
-        Objective.text = "SOLVE IT";
+      //  MicroGameManager.ObjectiveText = "F";
     }
     // Start is called before the first frame update
    
@@ -182,7 +197,7 @@ public class MicroMath : MonoBehaviour
     {
         
        
-       if(AnswerPicked == true)
+       if(MicroGameManager.AnswerPicked == true)
         {
             //Make a variable when the game has been run. put something in the update function to be 0
        //     print("Answer Selected");

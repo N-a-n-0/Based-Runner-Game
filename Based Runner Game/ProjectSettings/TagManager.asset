@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Microgame
   - MicroMathGame
+  - RedCube
+  - BlueCube
   layers:
   - Default
   - TransparentFX

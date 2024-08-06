@@ -7,6 +7,7 @@ public class PlayerFunctions : MonoBehaviour
 {
     public static IEnumerator powerUp_In_Progress = null;
 
+    public static bool powerUpAnimFinished = false;
 
     public TMP_Text comboText;
     public static TMP_Text comboText_Reference;
@@ -16,7 +17,7 @@ public class PlayerFunctions : MonoBehaviour
 
     public static bool powerUpAnimation = false;
 
-
+     
 
 
     public void Start()
@@ -53,7 +54,9 @@ public class PlayerFunctions : MonoBehaviour
 
 
     public static IEnumerator playerPowerUp()
-    { 
+    {
+        powerUpAnimFinished = true;
+
         CutsceneEnter.CurrentForwardSpeed = PlayerController.forwardSpeed;
         PlayerController.forwardSpeed = 0;
         PlayerController.maxSpeed = 0;
@@ -66,8 +69,10 @@ public class PlayerFunctions : MonoBehaviour
         while(powerUpAnimation == false)
         {
             print("bruh");
+            print("bruh");
             yield return new WaitForSeconds(.01f);
         }
+        powerUpAnimFinished = false;
         powerUpAnimation = false;
         PlayerController.animator.SetBool("Growing", false);
         PlayerController.forwardSpeed = CutsceneEnter.CurrentForwardSpeed;   
