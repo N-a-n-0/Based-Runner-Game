@@ -28,7 +28,6 @@ public class MicroGameManager : MonoBehaviour
 
     public static int VisibleTimer;
 
-
     public static MicroMath MiniG_1;
 
     public static  RaycastMinigames MiniG_2;
@@ -59,8 +58,6 @@ public class MicroGameManager : MonoBehaviour
 
     [SerializeField] private AnimatorOverrideController[] overrideControllers;
    // [SerializeField] private AnimatorOverrider overrider;
-
-
 
     void Start()
     {

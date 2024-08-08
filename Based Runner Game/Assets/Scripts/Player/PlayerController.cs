@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         child_Obj_Reference = returnChildGameObject();
         animator = childPlayerModel.GetComponent<Animator>();
         print(animator);
-        forwardSpeed = 40;
+        forwardSpeed = 25;
         maxSpeed = 45;
         PlayerModel = this.gameObject;
         print(PlayerModel);
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         {
             toggle = false;
             if (forwardSpeed < maxSpeed)
-            { }
+            { forwardSpeed += 0.1f * Time.fixedDeltaTime; }
               //  forwardSpeed += 0.1f * Time.fixedDeltaTime;
 
         }

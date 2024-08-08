@@ -7,12 +7,20 @@ public class EnemyCode : MonoBehaviour
 {
 
     public GameObject enemyObj;
+    
 
     public float enemyDistance_ZAxis;
     public float playerDistance_ZAxis;
     public float distanceRequired;
     public  Animator animator;
-    // Start is called before the first frame update
+
+    public BoxCollider boxCollider;
+
+    public float baseAnimationSpeed = 1f;  // Base speed of the attack animation
+    public float animationSpeedFactor = 0.01f;  // Factor to adjust animation speed based on player's speed
+    public float preemptiveDistanceFactor = 0.5f;  // Multiplier to adjust the trigger distance
+
+
     void Start()
     {
        
@@ -26,10 +34,17 @@ public class EnemyCode : MonoBehaviour
         enemyDistance_ZAxis = enemyObj.transform.position.z;
         playerDistance_ZAxis = PlayerController.child_Obj_Reference.transform.position.z;// Vector3.Distance(enemyObj.transform.position, PlayerController.child_Obj_Reference.transform.position);
 
-        if (enemyDistance_ZAxis < playerDistance_ZAxis + distanceRequired) 
-        {
+        // Calculate the adjusted trigger distance and animation speed
+        float playerSpeed = PlayerController.forwardSpeed;
+        float adjustedTriggerDistance = distanceRequired + (preemptiveDistanceFactor * playerSpeed);
+        float adjustedAnimationSpeed = Mathf.Clamp(baseAnimationSpeed + (animationSpeedFactor * playerSpeed), baseAnimationSpeed, 2f * baseAnimationSpeed);
 
-            switch(PlayerController.desiredLane)
+
+        if (enemyDistance_ZAxis < playerDistance_ZAxis + adjustedTriggerDistance) 
+        {
+            animator.speed = adjustedAnimationSpeed;
+
+            switch (PlayerController.desiredLane)
             {
                 case 0:
                     animator.SetBool("Lane0", true);
@@ -48,4 +63,16 @@ public class EnemyCode : MonoBehaviour
 
         }
     }
+
+
+    public void activateHitBox()
+    {
+        boxCollider.enabled = true;
+    }
+
+    public void deactivateHitBox()
+    {
+        boxCollider.enabled = false;
+    }
+
 }
