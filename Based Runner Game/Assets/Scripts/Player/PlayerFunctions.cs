@@ -68,12 +68,12 @@ public class PlayerFunctions : MonoBehaviour
 
         while(powerUpAnimation == false)
         {
-            print("bruh");
-            print("bruh");
+            //print("bruh");
+           // print("bruh");
             yield return new WaitForSeconds(.01f);
         }
         powerUpAnimFinished = false;
-        powerUpAnimation = false;
+       
         PlayerController.animator.SetBool("Growing", false);
         PlayerController.forwardSpeed = CutsceneEnter.CurrentForwardSpeed;   
         CutsceneEnter.powerupVar_PlayerController = false;
@@ -86,8 +86,9 @@ public class PlayerFunctions : MonoBehaviour
         CutsceneEnter.CurrentForwardSpeed = PlayerController.forwardSpeed;
         PlayerController.forwardSpeed = 0;
         PlayerController.maxSpeed = 0;
-      
+        
         yield return new WaitForSeconds(2.5f);
+        powerUpAnimation = false;
         PlayerController.animator.SetBool("Shrinking", false);
         CutsceneEnter.child_Animator_Reference.SetBool("PowerDeactivate", false);
         CutsceneEnter.cutsceneCam_Reference.enabled = false;

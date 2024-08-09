@@ -308,12 +308,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb098364e20687744958c4d0393d2a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  applyRainbowEffect: 1
+  disableMainRender: 1
   transformTarget: {fileID: 1950813403}
   parentObject: {fileID: 1481484416}
   objectToDuplicate: {fileID: 1950813403}
-  afterImageColor: {r: 0.77254903, g: 0.4757973, b: 0.28235298, a: 0.14901961}
-  spawnInterval: 0.1
-  lifespan: 0.2
+  mainRenderObj: {fileID: 911773679}
+  afterImageColor: {r: 0.77254903, g: 0.4757973, b: 0.28235298, a: 0.41960785}
+  spawnInterval: 0.05
+  lifespan: 0.06
   afterImageShader: {fileID: 4800000, guid: 58cc5686f2bccea4a96c9f77b578f3c1, type: 3}
 --- !u!1 &21783415 stripped
 GameObject:
@@ -3177,6 +3180,14 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 963194228}
+    - target: {fileID: 4326246300282508050, guid: bb0e12a939121c24fb2cf4897eb53331, type: 3}
+      propertyPath: tilePrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326246300282508050, guid: bb0e12a939121c24fb2cf4897eb53331, type: 3}
+      propertyPath: tilePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8284722926523985809, guid: 94d6959463e9e2b489546b25c569a9bf, type: 3}
     - target: {fileID: 4326246300282508051, guid: bb0e12a939121c24fb2cf4897eb53331, type: 3}
       propertyPath: m_Name
       value: TileManager
@@ -3199,6 +3210,7 @@ GameObject:
   - component: {fileID: 1788781178}
   - component: {fileID: 1788781177}
   - component: {fileID: 1788781179}
+  - component: {fileID: 1788781180}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3248,6 +3260,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Day: {fileID: 2100000, guid: 530b27961d91a014383dc9a449637cbe, type: 2}
   Night: {fileID: 2100000, guid: 7c22757ab99013342bdca6a1186b5410, type: 2}
+--- !u!114 &1788781180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788781176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef2c26026d0884499c46486e801bc42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1805231303
 PrefabInstance:
   m_ObjectHideFlags: 0
