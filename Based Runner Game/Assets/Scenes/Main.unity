@@ -309,15 +309,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   applyRainbowEffect: 1
-  disableMainRender: 1
+  disableMainRender: 0
   transformTarget: {fileID: 1950813403}
   parentObject: {fileID: 1481484416}
   objectToDuplicate: {fileID: 1950813403}
   mainRenderObj: {fileID: 911773679}
   afterImageColor: {r: 0.77254903, g: 0.4757973, b: 0.28235298, a: 0.41960785}
-  spawnInterval: 0.05
-  lifespan: 0.06
+  spawnDistance: 0.1
+  lifespan: 0.1
   afterImageShader: {fileID: 4800000, guid: 58cc5686f2bccea4a96c9f77b578f3c1, type: 3}
+  initialAlpha: 0.5
+  rainbowColorChangeSpeed: 1
 --- !u!1 &21783415 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1863055364012681283, guid: 25fa139395dbd4947b4443ca07734685, type: 3}
@@ -4347,19 +4349,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1179907489132921506, guid: a03863fb44f54244ea0895cbf2b7370e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 2.461
       objectReference: {fileID: 0}
     - target: {fileID: 1179907489132921506, guid: a03863fb44f54244ea0895cbf2b7370e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.82
+      value: -3.209
       objectReference: {fileID: 0}
     - target: {fileID: 1179907489132921506, guid: a03863fb44f54244ea0895cbf2b7370e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.981925
+      value: 0.97479403
       objectReference: {fileID: 0}
     - target: {fileID: 1179907489132921506, guid: a03863fb44f54244ea0895cbf2b7370e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.18927057
+      value: 0.22310688
       objectReference: {fileID: 0}
     - target: {fileID: 1179907489132921506, guid: a03863fb44f54244ea0895cbf2b7370e, type: 3}
       propertyPath: m_LocalRotation.y
@@ -4371,7 +4373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1179907489132921506, guid: a03863fb44f54244ea0895cbf2b7370e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 21.82
+      value: 25.783
       objectReference: {fileID: 0}
     - target: {fileID: 1179907489132921506, guid: a03863fb44f54244ea0895cbf2b7370e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

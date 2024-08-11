@@ -960,7 +960,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2338874145853035126, guid: 2d797868248c2044483f7ff1c12c2202, type: 3}
       propertyPath: m_Name
-      value: PowerUp
+      value: Goal
       objectReference: {fileID: 0}
     - target: {fileID: 7946291396668391964, guid: 2d797868248c2044483f7ff1c12c2202, type: 3}
       propertyPath: m_RootOrder
@@ -1034,7 +1034,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677f533aee36b2b4bbda757ac911a0bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 4835353590216563787, guid: ab6516cfddaf38942b392cf6276e039a, type: 3}
 --- !u!4 &6784716849925052786 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7946291396668391964, guid: 2d797868248c2044483f7ff1c12c2202, type: 3}

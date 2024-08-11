@@ -67,7 +67,6 @@ public class LevelSelectManager : MonoBehaviour, IDataPersistence
         data.current_Level = currentLevel;
         //level_HighScore is our local variable
         //Level_HighScores is our SerializableDictionary with our saved values when the game shuts down
-
         //isUnlocked is our local variable
         //Levels_Unlocked is our SerializableDictionary with our saved values when the game shuts down
 
@@ -82,7 +81,6 @@ public class LevelSelectManager : MonoBehaviour, IDataPersistence
             data.Levels_Unlocked.Add(i, Level_info[i].isUnlocked);
 
 
-
             if (data.Level_HighScores.ContainsKey(i))
             {
                 data.Level_HighScores.Remove(i);
@@ -90,14 +88,10 @@ public class LevelSelectManager : MonoBehaviour, IDataPersistence
             }
             data.Level_HighScores.Add(i, Level_info[i].level_HighScore);
 
-
             if (Level_info[i].level_HighScore > 1)
             {
 
             }
-
-
-
             print(data.Level_HighScores.ContainsKey(i));
         }
 
