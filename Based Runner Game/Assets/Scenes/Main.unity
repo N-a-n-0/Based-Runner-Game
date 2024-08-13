@@ -315,11 +315,12 @@ MonoBehaviour:
   objectToDuplicate: {fileID: 1950813403}
   mainRenderObj: {fileID: 911773679}
   afterImageColor: {r: 0.77254903, g: 0.4757973, b: 0.28235298, a: 0.41960785}
-  spawnDistance: 0.1
-  lifespan: 0.1
+  spawnDistance: 0.3
+  lifespan: 1
   afterImageShader: {fileID: 4800000, guid: 58cc5686f2bccea4a96c9f77b578f3c1, type: 3}
-  initialAlpha: 0.5
-  rainbowColorChangeSpeed: 1
+  initialAlpha: 0.3
+  rainbowColorChangeSpeed: 0.25
+  maxAfterImages: 8
 --- !u!1 &21783415 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1863055364012681283, guid: 25fa139395dbd4947b4443ca07734685, type: 3}
@@ -3261,7 +3262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Day: {fileID: 2100000, guid: 530b27961d91a014383dc9a449637cbe, type: 2}
-  Night: {fileID: 2100000, guid: 7c22757ab99013342bdca6a1186b5410, type: 2}
+  Night: {fileID: 2100000, guid: 55313a6528f19d04e974ad501194419e, type: 2}
 --- !u!114 &1788781180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4619,7 +4620,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6790497208305041584, guid: 186042714a6e8da4dab1bad0368c548c, type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 71a1d93e43a70bf4ca2f5f4a1cb025cd, type: 3}
+    - target: {fileID: 6790497208305041584, guid: 186042714a6e8da4dab1bad0368c548c, type: 3}
       propertyPath: sounds.Array.data[1].Music
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790497208305041584, guid: 186042714a6e8da4dab1bad0368c548c, type: 3}
+      propertyPath: sounds.Array.data[1].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6790497208305041584, guid: 186042714a6e8da4dab1bad0368c548c, type: 3}
@@ -4640,7 +4649,7 @@ PrefabInstance:
       objectReference: {fileID: 14237495}
     - target: {fileID: 6790497208305041584, guid: 186042714a6e8da4dab1bad0368c548c, type: 3}
       propertyPath: sounds.Array.data[1].volume
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6790497208305041584, guid: 186042714a6e8da4dab1bad0368c548c, type: 3}
       propertyPath: sounds.Array.data[2].source
@@ -4648,7 +4657,7 @@ PrefabInstance:
       objectReference: {fileID: 14237495}
     - target: {fileID: 6790497208305041584, guid: 186042714a6e8da4dab1bad0368c548c, type: 3}
       propertyPath: sounds.Array.data[2].volume
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6790497208305041585, guid: 186042714a6e8da4dab1bad0368c548c, type: 3}
       propertyPath: m_RootOrder

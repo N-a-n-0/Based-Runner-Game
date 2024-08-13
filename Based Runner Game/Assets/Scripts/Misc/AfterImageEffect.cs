@@ -27,6 +27,8 @@ public class AfterImageEffect : MonoBehaviour
     [Range(0, 10)]
     public float rainbowColorChangeSpeed = 1.0f; // Control how fast the rainbow colors change
 
+    public int maxAfterImages = 10; // Maximum number of afterimages allowed
+
     private Vector3 lastPosition; // The last recorded position of the player
     private float hueShift = 0.0f; // Hue shift for the rainbow effect
     private List<GameObject> afterImages = new List<GameObject>(); // List to track all spawned afterimages
@@ -36,37 +38,43 @@ public class AfterImageEffect : MonoBehaviour
         lastPosition = transformTarget.transform.position; // Initialize last position
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        // Calculate the distance moved since the last afterimage was spawned
-        if (SpeedBoostManager.speeedApplied == true)
+        // Only proceed if the condition for activation is met
+        if (SpeedBoostManager.speeedApplied)
         {
-
-
+            // Calculate the distance moved since the last afterimage was spawned
             float distanceMoved = Vector3.Distance(transformTarget.transform.position, lastPosition);
 
-            // Always spawn afterimages based on distance between them
-
-            if (distanceMoved >= spawnDistance)
+            // Spawn afterimages as long as the distance moved exceeds spawnDistance
+            while (distanceMoved >= spawnDistance)
             {
                 if (disableMainRender)
                 {
                     mainRenderObj.SetActive(false);
                 }
 
-                lastPosition = transformTarget.transform.position;
+                lastPosition += (transformTarget.transform.position - lastPosition).normalized * spawnDistance;
+
+                // Ensure the maximum number of afterimages is not exceeded
+                if (afterImages.Count >= maxAfterImages)
+                {
+                    // Remove the oldest afterimage
+                    GameObject oldestAfterImage = afterImages[0];
+                    afterImages.RemoveAt(0);
+                    Destroy(oldestAfterImage);
+                }
 
                 GameObject duplicatedObject = Instantiate(objectToDuplicate);
                 duplicatedObject.transform.SetParent(parentObject.transform, false); // Ensure consistent scale
                 Transform cube = duplicatedObject.transform.GetChild(0); // 0 is the index of the first child
 
-                cube.gameObject.SetActive(true); // Or false to deactivate
+                cube.gameObject.SetActive(true);
 
                 if (transformTarget != null)
                 {
-                    duplicatedObject.transform.position = transformTarget.transform.position;
+                    duplicatedObject.transform.position = lastPosition;
                     duplicatedObject.transform.rotation = transformTarget.transform.rotation;
-                    // Set the scale of the duplicated object to match the original objectToDuplicate
                     duplicatedObject.transform.localScale = objectToDuplicate.transform.localScale;
                 }
 
@@ -84,15 +92,18 @@ public class AfterImageEffect : MonoBehaviour
                 afterImages.Add(duplicatedObject);
 
                 StartCoroutine(FadeAndDestroy(duplicatedObject, lifespan));
-            }
-            else
-            {
-                if (!PlayerManager.gameOver)
-                {
-                    mainRenderObj.SetActive(true);
-                }
-            }
 
+                // Recalculate the distance moved since last afterimage was spawned
+                distanceMoved = Vector3.Distance(transformTarget.transform.position, lastPosition);
+            }
+        }
+        else
+        {
+            // Reactivate the main render object if the condition is not met
+            if (!PlayerManager.gameOver)
+            {
+                mainRenderObj.SetActive(true);
+            }
         }
     }
 
@@ -119,9 +130,6 @@ public class AfterImageEffect : MonoBehaviour
                 Color color = applyRainbowEffect ? GetRainbowColor(hueShift) : afterImageColor;
                 color.a = initialAlpha; // Set the initial alpha value
                 material.SetColor("_TintColor", color);
-
-                // Ensure the scale does not change based on speed
-                //root.transform.localScale = objectToDuplicate.transform.localScale; // Uncomment if needed
 
                 if (applyRainbowEffect)
                 {
