@@ -8,13 +8,13 @@ using UnityEngine;
 public class AfterImageEffect : MonoBehaviour
 {
     public bool applyRainbowEffect;
-    public bool disableMainRender;
+    //public bool disableMainRender;
 
     public GameObject transformTarget; // Object to set the duplicated object's transform to
     public GameObject parentObject; // Object to set as the parent of the duplicated objects
     public GameObject objectToDuplicate;
 
-    public GameObject mainRenderObj;
+    //public GameObject mainRenderObj;
 
     public Color afterImageColor = new Color(1f, 1f, 1f, 0.5f); // Adjust alpha as needed
     public float spawnDistance = 1.0f; // Distance between each afterimage
@@ -29,6 +29,9 @@ public class AfterImageEffect : MonoBehaviour
 
     public int maxAfterImages = 10; // Maximum number of afterimages allowed
 
+    [Range(0.1f, 10.0f)]
+    public float fadeSpeed = 1.0f; // New variable to control the fade speed
+
     private Vector3 lastPosition; // The last recorded position of the player
     private float hueShift = 0.0f; // Hue shift for the rainbow effect
     private List<GameObject> afterImages = new List<GameObject>(); // List to track all spawned afterimages
@@ -40,7 +43,7 @@ public class AfterImageEffect : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Only proceed if the condition for activation is met
+        
         if (SpeedBoostManager.speeedApplied)
         {
             // Calculate the distance moved since the last afterimage was spawned
@@ -49,10 +52,10 @@ public class AfterImageEffect : MonoBehaviour
             // Spawn afterimages as long as the distance moved exceeds spawnDistance
             while (distanceMoved >= spawnDistance)
             {
-                if (disableMainRender)
-                {
-                    mainRenderObj.SetActive(false);
-                }
+            //    if (disableMainRender)
+             //   {
+                 //   mainRenderObj.SetActive(false);
+            // //   }
 
                 lastPosition += (transformTarget.transform.position - lastPosition).normalized * spawnDistance;
 
@@ -91,7 +94,7 @@ public class AfterImageEffect : MonoBehaviour
 
                 afterImages.Add(duplicatedObject);
 
-                StartCoroutine(FadeAndDestroy(duplicatedObject, lifespan));
+                StartCoroutine(FadeAndDestroy(duplicatedObject, lifespan, fadeSpeed));
 
                 // Recalculate the distance moved since last afterimage was spawned
                 distanceMoved = Vector3.Distance(transformTarget.transform.position, lastPosition);
@@ -102,7 +105,7 @@ public class AfterImageEffect : MonoBehaviour
             // Reactivate the main render object if the condition is not met
             if (!PlayerManager.gameOver)
             {
-                mainRenderObj.SetActive(true);
+             //   mainRenderObj.SetActive(true);
             }
         }
     }
@@ -140,14 +143,14 @@ public class AfterImageEffect : MonoBehaviour
         }
     }
 
-    IEnumerator FadeAndDestroy(GameObject afterImage, float duration)
+    IEnumerator FadeAndDestroy(GameObject afterImage, float duration, float fadeSpeed)
     {
         SkinnedMeshRenderer skinnedMeshRenderer = afterImage.transform.Find("Cube").GetComponent<SkinnedMeshRenderer>();
         Material material = skinnedMeshRenderer.material;
 
         Color initialColor = material.GetColor("_TintColor");
         float elapsedTime = 0.0f;
-        float fadeRate = duration; // Remove the dependency on forwardSpeed for fading
+        float fadeRate = duration / fadeSpeed; // Adjust the fade rate using fadeSpeed
 
         while (elapsedTime < duration)
         {

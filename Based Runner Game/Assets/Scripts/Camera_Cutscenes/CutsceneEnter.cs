@@ -17,6 +17,8 @@ public class CutsceneEnter : MonoBehaviour
 
     public Animator animator;
 
+    public Camera GoalCamera;
+
     //REFERENCES BELOW
     public static Animator child_Animator_Reference;
 
@@ -25,6 +27,8 @@ public class CutsceneEnter : MonoBehaviour
     public static Camera cutsceneCam_Reference;
 
     public static Camera FirstPersonCamera_Reference;
+
+    public static Camera GoalCamera_Reference;
 
     //______________________________________________
 
@@ -39,7 +43,8 @@ public class CutsceneEnter : MonoBehaviour
 
     void Start()
     {
-        MainCamera_Reference = getCamera(MainCamera);
+        GoalCamera_Reference = getCamera(GoalCamera);
+         MainCamera_Reference = getCamera(MainCamera);
         cutsceneCam_Reference = getCamera(cutsceneCam);
         FirstPersonCamera_Reference = getCamera(FirstPersonCamera);
 

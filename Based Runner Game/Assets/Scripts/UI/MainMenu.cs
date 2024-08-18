@@ -16,6 +16,10 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    public void ReplayCurrentScene()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+    }
 
     public void PlayGame()
     {

@@ -16,9 +16,18 @@ public class PlayerController : MonoBehaviour
 
     public static GameObject PlayerModel  =  null;
 
+
     public GameObject childPlayerModel;
 
     public static GameObject child_Obj_Reference; //Might be useless look into this
+
+    //PLAYER MODEL THAT THE PLAYER WILL CONTROL THROUGHOUT THE GAME
+    public  GameObject buttmanGameObj;
+    public static GameObject buttmanGameObjRef;
+
+    //THIS MODEL IS ONLY FOR SPECIAL ANIMTAIONS THAT WE DONT REALLY NEED ATTACHED TO OUR MAIN PLAYER MODEL
+    public GameObject NonPlayerableButtManModel;
+    public static GameObject NonPlayerableButtManModelRef;
 
     private IEnumerator slide;
 
@@ -47,6 +56,10 @@ public class PlayerController : MonoBehaviour
 
     void Start() 
     {
+        EndOfLevel.gameWasBeaten = false;
+        buttmanGameObjRef = buttmanGameObj;
+        NonPlayerableButtManModelRef = NonPlayerableButtManModel;
+
         desiredLane = 1;
 
         //****** ALL THESE VALUES IN BETWEEN THESE TWO COMMENTS SET THE POWERUP VARIBLES TO THEIR DEAFULTS 
@@ -62,7 +75,7 @@ public class PlayerController : MonoBehaviour
         print(animator);
         forwardSpeed = 20;
         maxSpeed = 45;
-        PlayerModel = this.gameObject;
+        PlayerModel = this.gameObject; //make a different object that only stores the render object of the player so we can cut out the player when we need to
         print(PlayerModel);
         controller = GetComponent<CharacterController>();
       //  Time.timeScale = 1.25f;
@@ -110,7 +123,7 @@ public class PlayerController : MonoBehaviour
             PlayerManager.gameOver = true;
         }
 
-        if (CutsceneEnter.powerupVar_PlayerController == false  && PlayerManager.gameOver == false && MicroGameManager.alreadyEntered == false )
+        if (CutsceneEnter.powerupVar_PlayerController == false  && PlayerManager.gameOver == false && MicroGameManager.alreadyEntered == false  && EndOfLevel.gameWasBeaten == false)
         {
 
           

@@ -34,6 +34,10 @@ public class CameraFunctions : MonoBehaviour
         MicroGameStartReached = false;
     }
   
+    public void SetPositionToMainCamera()
+    {
+        this.gameObject.transform.position = CutsceneEnter.MainCamera_Reference.transform.position;
+    }
     
 
     public void MicroGameAnimEnded()

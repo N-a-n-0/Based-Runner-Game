@@ -14,4 +14,14 @@ public class UsefulFunctions : MonoBehaviour
     {
         MicroGameManager.MiniGameComplete = true;
     }
+
+    public void DisableMainPlayerRender()
+    {
+        PlayerController.buttmanGameObjRef.SetActive(false);
+    }
+
+    public void EnableLevelCompleteUI()
+    {
+        UIElements.LevelCompletePanel_Reference.SetActive(true);
+    }
 }

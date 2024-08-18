@@ -197,6 +197,7 @@ Transform:
   - {fileID: 525819598}
   - {fileID: 1089647896}
   - {fileID: 1314534489}
+  - {fileID: 712513815}
   m_Father: {fileID: 1481484417}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -310,7 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyRainbowEffect: 1
   disableMainRender: 0
-  transformTarget: {fileID: 1950813403}
+  transformTarget: {fileID: 712513814}
   parentObject: {fileID: 1481484416}
   objectToDuplicate: {fileID: 1950813403}
   mainRenderObj: {fileID: 911773679}
@@ -318,9 +319,10 @@ MonoBehaviour:
   spawnDistance: 0.3
   lifespan: 1
   afterImageShader: {fileID: 4800000, guid: 58cc5686f2bccea4a96c9f77b578f3c1, type: 3}
-  initialAlpha: 0.3
-  rainbowColorChangeSpeed: 0.25
-  maxAfterImages: 8
+  initialAlpha: 0.4
+  rainbowColorChangeSpeed: 0.3
+  maxAfterImages: 6
+  fadeSpeed: 1
 --- !u!1 &21783415 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1863055364012681283, guid: 25fa139395dbd4947b4443ca07734685, type: 3}
@@ -974,6 +976,37 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &712513814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712513815}
+  m_Layer: 7
+  m_Name: AfterImagePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &712513815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712513814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.559}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 14237494}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &731105269 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 284826828577378722, guid: 3ed5b7bffd6f6a543a71b2fb70b332e4, type: 3}
@@ -2350,7 +2383,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089647895}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4649,7 +4682,7 @@ PrefabInstance:
       objectReference: {fileID: 14237495}
     - target: {fileID: 6790497208305041584, guid: 186042714a6e8da4dab1bad0368c548c, type: 3}
       propertyPath: sounds.Array.data[1].volume
-      value: 0.2
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 6790497208305041584, guid: 186042714a6e8da4dab1bad0368c548c, type: 3}
       propertyPath: sounds.Array.data[2].source
