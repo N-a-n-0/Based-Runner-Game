@@ -35,7 +35,7 @@ public class SwipeManager : MonoBehaviour
             //CHECKING TAP HERE
 
             touchStartTime = Time.unscaledTime - touchStartTime;
-        //    print(touchStartTime);
+            print(touchStartTime);
            
          //   print("swipeDelta.magnitude" + swipeDelta.magnitude);
             

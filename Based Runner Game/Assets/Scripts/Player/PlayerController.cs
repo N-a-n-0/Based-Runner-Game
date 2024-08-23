@@ -11,11 +11,15 @@ public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 move;
+
+
     public static float forwardSpeed = 25;
     public static float maxSpeed = 75;
 
     public static GameObject PlayerModel  =  null;
 
+    public static float jumpTimer;
+    public int jumpNumber;
 
     public GameObject childPlayerModel;
 
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
 
     public float gravity = -12f;
+    public int firstJumpHeight, secondJumpHeight, thirdJumpHeight;
     public float jumpHeight = 5;
     private Vector3 velocity;
 
@@ -146,7 +151,28 @@ public class PlayerController : MonoBehaviour
 
             if(isGrounded == true)
             {
+
                 animator.SetBool("Jump", false);
+                jumpTimer += Time.deltaTime;
+
+                if (jumpNumber == 1 && jumpTimer >= .6)
+                {
+                    print("Checking for a double jump status");
+                   
+                   
+                        jumpTimer = 0;
+                        jumpNumber = 0;
+                   
+                }
+                else if(jumpNumber == 2 && jumpTimer >= .6)
+                {
+
+                    print("Checking for a tirple jump status");
+                   
+                        jumpTimer = 0;
+                        jumpNumber = 0;
+                  
+                }
             }
            
 
@@ -305,12 +331,53 @@ public class PlayerController : MonoBehaviour
     {
        
         slideCancel();
-        animator.SetBool("Jump", true);
+
+        print(jumpTimer);
+        switch (jumpNumber)
+        {
+            case 0:
+                print(jumpTimer);
+                jumpTimer = 0;
+                print(jumpTimer);
+                animator.SetBool("Jump", true);
+                velocity.y = Mathf.Sqrt(jumpHeight * firstJumpHeight * -gravity);
+
+                 
+                jumpNumber++;
+                break;
+            case 1:
+
+                jumpTimer = 0;
+                animator.SetBool("Jump", true);
+                velocity.y = Mathf.Sqrt(jumpHeight * secondJumpHeight * -gravity);
+                
+
+                jumpNumber++;
+                break;
+                case 2:
+                jumpTimer = 0;
+                animator.SetBool("Jump", true);
+                velocity.y = Mathf.Sqrt(jumpHeight * thirdJumpHeight * -gravity);
+
+                
+                jumpNumber = 0;
+                break;
+
+        }
+      //  if(jumpNumber == 0)
+     //   {
+     //       velocity.y = Mathf.Sqrt(jumpHeight * 5 * -gravity);
+     //  }
+
+
+     //   jumpTimer = Time.unscaledTime;
+        //Make differenet types of jump animations here
+      //  animator.SetBool("Jump", true);
 
 
         //  isSliding = false;
         //  slideCannotHappen = false;
-        velocity.y = Mathf.Sqrt(jumpHeight * 5 * -gravity);
+     //   velocity.y = Mathf.Sqrt(jumpHeight * 5 * -gravity);
 
 
     }
