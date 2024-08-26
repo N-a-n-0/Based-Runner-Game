@@ -1989,12 +1989,16 @@ PrefabInstance:
       objectReference: {fileID: 963194228}
     - target: {fileID: 4326246300282508050, guid: bb0e12a939121c24fb2cf4897eb53331, type: 3}
       propertyPath: tilePrefabs.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4326246300282508050, guid: bb0e12a939121c24fb2cf4897eb53331, type: 3}
       propertyPath: tilePrefabs.Array.data[2]
       value: 
       objectReference: {fileID: 8284722926523985809, guid: 94d6959463e9e2b489546b25c569a9bf, type: 3}
+    - target: {fileID: 4326246300282508050, guid: bb0e12a939121c24fb2cf4897eb53331, type: 3}
+      propertyPath: tilePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 8284722926523985809, guid: fb13104159817234ea9c551518d7d35c, type: 3}
     - target: {fileID: 4326246300282508051, guid: bb0e12a939121c24fb2cf4897eb53331, type: 3}
       propertyPath: m_Name
       value: TileManager
@@ -3380,6 +3384,10 @@ PrefabInstance:
       propertyPath: parentObject
       value: 
       objectReference: {fileID: 1481484416}
+    - target: {fileID: 5478534423788221896, guid: 9056c2ae62b235a448917f673ea02b5b, type: 3}
+      propertyPath: thirdJumpHeight
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5478534423788221897, guid: 9056c2ae62b235a448917f673ea02b5b, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -3503,7 +3511,7 @@ PrefabInstance:
       objectReference: {fileID: 14237495}
     - target: {fileID: 6790497208305041584, guid: 186042714a6e8da4dab1bad0368c548c, type: 3}
       propertyPath: sounds.Array.data[1].volume
-      value: 0.01
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 6790497208305041584, guid: 186042714a6e8da4dab1bad0368c548c, type: 3}
       propertyPath: sounds.Array.data[2].source

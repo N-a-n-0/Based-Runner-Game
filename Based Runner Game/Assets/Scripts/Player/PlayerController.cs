@@ -238,13 +238,15 @@ public class PlayerController : MonoBehaviour
                 desiredLane++;
                
                 slideCancel();
-                if (isGrounded == true && animator.GetBool ("LaneRight") == false)
-               {
+                if (isGrounded == true) //&& animator.GetBool ("LaneRight") == false
+                {
+                     
+                    animator.Play("DASH RIGHT");
                     animator.SetBool("LaneRight", true);
                 }
                else
                 {
-                    animator.SetBool("LaneRight", false);
+                   animator.SetBool("LaneRight", false);
                 }
                 //CONSIDER THIS A GOOD SPOT FOR THE LANE CHANGE ANIMATION CODE ***************************************************************
 
@@ -262,10 +264,11 @@ public class PlayerController : MonoBehaviour
                 desiredLane--;
               
                 slideCancel();
-               if (isGrounded == true && animator.GetBool("LaneLeft") == false)
+               if (isGrounded == true ) //&& animator.GetBool("LaneLeft") == false
                {
-                    animator.SetBool("LaneLeft", true);
-               }
+                    animator.Play("DASH LEFT");
+                     animator.SetBool("LaneLeft", true);
+                }
                else
                 {
                     animator.SetBool("LaneLeft", false);
@@ -339,7 +342,8 @@ public class PlayerController : MonoBehaviour
                 print(jumpTimer);
                 jumpTimer = 0;
                 print(jumpTimer);
-                animator.SetBool("Jump", true);
+                //animator.SetBool("Jump", true);
+                animator.Play("Sexy Jump");
                 velocity.y = Mathf.Sqrt(jumpHeight * firstJumpHeight * -gravity);
 
                  
@@ -348,7 +352,7 @@ public class PlayerController : MonoBehaviour
             case 1:
 
                 jumpTimer = 0;
-                animator.SetBool("Jump", true);
+                animator.Play("Sexy Jump");
                 velocity.y = Mathf.Sqrt(jumpHeight * secondJumpHeight * -gravity);
                 
 
@@ -356,7 +360,7 @@ public class PlayerController : MonoBehaviour
                 break;
                 case 2:
                 jumpTimer = 0;
-                animator.SetBool("Jump", true);
+                animator.Play("Sexy Jump");
                 velocity.y = Mathf.Sqrt(jumpHeight * thirdJumpHeight * -gravity);
 
                 
@@ -410,6 +414,7 @@ public class PlayerController : MonoBehaviour
        
         isSliding = true;
         animator.SetBool("isSliding", true);
+       // animator.Play("slide");
         controller.center = new Vector3(0, -0.4f, 0);
         controller.height = .6f;
         
